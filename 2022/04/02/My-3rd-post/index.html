@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="How the team leader and the team members do the git flow projectHow team leader do1234567891. Team leader make a repo.2. Team leader clone his repo on the dev.3. $ git flow init.4. $ touch &amp;#123;file">
+    <meta name="description" content="git cloneMake repo first on the github, after local (top down)1234567890. We make repo onthe github. And we write git clone (repo address) on the dev1. We fix file or something on git2. Write $git sta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My 3rd post">
+<meta property="og:title" content="About git (3) [git clone&#x2F; git init]">
 <meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/02/My-3rd-post/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="How the team leader and the team members do the git flow projectHow team leader do1234567891. Team leader make a repo.2. Team leader clone his repo on the dev.3. $ git flow init.4. $ touch &amp;#123;file">
+<meta property="og:description" content="git cloneMake repo first on the github, after local (top down)1234567890. We make repo onthe github. And we write git clone (repo address) on the dev1. We fix file or something on git2. Write $git sta">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-02T10:10:00.000Z">
-<meta property="article:modified_time" content="2022-04-02T10:10:26.186Z">
+<meta property="article:modified_time" content="2022-04-17T14:58:38.973Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/02/My-3rd-post/","path":"2022/04/02/My-3rd-post/","title":"My 3rd post"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/02/My-3rd-post/","path":"2022/04/02/My-3rd-post/","title":"About git (3) [git clone/ git init]"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>My 3rd post | My blog</title>
+<title>About git (3) [git clone/ git init] | My blog</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project"><span class="nav-number">1.</span> <span class="nav-text">How the team leader and the team members do the git flow project</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-leader-do"><span class="nav-number">1.1.</span> <span class="nav-text">How team leader do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-member-do"><span class="nav-number">1.2.</span> <span class="nav-text">How team member do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-member-pull-the-team-leader%E2%80%99s-remake-develop-file"><span class="nav-number">1.3.</span> <span class="nav-text">How team member pull the team leader’s remake develop file.</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-clone"><span class="nav-number">1.</span> <span class="nav-text">git clone</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-repo-first-on-the-github-after-local-top-down"><span class="nav-number">1.1.</span> <span class="nav-text">Make repo first on the github, after local (top down)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-init"><span class="nav-number">2.</span> <span class="nav-text">git init</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-dir-first-on-the-git-bottom-up"><span class="nav-number">2.1.</span> <span class="nav-text">Make dir first on the git (bottom up)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -129,9 +129,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -182,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="My 3rd post | My blog">
+      <meta itemprop="name" content="About git (3) [git clone/ git init] | My blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          My 3rd post
+          About git (3) [git clone/ git init]
         </h1>
 
         <div class="post-meta-container">
@@ -197,9 +207,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-02 19:10:00 / Modified: 19:10:26" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+      <time title="Created: 2022-04-02 19:10:00" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:58:38" itemprop="dateModified" datetime="2022-04-17T23:58:38+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -212,13 +237,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="How-the-team-leader-and-the-team-members-do-the-git-flow-project"><a href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project" class="headerlink" title="How the team leader and the team members do the git flow project"></a>How the team leader and the team members do the git flow project</h1><h2 id="How-team-leader-do"><a href="#How-team-leader-do" class="headerlink" title="How team leader do"></a>How team leader do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team leader make a repo.</span><br><span class="line">2. Team leader clone his repo on the dev.</span><br><span class="line">3. $ git flow init.</span><br><span class="line">4. $ touch &#123;file name&#125;.</span><br><span class="line">5. $ git add &#123;file name&#125;.</span><br><span class="line">6. $ git commit.</span><br><span class="line">7. $ git push -u origin develop.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><h2 id="Make-repo-first-on-the-github-after-local-top-down"><a href="#Make-repo-first-on-the-github-after-local-top-down" class="headerlink" title="Make repo first on the github, after local (top down)"></a>Make repo first on the github, after local (top down)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0. We make repo onthe github. And we write git clone (repo address) on the dev</span><br><span class="line"></span><br><span class="line">1. We fix file or something on git</span><br><span class="line">2. Write $git status, then you can show comment like changes not staged for commit</span><br><span class="line">3. $ git add (file name)</span><br><span class="line">4. Write $git status, you can show comment like changes to be committed with green</span><br><span class="line">5. $ git status, then show nothing to commit working tree clean</span><br><span class="line">6. $ git push origin main.</span><br><span class="line">7. The End. you can show final project in the git hub</span><br></pre></td></tr></table></figure>
 
-<h2 id="How-team-member-do"><a href="#How-team-member-do" class="headerlink" title="How team member do"></a>How team member do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team member click Fork in the team leader&#x27;s URL.</span><br><span class="line">2. Team member copy the forked file.</span><br><span class="line">3. $ git clone &#123;forked file&#125;.</span><br><span class="line">4. $ git flow init.</span><br><span class="line">5. Then you can see team leader&#x27;s develop file.</span><br><span class="line">6. $ git flow feature start &#123;feature name&#125;.</span><br><span class="line">7. Then work on the vim.</span><br><span class="line">8. $ git add &#123;feature name&#125;.</span><br><span class="line">9. $ git commit.</span><br><span class="line">10. $ git flow feature finish &#123;feature name&#125;.</span><br><span class="line">11. $ git push -u origin develop.</span><br><span class="line">12. Write lssues in the github.</span><br><span class="line">13. Click compare &amp; pull request or open pull request in github.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="How-team-member-pull-the-team-leader’s-remake-develop-file"><a href="#How-team-member-pull-the-team-leader’s-remake-develop-file" class="headerlink" title="How team member pull the team leader’s remake develop file."></a>How team member pull the team leader’s remake develop file.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git remote add &#123;new remote name&#125; &#123;team leader&#x27;s remake develop file&#125;.</span><br><span class="line">2. $ git pull &#123;new remote name&#125; develop.</span><br><span class="line">3. Then you work on the new feature file. $ git flow feature start &#123;new feature fil&#125;.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><h2 id="Make-dir-first-on-the-git-bottom-up"><a href="#Make-dir-first-on-the-git-bottom-up" class="headerlink" title="Make dir first on the git (bottom up)"></a>Make dir first on the git (bottom up)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ mkdir second-repo</span><br><span class="line">2. $ cd second-repo</span><br><span class="line">3. $ git init</span><br><span class="line"> //after creating remote repo on github,</span><br><span class="line">4. $ git remote add mask&#123;repo_url&#125;</span><br><span class="line"></span><br><span class="line"> // After doing some work,</span><br><span class="line"></span><br><span class="line">5. $ git add&#123;filename&#125;</span><br><span class="line">6. $ git commit</span><br><span class="line">7. $ git branch -M main</span><br><span class="line">8. $ git push -u mask main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>If team leader will do release, $ git flow release start {release name}.</p>
 
     </div>
 
@@ -232,13 +255,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/03/30/My-2nd-post/" rel="prev" title="My 2nd post">
-                  <i class="fa fa-chevron-left"></i> My 2nd post
+                <a href="/2022/03/30/My-2nd-post/" rel="prev" title="About git (2) [How to make github blog]">
+                  <i class="fa fa-chevron-left"></i> About git (2) [How to make github blog]
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/03/My-4th-post/" rel="next" title="My 4th post">
-                  My 4th post <i class="fa fa-chevron-right"></i>
+                <a href="/2022/04/03/My-4th-post/" rel="next" title="About git (4) [What is a branch / How to use branch and merge]">
+                  About git (4) [What is a branch / How to use branch and merge] <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

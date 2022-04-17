@@ -126,9 +126,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -165,6 +175,305 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-9th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/My-9th-post/" class="post-title-link" itemprop="url">About git (8) [Markdown]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:07:55 / Modified: 00:10:27" itemprop="dateCreated datePublished" datetime="2022-04-18T00:07:55+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="제목-Header"><a href="#제목-Header" class="headerlink" title="제목(Header)"></a>제목(Header)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. ## 제목2</span><br><span class="line">2. ### 제목3</span><br><span class="line">3. #### 제목4</span><br><span class="line">4. ##### 제목5</span><br><span class="line">5. ###### 제목6</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="문장-Paragraph"><a href="#문장-Paragraph" class="headerlink" title="문장(Paragraph)"></a>문장(Paragraph)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세</p>
+<h1 id="줄바꿈-Line-Breaks"><a href="#줄바꿈-Line-Breaks" class="headerlink" title="줄바꿈(Line Breaks)"></a>줄바꿈(Line Breaks)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세<br>무궁화 삼천리 화려 강산<br/><br>대한 사람 대한으로 길이 보전하세</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Two click of spacebar or &lt;/br&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="강조-Emphasis"><a href="#강조-Emphasis" class="headerlink" title="강조(Emphasis)"></a>강조(Emphasis)</h1><p><em>이텔릭</em><br><strong>두껍게</strong></br><br><strong><em>이텔릭 + 두껍게</em></strong></br><br><del>취소선</del></p>
+<h1 id="목록-List"><a href="#목록-List" class="headerlink" title="목록(List)"></a>목록(List)</h1><ol>
+<li>순서가 필요한 목록</li>
+<li>순서가 필요한 목록</li>
+<li>순서가 필요한 목록<ol>
+<li>순서가 필요한 목록</li>
+<li>순서가 필요한 목록</li>
+</ol>
+</li>
+<li>순서가 필요한 목록</li>
+</ol>
+<ul>
+<li>순서가 필요하지 않은 목록</li>
+<li>순서가 필요하지 않은 목록</li>
+<li>순서가 필요하지 않은 목록<ul>
+<li>순서가 필요하지 않은 목록</li>
+<li>순서가 필요하지 않은 목록</li>
+</ul>
+</li>
+<li>순서가 필요하지 않은 목록</li>
+</ul>
+<h1 id="링크-Links"><a href="#링크-Links" class="headerlink" title="링크(Links)"></a>링크(Links)</h1><p><a target="_blank" rel="noopener" href="https://www.google.co.kr/">GOOLE</a></p>
+<h1 id="이미지-Images"><a href="#이미지-Images" class="headerlink" title="이미지(Images)"></a>이미지(Images)</h1><p><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></p>
+<p><a target="_blank" rel="noopener" href="https://heropy.blog/"><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></a></p>
+<h1 id="인용문-BlockQuote"><a href="#인용문-BlockQuote" class="headerlink" title="인용문(BlockQuote)"></a>인용문(BlockQuote)</h1><blockquote>
+<p>남의 말이나 글에서 직접 또는 간접으로 따온 문장.</p>
+</blockquote>
+<blockquote>
+<p>(네이버 국어 사전)</p>
+</blockquote>
+<blockquote>
+<p>인용문을 작성하세요!</p>
+<blockquote>
+<p>중첩된 인용문</p>
+<blockquote>
+<blockquote>
+<p>중중첩된 인용문1<br>중중첩된 인용문1<br>중중첩된 인용문1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="인라인-inline-코드-강조"><a href="#인라인-inline-코드-강조" class="headerlink" title="인라인(inline) 코드 강조"></a>인라인(inline) 코드 강조</h1><p>‘코드 강조’</p>
+<h1 id="블록-block-코드강조"><a href="#블록-block-코드강조" class="headerlink" title="블록(block) 코드강조"></a>블록(block) 코드강조</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">블록 코드 강조</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-8th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/My-8th-post/" class="post-title-link" itemprop="url">About git (7) [Revert]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:07:33 / Modified: 00:09:17" itemprop="dateCreated datePublished" datetime="2022-04-18T00:07:33+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="If-you-want-to-change-name"><a href="#If-you-want-to-change-name" class="headerlink" title="If you want to change name"></a>If you want to change name</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">mv</span> &#123;original file name&#125; &#123;new file name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>If you write $ mv {original file name} {new file name}, git doesn’t think it’s changed, but thinks the original file has been deleted.</p>
+<h1 id="If-you-want-to-go-back-to-before-the-last-action"><a href="#If-you-want-to-go-back-to-before-the-last-action" class="headerlink" title="If you want to go back to before the last action"></a>If you want to go back to before the last action</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="If-you-want-to-go-back-to-last-commit-status"><a href="#If-you-want-to-go-back-to-last-commit-status" class="headerlink" title="If you want to go back to last commit status"></a>If you want to go back to last commit status</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore .</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="If-you-want-to-cancel-the-file-added-to-the-stage"><a href="#If-you-want-to-cancel-the-file-added-to-the-stage" class="headerlink" title="If you want to cancel the file added to the stage"></a>If you want to cancel the file added to the stage</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git reset HEAD &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Head means the latest.</p>
+<h1 id="If-you-want-to-cancel-the-committed-file-and-rewrite-commit"><a href="#If-you-want-to-cancel-the-committed-file-and-rewrite-commit" class="headerlink" title="If you want to cancel the committed file and rewrite commit"></a>If you want to cancel the committed file and rewrite commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend</span></span><br></pre></td></tr></table></figure>
+<h1 id="If-you-want-to-go-back-to-several-levels-of-commit"><a href="#If-you-want-to-go-back-to-several-levels-of-commit" class="headerlink" title="If you want to go back to several levels of commit"></a>If you want to go back to several levels of commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git --no commit HEAD~&#123;number&#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-7th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/My-7th-post/" class="post-title-link" itemprop="url">About git (6) [How do git flow project with team leader and team members]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:04:47 / Modified: 00:06:49" itemprop="dateCreated datePublished" datetime="2022-04-18T00:04:47+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="How-the-team-leader-and-the-team-members-do-the-git-flow-project"><a href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project" class="headerlink" title="How the team leader and the team members do the git flow project"></a>How the team leader and the team members do the git flow project</h1><h2 id="How-team-leader-do"><a href="#How-team-leader-do" class="headerlink" title="How team leader do"></a>How team leader do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team leader make a repo.</span><br><span class="line">2. Team leader clone his repo on the dev.</span><br><span class="line">3. $ git flow init.</span><br><span class="line">4. $ touch &#123;file name&#125;.</span><br><span class="line">5. $ git add &#123;file name&#125;.</span><br><span class="line">6. $ git commit.</span><br><span class="line">7. $ git push -u origin develop.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-team-member-do"><a href="#How-team-member-do" class="headerlink" title="How team member do"></a>How team member do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team member click Fork in the team leader&#x27;s URL.</span><br><span class="line">2. Team member copy the forked file.</span><br><span class="line">3. $ git clone &#123;forked file&#125;.</span><br><span class="line">4. $ git flow init.</span><br><span class="line">5. Then you can see team leader&#x27;s develop file.</span><br><span class="line">6. $ git flow feature start &#123;feature name&#125;.</span><br><span class="line">7. Then work on the vim.</span><br><span class="line">8. $ git add &#123;feature name&#125;.</span><br><span class="line">9. $ git commit.</span><br><span class="line">10. $ git flow feature finish &#123;feature name&#125;.</span><br><span class="line">11. $ git push -u origin develop.</span><br><span class="line">12. Write lssues in the github.</span><br><span class="line">13. Click compare &amp; pull request or open pull request in github.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-team-member-pull-the-team-leader’s-remake-develop-file"><a href="#How-team-member-pull-the-team-leader’s-remake-develop-file" class="headerlink" title="How team member pull the team leader’s remake develop file."></a>How team member pull the team leader’s remake develop file.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git remote add &#123;new remote name&#125; &#123;team leader&#x27;s remake develop file&#125;.</span><br><span class="line">2. $ git pull &#123;new remote name&#125; develop.</span><br><span class="line">3. Then you work on the new feature file. $ git flow feature start &#123;new feature fil&#125;.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>If team leader will do release, $ git flow release start {release name}.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/07/My-6th-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,7 +492,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/My-6th-post/" class="post-title-link" itemprop="url">My 6th post</a>
+          <a href="/2022/04/07/My-6th-post/" class="post-title-link" itemprop="url">CS (1)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -193,9 +502,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-07 23:16:02 / Modified: 23:16:45" itemprop="dateCreated datePublished" datetime="2022-04-07T23:16:02+09:00">2022-04-07</time>
+      <time title="Created: 2022-04-07 23:16:02" itemprop="dateCreated datePublished" datetime="2022-04-07T23:16:02+09:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:26:56" itemprop="dateModified" datetime="2022-04-17T23:26:56+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
     </span>
 
   
@@ -305,7 +629,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/06/My-5th-post/" class="post-title-link" itemprop="url">My 5th post</a>
+          <a href="/2022/04/06/My-5th-post/" class="post-title-link" itemprop="url">About git (5) [git flow]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -323,7 +647,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-07 14:14:38" itemprop="dateModified" datetime="2022-04-07T14:14:38+09:00">2022-04-07</time>
+      <time title="Modified: 2022-04-18 00:02:11" itemprop="dateModified" datetime="2022-04-18T00:02:11+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -336,36 +669,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="제목-Header"><a href="#제목-Header" class="headerlink" title="제목(Header)"></a>제목(Header)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. ## 제목2</span><br><span class="line">2. ### 제목3</span><br><span class="line">3. #### 제목4</span><br><span class="line">4. ##### 제목5</span><br><span class="line">5. ###### 제목6</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <p>git flow ( Master &#x2F; Develop &#x2F; Feature &#x2F; Hotfix)</p>
+<h1 id="How-to-use-git-flow"><a href="#How-to-use-git-flow" class="headerlink" title="How to use git flow"></a>How to use git flow</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git flow init</span><br><span class="line">2. ENTER ENTER ENTER ...</span><br><span class="line">3. Then you can see the develop branch ( $ git branch )</span><br><span class="line">4. $ git flow feature start ( feature branch name )</span><br><span class="line">5. Then you can see the feature branch ( $ git branch )</span><br><span class="line">6. Then make file and work</span><br><span class="line">7. add / commit</span><br><span class="line">8. If you finish the work, $ git flow feature finish (file name)</span><br><span class="line">9. If you want release, git flow release start ( version name ex:v0.0.0 )</span><br><span class="line">10. git flow release finish ( version name )</span><br><span class="line">11. Then you can see 3 vim ( main / tag / develop )</span><br><span class="line">12. $ git push -u origin develop</span><br><span class="line">13. $ git checkout main</span><br><span class="line">14. $ git push origin main</span><br><span class="line">15. $ git tag</span><br><span class="line">16. $ git push --tag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="문장-Paragraph"><a href="#문장-Paragraph" class="headerlink" title="문장(Paragraph)"></a>문장(Paragraph)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세</p>
-<h1 id="줄바꿈-Line-Breaks"><a href="#줄바꿈-Line-Breaks" class="headerlink" title="줄바꿈(Line Breaks)"></a>줄바꿈(Line Breaks)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세<br>무궁화 삼천리 화려 강산<br/><br>대한 사람 대한으로 길이 보전하세</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Two click of spacebar or &lt;/br&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="강조-Emphasis"><a href="#강조-Emphasis" class="headerlink" title="강조(Emphasis)"></a>강조(Emphasis)</h1><p><em>이텔릭</em><br><strong>두껍게</strong><br><strong><em>이텔릭 + 두껍게</em></strong><br><del>취소선</del><br><u>밑줄</u></p>
-<h1 id="목록-List"><a href="#목록-List" class="headerlink" title="목록(List)"></a>목록(List)</h1><ol>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록<ol>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록</li>
-</ol>
-</li>
-<li>순서가 필요한 목록</li>
-</ol>
-<ul>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록<ul>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록</li>
-</ul>
-</li>
-<li>순서가 필요하지 않은 목록</li>
-</ul>
-<h1 id="링크-Links"><a href="#링크-Links" class="headerlink" title="링크(Links)"></a>링크(Links)</h1><p><a target="_blank" rel="noopener" href="https://www.google.co.kr/">GOOLE</a></p>
-<h1 id="이미지-Images"><a href="#이미지-Images" class="headerlink" title="이미지(Images)"></a>이미지(Images)</h1><p><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></p>
-<p><a target="_blank" rel="noopener" href="https://heropy.blog/"><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -410,7 +717,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/03/My-4th-post/" class="post-title-link" itemprop="url">My 4th post</a>
+          <a href="/2022/04/03/My-4th-post/" class="post-title-link" itemprop="url">About git (4) [What is a branch / How to use branch and merge]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -420,9 +727,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-03 22:20:49 / Modified: 22:23:37" itemprop="dateCreated datePublished" datetime="2022-04-03T22:20:49+09:00">2022-04-03</time>
+      <time title="Created: 2022-04-03 22:20:49" itemprop="dateCreated datePublished" datetime="2022-04-03T22:20:49+09:00">2022-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-18 00:00:46" itemprop="dateModified" datetime="2022-04-18T00:00:46+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -435,16 +757,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="If-you-want-to-change-name"><a href="#If-you-want-to-change-name" class="headerlink" title="If you want to change name"></a>If you want to change name</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">mv</span> &#123;original file name&#125; &#123;new file name&#125;</span></span><br></pre></td></tr></table></figure>
-<p>If you write $ mv {original file name} {new file name}, git doesn’t think it’s changed, but thinks the original file has been deleted.</p>
-<h1 id="If-you-want-to-go-back-to-before-the-last-action"><a href="#If-you-want-to-go-back-to-before-the-last-action" class="headerlink" title="If you want to go back to before the last action"></a>If you want to go back to before the last action</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
+          <p>About branch</p>
+<p>branch : Instead of working in the original branch, create a new branch and work there. This is similar to the test mode.</p>
+<h1 id="Make-a-branch"><a href="#Make-a-branch" class="headerlink" title="Make a branch"></a>Make a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>If you make a new branch, it is same with main branch</p>
+<h1 id="Delete-a-branch"><a href="#Delete-a-branch" class="headerlink" title="Delete a branch"></a>Delete a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -d (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="If-you-want-to-go-back-to-last-commit-status"><a href="#If-you-want-to-go-back-to-last-commit-status" class="headerlink" title="If you want to go back to last commit status"></a>If you want to go back to last commit status</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore .</span></span><br></pre></td></tr></table></figure>
+<h1 id="Change-the-branch"><a href="#Change-the-branch" class="headerlink" title="Change the branch"></a>Change the branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="If-you-want-to-cancel-the-file-added-to-the-stage"><a href="#If-you-want-to-cancel-the-file-added-to-the-stage" class="headerlink" title="If you want to cancel the file added to the stage"></a>If you want to cancel the file added to the stage</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git reset HEAD &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
-<p>Head means the latest.</p>
-<h1 id="If-you-want-to-cancel-the-committed-file-and-rewrite-commit"><a href="#If-you-want-to-cancel-the-committed-file-and-rewrite-commit" class="headerlink" title="If you want to cancel the committed file and rewrite commit"></a>If you want to cancel the committed file and rewrite commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend</span></span><br></pre></td></tr></table></figure>
-<h1 id="If-you-want-to-go-back-to-several-levels-of-commit"><a href="#If-you-want-to-go-back-to-several-levels-of-commit" class="headerlink" title="If you want to go back to several levels of commit"></a>If you want to go back to several levels of commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git --no commit HEAD~&#123;number&#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="Working-on-the-new-branch"><a href="#Working-on-the-new-branch" class="headerlink" title="Working on the new branch"></a>Working on the new branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git checkout (new branch)</span><br><span class="line">2. work something on the new branch</span><br><span class="line">3. $ git add (filename)</span><br><span class="line">4. $ git commit</span><br><span class="line">5. $ git push origin (new branch)</span><br><span class="line">6. $ git checkout (original branch)</span><br><span class="line">7. $ git merge (new branch)</span><br><span class="line">8. $ git add (filename)</span><br><span class="line">9. $ git commit</span><br><span class="line">10. $ git push origin (original branch)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Merge-branch"><a href="#Merge-branch" class="headerlink" title="Merge branch"></a>Merge branch</h1><pre><code class="shell"> $ git merge (new branch) &lt;-- on the original branch
+</code></pre>
 
       
     </div>
@@ -489,7 +813,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/02/My-3rd-post/" class="post-title-link" itemprop="url">My 3rd post</a>
+          <a href="/2022/04/02/My-3rd-post/" class="post-title-link" itemprop="url">About git (3) [git clone/ git init]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -499,9 +823,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-02 19:10:00 / Modified: 19:10:26" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+      <time title="Created: 2022-04-02 19:10:00" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:58:38" itemprop="dateModified" datetime="2022-04-17T23:58:38+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -514,13 +853,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="How-the-team-leader-and-the-team-members-do-the-git-flow-project"><a href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project" class="headerlink" title="How the team leader and the team members do the git flow project"></a>How the team leader and the team members do the git flow project</h1><h2 id="How-team-leader-do"><a href="#How-team-leader-do" class="headerlink" title="How team leader do"></a>How team leader do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team leader make a repo.</span><br><span class="line">2. Team leader clone his repo on the dev.</span><br><span class="line">3. $ git flow init.</span><br><span class="line">4. $ touch &#123;file name&#125;.</span><br><span class="line">5. $ git add &#123;file name&#125;.</span><br><span class="line">6. $ git commit.</span><br><span class="line">7. $ git push -u origin develop.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><h2 id="Make-repo-first-on-the-github-after-local-top-down"><a href="#Make-repo-first-on-the-github-after-local-top-down" class="headerlink" title="Make repo first on the github, after local (top down)"></a>Make repo first on the github, after local (top down)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0. We make repo onthe github. And we write git clone (repo address) on the dev</span><br><span class="line"></span><br><span class="line">1. We fix file or something on git</span><br><span class="line">2. Write $git status, then you can show comment like changes not staged for commit</span><br><span class="line">3. $ git add (file name)</span><br><span class="line">4. Write $git status, you can show comment like changes to be committed with green</span><br><span class="line">5. $ git status, then show nothing to commit working tree clean</span><br><span class="line">6. $ git push origin main.</span><br><span class="line">7. The End. you can show final project in the git hub</span><br></pre></td></tr></table></figure>
 
-<h2 id="How-team-member-do"><a href="#How-team-member-do" class="headerlink" title="How team member do"></a>How team member do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team member click Fork in the team leader&#x27;s URL.</span><br><span class="line">2. Team member copy the forked file.</span><br><span class="line">3. $ git clone &#123;forked file&#125;.</span><br><span class="line">4. $ git flow init.</span><br><span class="line">5. Then you can see team leader&#x27;s develop file.</span><br><span class="line">6. $ git flow feature start &#123;feature name&#125;.</span><br><span class="line">7. Then work on the vim.</span><br><span class="line">8. $ git add &#123;feature name&#125;.</span><br><span class="line">9. $ git commit.</span><br><span class="line">10. $ git flow feature finish &#123;feature name&#125;.</span><br><span class="line">11. $ git push -u origin develop.</span><br><span class="line">12. Write lssues in the github.</span><br><span class="line">13. Click compare &amp; pull request or open pull request in github.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="How-team-member-pull-the-team-leader’s-remake-develop-file"><a href="#How-team-member-pull-the-team-leader’s-remake-develop-file" class="headerlink" title="How team member pull the team leader’s remake develop file."></a>How team member pull the team leader’s remake develop file.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git remote add &#123;new remote name&#125; &#123;team leader&#x27;s remake develop file&#125;.</span><br><span class="line">2. $ git pull &#123;new remote name&#125; develop.</span><br><span class="line">3. Then you work on the new feature file. $ git flow feature start &#123;new feature fil&#125;.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><h2 id="Make-dir-first-on-the-git-bottom-up"><a href="#Make-dir-first-on-the-git-bottom-up" class="headerlink" title="Make dir first on the git (bottom up)"></a>Make dir first on the git (bottom up)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ mkdir second-repo</span><br><span class="line">2. $ cd second-repo</span><br><span class="line">3. $ git init</span><br><span class="line"> //after creating remote repo on github,</span><br><span class="line">4. $ git remote add mask&#123;repo_url&#125;</span><br><span class="line"></span><br><span class="line"> // After doing some work,</span><br><span class="line"></span><br><span class="line">5. $ git add&#123;filename&#125;</span><br><span class="line">6. $ git commit</span><br><span class="line">7. $ git branch -M main</span><br><span class="line">8. $ git push -u mask main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>If team leader will do release, $ git flow release start {release name}.</p>
 
       
     </div>
@@ -565,7 +902,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/30/My-2nd-post/" class="post-title-link" itemprop="url">My 2nd post</a>
+          <a href="/2022/03/30/My-2nd-post/" class="post-title-link" itemprop="url">About git (2) [How to make github blog]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -583,7 +920,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-02 19:04:52" itemprop="dateModified" datetime="2022-04-02T19:04:52+09:00">2022-04-02</time>
+      <time title="Modified: 2022-04-17 23:44:16" itemprop="dateModified" datetime="2022-04-17T23:44:16+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -596,9 +942,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This is my second post.</p>
-<p>Today, i learned about how to make github blog.</p>
-<h1 id="How-to-start-github-blog"><a href="#How-to-start-github-blog" class="headerlink" title="How to start github blog"></a>How to start github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. In github, make a new repo.(repo name = Owner(like jinwoorim.github.io)).</span><br><span class="line">2. $ git clone (address)</span><br><span class="line">3. $ touch index.html</span><br><span class="line">4. node.js install</span><br><span class="line">5. write $ node- v </span><br><span class="line">6. write $ npm - v </span><br><span class="line">7. $ npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h1 id="How-to-start-github-blog"><a href="#How-to-start-github-blog" class="headerlink" title="How to start github blog"></a>How to start github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. In github, make a new repo.(repo name = Owner(like jinwoorim.github.io)).</span><br><span class="line">2. $ git clone (address)</span><br><span class="line">3. $ touch index.html</span><br><span class="line">4. node.js install</span><br><span class="line">5. write $ node- v </span><br><span class="line">6. write $ npm - v </span><br><span class="line">7. $ npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="How-to-restart-github-blog"><a href="#How-to-restart-github-blog" class="headerlink" title="How to restart github blog"></a>How to restart github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo init ghblog(on dev)</span><br><span class="line">2. $ cd ghblog</span><br><span class="line">3. $ hexo new post (&quot;title&quot;)</span><br><span class="line">4. $ vi (source/_posts/My-first-post.md)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="How-to-open-server"><a href="#How-to-open-server" class="headerlink" title="How to open server"></a>How to open server</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo server</span><br><span class="line">2. localhost:4000 on browser</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -651,7 +995,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/30/My-1st-post/" class="post-title-link" itemprop="url">My 1st post(My github address)</a>
+          <a href="/2022/03/30/My-1st-post/" class="post-title-link" itemprop="url">tags</a>
         </h2>
 
         <div class="post-meta-container">
@@ -669,7 +1013,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-06 14:16:00" itemprop="dateModified" datetime="2022-04-06T14:16:00+09:00">2022-04-06</time>
+      <time title="Modified: 2022-04-17 23:26:08" itemprop="dateModified" datetime="2022-04-17T23:26:08+09:00">2022-04-17</time>
     </span>
 
   
@@ -682,8 +1026,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This is my first post.<br>And hexo is a big difficult, but lots of fun!</p>
-<h1 id="My-github-address"><a href="#My-github-address" class="headerlink" title="My github address"></a>My github address</h1><p><a target="_blank" rel="noopener" href="https://github.com/jinwoorim?tab=repositories">https://github.com/jinwoorim?tab=repositories</a></p>
+          <h1 id="My-github-address"><a href="#My-github-address" class="headerlink" title="My github address"></a>My github address</h1><p><a target="_blank" rel="noopener" href="https://github.com/jinwoorim?tab=repositories">https://github.com/jinwoorim?tab=repositories</a></p>
 
       
     </div>
@@ -728,7 +1071,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/30/Quick-start-hexo/" class="post-title-link" itemprop="url">Quick start hexo</a>
+          <a href="/2022/03/30/Quick-start-hexo/" class="post-title-link" itemprop="url">About git (1) [How to run]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -746,7 +1089,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-02 19:30:37" itemprop="dateModified" datetime="2022-04-02T19:30:37+09:00">2022-04-02</time>
+      <time title="Modified: 2022-04-17 23:42:37" itemprop="dateModified" datetime="2022-04-17T23:42:37+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
     </span>
 
   
@@ -759,17 +1111,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start-hexo"><a href="#Quick-Start-hexo" class="headerlink" title="Quick Start hexo"></a>Quick Start hexo</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <h1 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h1 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h1 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h1 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 

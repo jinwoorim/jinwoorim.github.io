@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="About branch branch : Instead of working in the original branch, create a new branch and work there. This is similar to the test mode. Make a branch123$ git branch (branch name) If you make a new bran">
+    <meta name="description" content="How the team leader and the team members do the git flow projectHow team leader do1234567891. Team leader make a repo.2. Team leader clone his repo on the dev.3. $ git flow init.4. $ touch &amp;#123;file">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About git (4) [What is a branch &#x2F; How to use branch and merge]">
-<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/03/My-4th-post/index.html">
+<meta property="og:title" content="About git (6) [How do git flow project with team leader and team members]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/18/My-7th-post/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="About branch branch : Instead of working in the original branch, create a new branch and work there. This is similar to the test mode. Make a branch123$ git branch (branch name) If you make a new bran">
+<meta property="og:description" content="How the team leader and the team members do the git flow projectHow team leader do1234567891. Team leader make a repo.2. Team leader clone his repo on the dev.3. $ git flow init.4. $ touch &amp;#123;file">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-03T13:20:49.000Z">
-<meta property="article:modified_time" content="2022-04-17T15:00:46.396Z">
+<meta property="article:published_time" content="2022-04-17T15:04:47.000Z">
+<meta property="article:modified_time" content="2022-04-17T15:06:49.008Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/03/My-4th-post/">
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/18/My-7th-post/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/03/My-4th-post/","path":"2022/04/03/My-4th-post/","title":"About git (4) [What is a branch / How to use branch and merge]"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/18/My-7th-post/","path":"2022/04/18/My-7th-post/","title":"About git (6) [How do git flow project with team leader and team members]"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>About git (4) [What is a branch / How to use branch and merge] | My blog</title>
+<title>About git (6) [How do git flow project with team leader and team members] | My blog</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Make-a-branch"><span class="nav-number">1.</span> <span class="nav-text">Make a branch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Delete-a-branch"><span class="nav-number">2.</span> <span class="nav-text">Delete a branch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-the-branch"><span class="nav-number">3.</span> <span class="nav-text">Change the branch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Working-on-the-new-branch"><span class="nav-number">4.</span> <span class="nav-text">Working on the new branch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-branch"><span class="nav-number">5.</span> <span class="nav-text">Merge branch</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project"><span class="nav-number">1.</span> <span class="nav-text">How the team leader and the team members do the git flow project</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-leader-do"><span class="nav-number">1.1.</span> <span class="nav-text">How team leader do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-member-do"><span class="nav-number">1.2.</span> <span class="nav-text">How team member do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-team-member-pull-the-team-leader%E2%80%99s-remake-develop-file"><span class="nav-number">1.3.</span> <span class="nav-text">How team member pull the team leader’s remake develop file.</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/03/My-4th-post/">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-7th-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="About git (4) [What is a branch / How to use branch and merge] | My blog">
+      <meta itemprop="name" content="About git (6) [How do git flow project with team leader and team members] | My blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          About git (4) [What is a branch / How to use branch and merge]
+          About git (6) [How do git flow project with team leader and team members]
         </h1>
 
         <div class="post-meta-container">
@@ -207,15 +207,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-04-03 22:20:49" itemprop="dateCreated datePublished" datetime="2022-04-03T22:20:49+09:00">2022-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-18 00:00:46" itemprop="dateModified" datetime="2022-04-18T00:00:46+09:00">2022-04-18</time>
+      <time title="Created: 2022-04-18 00:04:47 / Modified: 00:06:49" itemprop="dateCreated datePublished" datetime="2022-04-18T00:04:47+09:00">2022-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,18 +231,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>About branch</p>
-<p>branch : Instead of working in the original branch, create a new branch and work there. This is similar to the test mode.</p>
-<h1 id="Make-a-branch"><a href="#Make-a-branch" class="headerlink" title="Make a branch"></a>Make a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>If you make a new branch, it is same with main branch</p>
-<h1 id="Delete-a-branch"><a href="#Delete-a-branch" class="headerlink" title="Delete a branch"></a>Delete a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -d (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h1 id="How-the-team-leader-and-the-team-members-do-the-git-flow-project"><a href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project" class="headerlink" title="How the team leader and the team members do the git flow project"></a>How the team leader and the team members do the git flow project</h1><h2 id="How-team-leader-do"><a href="#How-team-leader-do" class="headerlink" title="How team leader do"></a>How team leader do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team leader make a repo.</span><br><span class="line">2. Team leader clone his repo on the dev.</span><br><span class="line">3. $ git flow init.</span><br><span class="line">4. $ touch &#123;file name&#125;.</span><br><span class="line">5. $ git add &#123;file name&#125;.</span><br><span class="line">6. $ git commit.</span><br><span class="line">7. $ git push -u origin develop.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="Change-the-branch"><a href="#Change-the-branch" class="headerlink" title="Change the branch"></a>Change the branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="How-team-member-do"><a href="#How-team-member-do" class="headerlink" title="How team member do"></a>How team member do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team member click Fork in the team leader&#x27;s URL.</span><br><span class="line">2. Team member copy the forked file.</span><br><span class="line">3. $ git clone &#123;forked file&#125;.</span><br><span class="line">4. $ git flow init.</span><br><span class="line">5. Then you can see team leader&#x27;s develop file.</span><br><span class="line">6. $ git flow feature start &#123;feature name&#125;.</span><br><span class="line">7. Then work on the vim.</span><br><span class="line">8. $ git add &#123;feature name&#125;.</span><br><span class="line">9. $ git commit.</span><br><span class="line">10. $ git flow feature finish &#123;feature name&#125;.</span><br><span class="line">11. $ git push -u origin develop.</span><br><span class="line">12. Write lssues in the github.</span><br><span class="line">13. Click compare &amp; pull request or open pull request in github.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="Working-on-the-new-branch"><a href="#Working-on-the-new-branch" class="headerlink" title="Working on the new branch"></a>Working on the new branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git checkout (new branch)</span><br><span class="line">2. work something on the new branch</span><br><span class="line">3. $ git add (filename)</span><br><span class="line">4. $ git commit</span><br><span class="line">5. $ git push origin (new branch)</span><br><span class="line">6. $ git checkout (original branch)</span><br><span class="line">7. $ git merge (new branch)</span><br><span class="line">8. $ git add (filename)</span><br><span class="line">9. $ git commit</span><br><span class="line">10. $ git push origin (original branch)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="Merge-branch"><a href="#Merge-branch" class="headerlink" title="Merge branch"></a>Merge branch</h1><pre><code class="shell"> $ git merge (new branch) &lt;-- on the original branch
-</code></pre>
+<h2 id="How-team-member-pull-the-team-leader’s-remake-develop-file"><a href="#How-team-member-pull-the-team-leader’s-remake-develop-file" class="headerlink" title="How team member pull the team leader’s remake develop file."></a>How team member pull the team leader’s remake develop file.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git remote add &#123;new remote name&#125; &#123;team leader&#x27;s remake develop file&#125;.</span><br><span class="line">2. $ git pull &#123;new remote name&#125; develop.</span><br><span class="line">3. Then you work on the new feature file. $ git flow feature start &#123;new feature fil&#125;.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>If team leader will do release, $ git flow release start {release name}.</p>
 
     </div>
 
@@ -262,13 +250,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/02/My-3rd-post/" rel="prev" title="About git (3) [git clone/ git init]">
-                  <i class="fa fa-chevron-left"></i> About git (3) [git clone/ git init]
+                <a href="/2022/04/07/My-6th-post/" rel="prev" title="CS (1)">
+                  <i class="fa fa-chevron-left"></i> CS (1)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/06/My-5th-post/" rel="next" title="About git (5) [git flow]">
-                  About git (5) [git flow] <i class="fa fa-chevron-right"></i>
+                <a href="/2022/04/18/My-8th-post/" rel="next" title="About git (7) [Revert]">
+                  About git (7) [Revert] <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
