@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JDBC 프로그램 절차 일단 기본적으로 DB에 테이블이 존재해야됨  INSERT12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061package Chapter11;import java.sql.Connectio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java (21) [JDBC 프로그램 절차]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/21/220421-21th-java/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="JDBC 프로그램 절차 일단 기본적으로 DB에 테이블이 존재해야됨  INSERT12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061package Chapter11;import java.sql.Connectio">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-21T06:38:44.000Z">
+<meta property="article:modified_time" content="2022-04-21T06:40:01.553Z">
+<meta property="article:author" content="jinwoorim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/21/220421-21th-java/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/21/220421-21th-java/","path":"2022/04/21/220421-21th-java/","title":"java (21) [JDBC 프로그램 절차]"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>java (21) [JDBC 프로그램 절차] | My blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My github blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%A0%88%EC%B0%A8"><span class="nav-number">1.</span> <span class="nav-text">JDBC 프로그램 절차</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT"><span class="nav-number">1.1.</span> <span class="nav-text">INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">1.2.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE"><span class="nav-number">1.3.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">1.4.</span> <span class="nav-text">SELECT</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinwoorim</p>
+  <div class="site-description" itemprop="description">All stories about my develop</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/21/220421-21th-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="java (21) [JDBC 프로그램 절차] | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java (21) [JDBC 프로그램 절차]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-21 15:38:44 / Modified: 15:40:01" itemprop="dateCreated datePublished" datetime="2022-04-21T15:38:44+09:00">2022-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="JDBC-프로그램-절차"><a href="#JDBC-프로그램-절차" class="headerlink" title="JDBC 프로그램 절차"></a>JDBC 프로그램 절차</h1><ul>
+<li>일단 기본적으로 DB에 테이블이 존재해야됨</li>
+</ul>
+<h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import org.h2.Driver;</span><br><span class="line"></span><br><span class="line">public class InsertTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Connection conn = null;</span><br><span class="line">		PreparedStatement stmt = null;</span><br><span class="line"></span><br><span class="line">		try &#123;</span><br><span class="line">			// 1.단계 : 드라이버 객체 로딩</span><br><span class="line">			DriverManager.registerDriver(new Driver());</span><br><span class="line"></span><br><span class="line">			//2. 단계 : H2와 커넥션(고속도로) 연결</span><br><span class="line">			conn = DriverManager.getConnection(&quot;jdbc:h2:tcp://localhost/~/test&quot;, &quot;sa&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">			//3. 단계 : 스테이트먼트(고속버스) 생성</span><br><span class="line">			String sql = &quot;insert into student(student_no, name, score, major) values(?, ?, ?, ?)&quot;;// ?로 처리하는건 이 코드가 실행될때마다 체크하는 문법과 테이블을 체크하지않게하기때문에 성능향상에 도움을 줌</span><br><span class="line">			stmt = conn.prepareStatement(sql);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			//SQL 파라미터(?)에 값 설정</span><br><span class="line">			stmt.setString(1, &quot;STD-000007&quot;);</span><br><span class="line">			stmt.setString(2, &quot;진우림&quot;);</span><br><span class="line">			stmt.setInt(3, 98);</span><br><span class="line">			stmt.setString(4, &quot;전자공학&quot;);</span><br><span class="line"></span><br><span class="line">			//4. 단계 : SQL 전송</span><br><span class="line">			int count = stmt.executeUpdate();</span><br><span class="line">			System.out.println(count + &quot;건의 데이터가 처리됨.&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			// e.printStackTrace(); : 어느 클래스의 어느 메소드에서 예외가 발생했는지 추적해서 그 위치를 콘솔에 출력한다.</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		finally &#123;</span><br><span class="line">			// 데이터베이스 연동이 끝나면 프로그램이 종료되기 전에 반드시 커넥션을 끊어야한다.</span><br><span class="line">			try &#123;</span><br><span class="line">				stmt.close();//고속버스 제거</span><br><span class="line"></span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			try &#123;</span><br><span class="line">				conn.close();//고속도로 제거</span><br><span class="line">			&#125; catch (Exception e2) &#123;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">			System.out.println(&quot;프로그램 종료&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line"></span><br><span class="line">import org.h2.Driver;</span><br><span class="line"></span><br><span class="line">public class UpdateTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Connection conn = null;</span><br><span class="line">		PreparedStatement stmt = null;</span><br><span class="line"></span><br><span class="line">		try &#123;</span><br><span class="line">			// 1.단계 : 드라이버 객체 로딩</span><br><span class="line">			DriverManager.registerDriver(new Driver());</span><br><span class="line"></span><br><span class="line">			//2. 단계 : H2와 커넥션(고속도로) 연결</span><br><span class="line">			conn = DriverManager.getConnection(&quot;jdbc:h2:tcp://localhost/~/test&quot;, &quot;sa&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">			//3. 단계 : 스테이트먼트(고속버스) 생성</span><br><span class="line">			String sql = &quot;update student set score = ?, major = ? where student_no = ?&quot;;</span><br><span class="line">			stmt = conn.prepareStatement(sql);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			//SQL 파라미터(?)에 값 설정</span><br><span class="line">			stmt.setInt(1, 20);</span><br><span class="line">			stmt.setString(2, &quot;전기학과&quot;);</span><br><span class="line">			stmt.setString(3, &quot;STD-000001&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			//4. 단계 : SQL 전송</span><br><span class="line">			int count = stmt.executeUpdate();</span><br><span class="line">			System.out.println(count + &quot;건의 데이터가 처리됨.&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			// 어느 클래스의 어느 메소드에서 예외가 발생했는지 추적해서 그 위치를 콘솔에 출력한다.</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		finally &#123;</span><br><span class="line">			// 데이터베이스 연동이 끝나면 프로그램이 종료되기 전에 반드시 커넥션을 끊어야한다.</span><br><span class="line">			try &#123;</span><br><span class="line">				stmt.close();//고속버스 제거</span><br><span class="line"></span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			try &#123;</span><br><span class="line">				conn.close();//고속도로 제거</span><br><span class="line">			&#125; catch (SQLException e2) &#123;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">			System.out.println(&quot;프로그램 종료&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line"></span><br><span class="line">import org.h2.Driver;</span><br><span class="line"></span><br><span class="line">public class DeleteTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Connection conn = null;</span><br><span class="line">		PreparedStatement stmt = null;</span><br><span class="line"></span><br><span class="line">		try &#123;</span><br><span class="line">			// 1.단계 : 드라이버 객체 로딩</span><br><span class="line">			DriverManager.registerDriver(new Driver());</span><br><span class="line"></span><br><span class="line">			//2. 단계 : H2와 커넥션(고속도로) 연결</span><br><span class="line">			conn = DriverManager.getConnection(&quot;jdbc:h2:tcp://localhost/~/test&quot;, &quot;sa&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">			//3. 단계 : 스테이트먼트(고속버스) 생성</span><br><span class="line">			String sql = &quot;delete student where student_no = ?&quot;;</span><br><span class="line">			stmt = conn.prepareStatement(sql);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			//SQL 파라미터(?)에 값 설정</span><br><span class="line">			stmt.setString(1, &quot;STD-000001&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			//4. 단계 : SQL 전송</span><br><span class="line">			int count = stmt.executeUpdate();</span><br><span class="line">			System.out.println(count + &quot;건의 데이터가 처리됨.&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			// 어느 클래스의 어느 메소드에서 예외가 발생했는지 추적해서 그 위치를 콘솔에 출력한다.</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		finally &#123;</span><br><span class="line">			// 데이터베이스 연동이 끝나면 프로그램이 종료되기 전에 반드시 커넥션을 끊어야한다.</span><br><span class="line">			try &#123;</span><br><span class="line">				stmt.close();//고속버스 제거</span><br><span class="line"></span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			try &#123;</span><br><span class="line">				conn.close();//고속도로 제거</span><br><span class="line">			&#125; catch (SQLException e2) &#123;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">			System.out.println(&quot;프로그램 종료&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line"></span><br><span class="line">import org.h2.Driver;</span><br><span class="line"></span><br><span class="line">public class SelectTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Connection conn = null;</span><br><span class="line">		PreparedStatement stmt = null;</span><br><span class="line">		ResultSet rs = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			// 1.단계 : 드라이버 객체 로딩</span><br><span class="line">			DriverManager.registerDriver(new Driver());</span><br><span class="line"></span><br><span class="line">			//2. 단계 : H2와 커넥션(고속도로) 연결</span><br><span class="line">			conn = DriverManager.getConnection(&quot;jdbc:h2:tcp://localhost/~/test&quot;, &quot;sa&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">			//3. 단계 : 스테이트먼트(고속버스) 생성</span><br><span class="line">			String sql = &quot;select * from student order by student_no asc&quot;;</span><br><span class="line">			stmt = conn.prepareStatement(sql);</span><br><span class="line"></span><br><span class="line">			//4. 단계 : SQL 전송</span><br><span class="line">			//executeUpdate() 는 INSERT, UPDATE, DELETE 전용 메소드</span><br><span class="line">			//executeQuery() 는 SELECT 전용 메소드</span><br><span class="line">			rs = stmt.executeQuery();</span><br><span class="line"></span><br><span class="line">//			//5. 단계 : 검색 결과 활용</span><br><span class="line">//			rs.next(); // ResultSet의 커서를 한 칸 밑으로 내린다. 내용이 없으면 false를 반환한다.</span><br><span class="line">//			System.out.print(rs.getString(&quot;Student_no&quot;) + &quot; : &quot;);</span><br><span class="line">//			System.out.print(rs.getString(&quot;name&quot;) + &quot; : &quot;);</span><br><span class="line">//			System.out.print(rs.getInt(&quot;score&quot;) + &quot; : &quot;);</span><br><span class="line">//			System.out.println(rs.getString(&quot;major&quot;));</span><br><span class="line"></span><br><span class="line">			while(rs.next()) &#123;</span><br><span class="line">				System.out.print(rs.getString(&quot;STUDENT_NO&quot;) + &quot; : &quot;);</span><br><span class="line">				System.out.print(rs.getString(&quot;NAME&quot;) + &quot; : &quot;);</span><br><span class="line">				System.out.print(rs.getInt(&quot;SCORE&quot;) + &quot; : &quot;);</span><br><span class="line">				System.out.println(rs.getString(&quot;MAJOR&quot;));</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			// 어느 클래스의 어느 메소드에서 예외가 발생했는지 추적해서 그 위치를 콘솔에 출력한다.</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		finally &#123;</span><br><span class="line">			// 데이터베이스 연동이 끝나면 프로그램이 종료되기 전에 반드시 커넥션을 끊어야한다.</span><br><span class="line">			try &#123;</span><br><span class="line">				rs.close();</span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			try &#123;</span><br><span class="line">				stmt.close();//고속버스 제거</span><br><span class="line"></span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			try &#123;</span><br><span class="line">				conn.close();//고속도로 제거</span><br><span class="line">			&#125; catch (SQLException e2) &#123;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">			System.out.println(&quot;프로그램 종료&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JDBDUtil, StudentDAO 는 이클립스  Chapter11 에서 참고. (insert, upadte, delete, select 의 소스들을 클래스와 메소드를 활용해서 중복되는 코드를 줄이고 간략하게 만드는 방법)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/20/220420-20th-java/" rel="prev" title="java (20) [java.sql 패키지]">
+                  <i class="fa fa-chevron-left"></i> java (20) [java.sql 패키지]
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jinwoorim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
