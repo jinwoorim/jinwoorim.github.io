@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="링크드 리스트(Linked List) 배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.  링크드 리스트는 데이터와 주소를 동반함  노드 : 데이터값과 포인터(데이터 주소)로 구성  단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS (4) [링크드 리스트(LinkedList)]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="링크드 리스트(Linked List) 배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.  링크드 리스트는 데이터와 주소를 동반함  노드 : 데이터값과 포인터(데이터 주소)로 구성  단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-24T15:18:08.000Z">
+<meta property="article:modified_time" content="2022-04-24T15:21:17.058Z">
+<meta property="article:author" content="jinwoorim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/","path":"2022/04/25/220425-4th-CS/","title":"CS (4) [링크드 리스트(LinkedList)]"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CS (4) [링크드 리스트(LinkedList)] | My blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My github blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-Linked-List"><span class="nav-number">1.</span> <span class="nav-text">링크드 리스트(Linked List)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84-%EB%B0%8F-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-%EC%97%AC%EB%9F%AC-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84"><span class="nav-number">1.1.</span> <span class="nav-text">Node 클래스 구현 및 링크드리스트에 여러 기능구현</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinwoorim</p>
+  <div class="site-description" itemprop="description">All stories about my develop</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CS (4) [링크드 리스트(LinkedList)] | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS (4) [링크드 리스트(LinkedList)]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-25 00:18:08 / Modified: 00:21:17" itemprop="dateCreated datePublished" datetime="2022-04-25T00:18:08+09:00">2022-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="링크드-리스트-Linked-List"><a href="#링크드-리스트-Linked-List" class="headerlink" title="링크드 리스트(Linked List)"></a>링크드 리스트(Linked List)</h1><ul>
+<li><p>배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.</p>
+</li>
+<li><p>링크드 리스트는 데이터와 주소를 동반함</p>
+</li>
+<li><p>노드 : 데이터값과 포인터(데이터 주소)로 구성</p>
+</li>
+<li><p>단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이 필요하므로 저장공간 효율이 좋지 못하다. 접근 속도가 느림.</p>
+</li>
+</ul>
+<h2 id="Node-클래스-구현-및-링크드리스트에-여러-기능구현"><a href="#Node-클래스-구현-및-링크드리스트에-여러-기능구현" class="headerlink" title="Node 클래스 구현 및 링크드리스트에 여러 기능구현"></a>Node 클래스 구현 및 링크드리스트에 여러 기능구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class SingleLinkedList &#123;</span><br><span class="line"></span><br><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class SingleLinkedList &#123;</span><br><span class="line"></span><br><span class="line">	Node head = null;</span><br><span class="line"></span><br><span class="line">	  public class Node&#123; //Node 클래스 구현</span><br><span class="line"></span><br><span class="line">		  Object data;</span><br><span class="line">		  Node next = null;</span><br><span class="line"></span><br><span class="line">		Node(Object data)&#123;</span><br><span class="line"></span><br><span class="line">			this.data = data;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNode(Object data) &#123;// 링크드리스트에 데이터 추가하기</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			head = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = this.head;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line"></span><br><span class="line">				node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			node.next = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void printAll() &#123; // 링크드 리스트 데이터 출력하기</span><br><span class="line"></span><br><span class="line">		Node node = head;</span><br><span class="line">		System.out.println(node.data);</span><br><span class="line">		while(node.next != null) &#123;</span><br><span class="line">			node = node.next;</span><br><span class="line">			System.out.println(node.data);</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	 public Node search(Object data) &#123;// 해당 데이터 위치 찾기</span><br><span class="line">	        if (this.head == null) &#123;</span><br><span class="line">	            return null;</span><br><span class="line">	        &#125; else &#123;</span><br><span class="line">	            Node node = this.head;</span><br><span class="line">	            while(node != null) &#123;</span><br><span class="line">	                if (node.data == data) &#123;</span><br><span class="line">	                    return node;</span><br><span class="line">	                &#125; else &#123;</span><br><span class="line">	                    node = node.next;</span><br><span class="line">	                &#125;</span><br><span class="line">	            &#125;</span><br><span class="line">	            return null;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	    public void addNodeInside(Object data, Object isData) &#123;// isData노드 옆에 data노드 넣기</span><br><span class="line">	        Node searchedNode = this.search(isData);</span><br><span class="line"></span><br><span class="line">	        if (searchedNode == null) &#123;</span><br><span class="line">	            this.addNode(data);</span><br><span class="line">	        &#125; else &#123; // searchedNode.next를 nextNode라는 변수에 넣어놓고 searchedNode.next에 노드를 하나 만들고 searchedNode.next.next가 nextNode를 가르키게하는것.</span><br><span class="line">	            Node nextNode = searchedNode.next;</span><br><span class="line">	            searchedNode.next = new Node(data);</span><br><span class="line">	            searchedNode.next.next = nextNode;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class LinkedListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		SingleLinkedList linkedlist = new SingleLinkedList();</span><br><span class="line"></span><br><span class="line">		linkedlist.addNode(1);</span><br><span class="line">		linkedlist.addNode(2);</span><br><span class="line">		linkedlist.addNode(3);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		System.out.println(linkedlist.head.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.next.data);</span><br><span class="line"></span><br><span class="line">		linkedlist.printAll();</span><br><span class="line"></span><br><span class="line">		linkedlist.addNodeInside(4, 1);// 1의 데이터를 가진 node 옆에 4를 넣겠다.</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/23/220423-3rd-CS/" rel="prev" title="CS (3) [스택(Stack)]">
+                  <i class="fa fa-chevron-left"></i> CS (3) [스택(Stack)]
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jinwoorim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
