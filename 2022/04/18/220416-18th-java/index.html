@@ -28,7 +28,7 @@
 <meta property="og:description" content="java.util 패키지Random 클래스12345678910111213141516171819202122package Chapter09;import java.util.Random;public class RandomTest &amp;#123;	public static void main(String[] args) &amp;#123;		Random random &#x3D; new Ra">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-17T16:33:26.000Z">
-<meta property="article:modified_time" content="2022-04-17T16:37:10.773Z">
+<meta property="article:modified_time" content="2022-04-27T05:49:00.293Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
@@ -207,9 +207,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-18 01:33:26 / Modified: 01:37:10" itemprop="dateCreated datePublished" datetime="2022-04-18T01:33:26+09:00">2022-04-18</time>
+      <time title="Created: 2022-04-18 01:33:26" itemprop="dateCreated datePublished" datetime="2022-04-18T01:33:26+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-27 14:49:00" itemprop="dateModified" datetime="2022-04-27T14:49:00+09:00">2022-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,7 +256,7 @@
 <h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><ul>
 <li><p>HashSet 과 ArrayList의 차이 : HashSetd은 똑같은 값을 가지는 객체를 저장하지않는다. ArrayList는 데이터를 넣는족족 순서대로 저장되지만 HashSet은 데이터가 랜덤한 순서로 저장된다</p>
 </li>
-<li><p>Hashcode 메소드 오버라이딩 해줘야 똑같은 값 저장안됨</p>
+<li><p>Hashcode, equals 메소드 오버라이딩 해줘야 똑같은 값 저장안됨</p>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">import java.util.HashSet;</span><br><span class="line"></span><br><span class="line">public class SetTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		HashSet&lt;Student&gt; studentList = new HashSet&lt;Student&gt;();</span><br><span class="line">		// HashSet은 똑값은 값을 저장하지않는다. Hashcode 메소드 오버라이딩 해줘야 똑같은 값 저장안됨</span><br><span class="line">		studentList.add(new Student(&quot;우림&quot;, 1));</span><br><span class="line">		studentList.add(new Student(&quot;예림&quot;, 2));</span><br><span class="line">		studentList.add(new Student(&quot;용구&quot;, 3));</span><br><span class="line">		studentList.add(new Student(&quot;지영&quot;, 4));</span><br><span class="line">		studentList.add(new Student(&quot;지영&quot;, 4));</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;학생 목록&quot;);</span><br><span class="line"></span><br><span class="line">		for(Student student : studentList) &#123;</span><br><span class="line">			System.out.println(student.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
