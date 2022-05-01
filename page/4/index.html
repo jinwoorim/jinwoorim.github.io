@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,90 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-7th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/My-7th-post/" class="post-title-link" itemprop="url">About git (6) [How do git flow project with team leader and team members]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:04:47 / Modified: 00:06:49" itemprop="dateCreated datePublished" datetime="2022-04-18T00:04:47+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="How-the-team-leader-and-the-team-members-do-the-git-flow-project"><a href="#How-the-team-leader-and-the-team-members-do-the-git-flow-project" class="headerlink" title="How the team leader and the team members do the git flow project"></a>How the team leader and the team members do the git flow project</h1><h2 id="How-team-leader-do"><a href="#How-team-leader-do" class="headerlink" title="How team leader do"></a>How team leader do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team leader make a repo.</span><br><span class="line">2. Team leader clone his repo on the dev.</span><br><span class="line">3. $ git flow init.</span><br><span class="line">4. $ touch &#123;file name&#125;.</span><br><span class="line">5. $ git add &#123;file name&#125;.</span><br><span class="line">6. $ git commit.</span><br><span class="line">7. $ git push -u origin develop.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-team-member-do"><a href="#How-team-member-do" class="headerlink" title="How team member do"></a>How team member do</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Team member click Fork in the team leader&#x27;s URL.</span><br><span class="line">2. Team member copy the forked file.</span><br><span class="line">3. $ git clone &#123;forked file&#125;.</span><br><span class="line">4. $ git flow init.</span><br><span class="line">5. Then you can see team leader&#x27;s develop file.</span><br><span class="line">6. $ git flow feature start &#123;feature name&#125;.</span><br><span class="line">7. Then work on the vim.</span><br><span class="line">8. $ git add &#123;feature name&#125;.</span><br><span class="line">9. $ git commit.</span><br><span class="line">10. $ git flow feature finish &#123;feature name&#125;.</span><br><span class="line">11. $ git push -u origin develop.</span><br><span class="line">12. Write lssues in the github.</span><br><span class="line">13. Click compare &amp; pull request or open pull request in github.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-team-member-pull-the-team-leader’s-remake-develop-file"><a href="#How-team-member-pull-the-team-leader’s-remake-develop-file" class="headerlink" title="How team member pull the team leader’s remake develop file."></a>How team member pull the team leader’s remake develop file.</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git remote add &#123;new remote name&#125; &#123;team leader&#x27;s remake develop file&#125;.</span><br><span class="line">2. $ git pull &#123;new remote name&#125; develop.</span><br><span class="line">3. Then you work on the new feature file. $ git flow feature start &#123;new feature fil&#125;.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>If team leader will do release, $ git flow release start {release name}.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
