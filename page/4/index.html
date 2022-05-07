@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,94 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-8th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/My-8th-post/" class="post-title-link" itemprop="url">About git (7) [Revert]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:07:33 / Modified: 00:09:17" itemprop="dateCreated datePublished" datetime="2022-04-18T00:07:33+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="If-you-want-to-change-name"><a href="#If-you-want-to-change-name" class="headerlink" title="If you want to change name"></a>If you want to change name</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">mv</span> &#123;original file name&#125; &#123;new file name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>If you write $ mv {original file name} {new file name}, git doesn’t think it’s changed, but thinks the original file has been deleted.</p>
+<h1 id="If-you-want-to-go-back-to-before-the-last-action"><a href="#If-you-want-to-go-back-to-before-the-last-action" class="headerlink" title="If you want to go back to before the last action"></a>If you want to go back to before the last action</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="If-you-want-to-go-back-to-last-commit-status"><a href="#If-you-want-to-go-back-to-last-commit-status" class="headerlink" title="If you want to go back to last commit status"></a>If you want to go back to last commit status</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore .</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="If-you-want-to-cancel-the-file-added-to-the-stage"><a href="#If-you-want-to-cancel-the-file-added-to-the-stage" class="headerlink" title="If you want to cancel the file added to the stage"></a>If you want to cancel the file added to the stage</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git reset HEAD &#123;file name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Head means the latest.</p>
+<h1 id="If-you-want-to-cancel-the-committed-file-and-rewrite-commit"><a href="#If-you-want-to-cancel-the-committed-file-and-rewrite-commit" class="headerlink" title="If you want to cancel the committed file and rewrite commit"></a>If you want to cancel the committed file and rewrite commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend</span></span><br></pre></td></tr></table></figure>
+<h1 id="If-you-want-to-go-back-to-several-levels-of-commit"><a href="#If-you-want-to-go-back-to-several-levels-of-commit" class="headerlink" title="If you want to go back to several levels of commit"></a>If you want to go back to several levels of commit</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git --no commit HEAD~&#123;number&#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
