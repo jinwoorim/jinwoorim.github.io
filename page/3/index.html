@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,168 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220412-11th-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/220412-11th-java/" class="post-title-link" itemprop="url">java (11) [Array]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 01:21:55 / Modified: 01:24:07" itemprop="dateCreated datePublished" datetime="2022-04-18T01:21:55+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package ch20;</span><br><span class="line"></span><br><span class="line">public class ArrayTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		int[] arr = new int[10];</span><br><span class="line">		int total = 0;</span><br><span class="line"></span><br><span class="line">		for(int i=0, num=1; i&lt;arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">			arr[i] = num++;</span><br><span class="line">	//		System.out.println(arr[i]);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		for(int num : arr) &#123;</span><br><span class="line"></span><br><span class="line">			total += num;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(total);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="객체-배열"><a href="#객체-배열" class="headerlink" title="객체 배열"></a>객체 배열</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package ch20;</span><br><span class="line"></span><br><span class="line">class Book &#123;</span><br><span class="line"></span><br><span class="line">	private String title;</span><br><span class="line">	private String author;</span><br><span class="line"></span><br><span class="line">//	public Book() &#123;&#125;</span><br><span class="line">	public Book(String title, String author) &#123;</span><br><span class="line"></span><br><span class="line">		this.title = title;</span><br><span class="line">		this.author = author;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getTitle() &#123;</span><br><span class="line">		return title;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setTitle(String title) &#123;</span><br><span class="line">		this.title = title;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getAuthor() &#123;</span><br><span class="line">		return author;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAuthor(String author) &#123;</span><br><span class="line">		this.author = author;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void showInfo() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(title + &quot;,&quot; + author);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class BookTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Book[] library = new Book[5];</span><br><span class="line"></span><br><span class="line">//		for(int i = 0; i &lt; library.length; i++) &#123;</span><br><span class="line">//</span><br><span class="line">//			System.out.println(library[i]);</span><br><span class="line">//		&#125;</span><br><span class="line"></span><br><span class="line">		library[0] = new Book(&quot;태백산맥1&quot;, &quot;조정래&quot;);</span><br><span class="line">		library[1] = new Book(&quot;태백산맥2&quot;, &quot;조정래&quot;);</span><br><span class="line">		library[2] = new Book(&quot;태백산맥3&quot;, &quot;조정래&quot;);</span><br><span class="line">		library[3] = new Book(&quot;태백산맥4&quot;, &quot;조정래&quot;);</span><br><span class="line">		library[4] = new Book(&quot;태백산맥5&quot;, &quot;조정래&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	for(Book book : library) &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(book);</span><br><span class="line">		book.showInfo();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2차배열"><a href="#2차배열" class="headerlink" title="2차배열"></a>2차배열</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package ch21;</span><br><span class="line"></span><br><span class="line">public class TwoDimensionTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		int[][] arr = &#123;&#123;10,20,30&#125;, &#123;10,20,30,40&#125;&#125;;</span><br><span class="line"></span><br><span class="line">		int i,j;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		for(i = 0; i&lt;arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">			for(j = 0; j&lt;arr[i].length; j++) &#123;</span><br><span class="line"></span><br><span class="line">				System.out.print(arr[i][j] + &quot;,&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(&quot;\t&quot; + arr[i].length);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220411-10th-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/220411-10th-java/" class="post-title-link" itemprop="url">java (10) [상속과 생성자]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:56:50 / Modified: 01:02:43" itemprop="dateCreated datePublished" datetime="2022-04-18T00:56:50+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package pracitice06;</span><br><span class="line"></span><br><span class="line">class Cal&#123;</span><br><span class="line">        int v1,v2;</span><br><span class="line">        //Cal()&#123;&#125;로 생성자 생성</span><br><span class="line">        Cal(int v1, int v2)&#123;</span><br><span class="line">                this.v1 = v1; this.v2 = v2;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cal2 extends Cal&#123;</span><br><span class="line">        // 생성자가 있는 클래스를 상속받앗다면 생성자를 만들어서 부모클래스를 반드시 호출시켜주어야한다.</span><br><span class="line">        Cal2(int v1, int v2) &#123;</span><br><span class="line">                super(v1, v2);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class InheritanceApp &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">                Cal2 c2 = new Cal2(2,1);</span><br><span class="line">                Cal c = new Cal(2,1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -838,253 +1000,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220407-1st-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220407-1st-java/" class="post-title-link" itemprop="url">java (1) [Basic of java 1]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 00:18:49 / Modified: 00:20:27" itemprop="dateCreated datePublished" datetime="2022-04-18T00:18:49+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="자바-프로그래밍"><a href="#자바-프로그래밍" class="headerlink" title="자바 프로그래밍"></a>자바 프로그래밍</h1><ul>
-<li>플랫폼(os)에 영향을 받지 않으므로 다양한 환경으로 사용할 수 있다.</li>
-<li>객체 지향 언어이기 때문에 유지보수가 쉽고 확장성이 좋다.</li>
-<li>프로그램이 안정적이다.</li>
-<li>풍부한 기능이 제공되는 오픈소스이다.</li>
-</ul>
-<h1 id="객체-지향-프로그래밍이-무엇인가"><a href="#객체-지향-프로그래밍이-무엇인가" class="headerlink" title="객체 지향 프로그래밍이 무엇인가"></a>객체 지향 프로그래밍이 무엇인가</h1><ul>
-<li>프로그램의 구현을 시간의 흐름순이 아닌 객체간의 관계와 협력을 기반으로 프로그램 하는 것</li>
-</ul>
-<h1 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h1><ul>
-<li>JDK(Java Development Kit) : 자바에서 제공되는 개발용 라이브러리. 계속 버젼이 올라가고 있음</li>
-<li>JRE(Java Runtime Environment) : 자바 프로그램이 실행되는 환경. 8.0까지 무료로 제공 됨</li>
-<li>JVM(Java Virtual Machine) : 자바 가상 머신으로 프로그램이 실행되는 환경인 JRE 가 설치되어 있어야 함</li>
-</ul>
-<h1 id="변수-Variable"><a href="#변수-Variable" class="headerlink" title="변수(Variable)"></a>변수(Variable)</h1><ul>
-<li>프로그램에서는 항상 변하는 값을 나타낼 필요가 있음</li>
-<li>표현하려는 수에 맞는 데이터 타입(자료형)을 이용하여 변수를 선언</li>
-<li>변수 선언은 자료형과 변수 명으로 선언함. 선언함과 동시에 초기화 할 수 있음</li>
-<li>변수 이름은 영문자(대문자, 소문자)나 숫자를 사용할 수도 있고, 특수문자 중에는 $와 _만 사용 (ex. count100, _master)</li>
-<li>변수 이름의 시작은 숫자로 할 수 없음 ( ex. 27days(X), 1abc(X))</li>
-<li>자바에서 이미 사용하고 있는 예약어는 사용할 수 없음 (while, break 등)</li>
-<li>변수 이름은 프로그램내에서 사용되는 것이므로 그 용도에 맞고 가독성이 좋게 만드는것이 중요</li>
-</ul>
-<h1 id="기본-자료형-Primitive-data-type-의-종류"><a href="#기본-자료형-Primitive-data-type-의-종류" class="headerlink" title="기본 자료형(Primitive data type)의 종류"></a>기본 자료형(Primitive data type)의 종류</h1><ul>
-<li>정수형 : byte short int(기본) long<ul>
-<li>long lnumber &#x3D; 123456789L;</li>
-</ul>
-</li>
-<li>문자형 : char</li>
-<li>실수형 : float double(기본)</li>
-<li>논리형 : boolean</li>
-</ul>
-<h1 id="지역-변수-자료형-없이-사용하기"><a href="#지역-변수-자료형-없이-사용하기" class="headerlink" title="지역 변수 자료형 없이 사용하기"></a>지역 변수 자료형 없이 사용하기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var i = 10;</span><br><span class="line">var j = 10.0;</span><br><span class="line">var str = &quot;hello&quot;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="상수-constant-선언하기"><a href="#상수-constant-선언하기" class="headerlink" title="상수(constant) 선언하기"></a>상수(constant) 선언하기</h1><p>상수를 사용하면 변하지 않는 값을 반복하여 사용할 때 의미있는 문자로 인식하기 쉽고, 변하더라도 선언한 부분만 변경하면 되므로 여러부분을 수정할 필요가 없음</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">final int MAX_NUM = 100;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="java의-연산자들"><a href="#java의-연산자들" class="headerlink" title="java의 연산자들"></a>java의 연산자들</h1><ul>
-<li>표 참고</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/My-9th-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/My-9th-post/" class="post-title-link" itemprop="url">About git (8) [Markdown]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 00:07:55 / Modified: 00:10:27" itemprop="dateCreated datePublished" datetime="2022-04-18T00:07:55+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="제목-Header"><a href="#제목-Header" class="headerlink" title="제목(Header)"></a>제목(Header)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. ## 제목2</span><br><span class="line">2. ### 제목3</span><br><span class="line">3. #### 제목4</span><br><span class="line">4. ##### 제목5</span><br><span class="line">5. ###### 제목6</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="문장-Paragraph"><a href="#문장-Paragraph" class="headerlink" title="문장(Paragraph)"></a>문장(Paragraph)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세</p>
-<h1 id="줄바꿈-Line-Breaks"><a href="#줄바꿈-Line-Breaks" class="headerlink" title="줄바꿈(Line Breaks)"></a>줄바꿈(Line Breaks)</h1><p>동해물과 백두산이 마르고 닳도록<br>하느님이 보우하사 우리나라 만세<br>무궁화 삼천리 화려 강산<br/><br>대한 사람 대한으로 길이 보전하세</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Two click of spacebar or &lt;/br&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="강조-Emphasis"><a href="#강조-Emphasis" class="headerlink" title="강조(Emphasis)"></a>강조(Emphasis)</h1><p><em>이텔릭</em><br><strong>두껍게</strong></br><br><strong><em>이텔릭 + 두껍게</em></strong></br><br><del>취소선</del></p>
-<h1 id="목록-List"><a href="#목록-List" class="headerlink" title="목록(List)"></a>목록(List)</h1><ol>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록<ol>
-<li>순서가 필요한 목록</li>
-<li>순서가 필요한 목록</li>
-</ol>
-</li>
-<li>순서가 필요한 목록</li>
-</ol>
-<ul>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록<ul>
-<li>순서가 필요하지 않은 목록</li>
-<li>순서가 필요하지 않은 목록</li>
-</ul>
-</li>
-<li>순서가 필요하지 않은 목록</li>
-</ul>
-<h1 id="링크-Links"><a href="#링크-Links" class="headerlink" title="링크(Links)"></a>링크(Links)</h1><p><a target="_blank" rel="noopener" href="https://www.google.co.kr/">GOOLE</a></p>
-<h1 id="이미지-Images"><a href="#이미지-Images" class="headerlink" title="이미지(Images)"></a>이미지(Images)</h1><p><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></p>
-<p><a target="_blank" rel="noopener" href="https://heropy.blog/"><img src="https://heropy.blog/css/images/logo.png" alt="HEROPY"></a></p>
-<h1 id="인용문-BlockQuote"><a href="#인용문-BlockQuote" class="headerlink" title="인용문(BlockQuote)"></a>인용문(BlockQuote)</h1><blockquote>
-<p>남의 말이나 글에서 직접 또는 간접으로 따온 문장.</p>
-</blockquote>
-<blockquote>
-<p>(네이버 국어 사전)</p>
-</blockquote>
-<blockquote>
-<p>인용문을 작성하세요!</p>
-<blockquote>
-<p>중첩된 인용문</p>
-<blockquote>
-<blockquote>
-<p>중중첩된 인용문1<br>중중첩된 인용문1<br>중중첩된 인용문1</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="인라인-inline-코드-강조"><a href="#인라인-inline-코드-강조" class="headerlink" title="인라인(inline) 코드 강조"></a>인라인(inline) 코드 강조</h1><p>‘코드 강조’</p>
-<h1 id="블록-block-코드강조"><a href="#블록-block-코드강조" class="headerlink" title="블록(block) 코드강조"></a>블록(block) 코드강조</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">블록 코드 강조</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
