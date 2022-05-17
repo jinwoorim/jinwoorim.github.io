@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,90 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220408-3rd-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/220408-3rd-java/" class="post-title-link" itemprop="url">java (3) [Class and Instance]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-18 00:29:59 / Modified: 00:34:01" itemprop="dateCreated datePublished" datetime="2022-04-18T00:29:59+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="클래스-amp-인스턴스"><a href="#클래스-amp-인스턴스" class="headerlink" title="클래스 &amp; 인스턴스"></a>클래스 &amp; 인스턴스</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice01;</span><br><span class="line"></span><br><span class="line">import java.io.FileWriter; // FileWriter라는 클래스가 자바 패키지에 속하지않기 때문에 import 해준것</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class classAndInstance &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args) throws IOException &#123;</span><br><span class="line">                // throws IOException : data.txt라는 파일이 없거나하면 오류가 날 수 있기때문에 예외처리해준 것.</span><br><span class="line">                // class : System, Math, FileWriter</span><br><span class="line">                // instance : f1, f2</span><br><span class="line">                System.out.println(Math.PI);</span><br><span class="line">                System.out.println(Math.floor(1.8));</span><br><span class="line">                System.out.println(Math.ceil(1.8));</span><br><span class="line"></span><br><span class="line">                 FileWriter fi = new FileWriter(&quot;data.txt&quot;);</span><br><span class="line">                 // FileWriter 라는 클래스에서 우리가 저장하고 싶은 파일(data.txt)에 new라는 것을 적어서</span><br><span class="line">                 // 복제본을 만들고 그걸 fi이라는 변수에 담겠다. fi의 데이터타입은 FileWriter가 된다.</span><br><span class="line"></span><br><span class="line">                 fi.write(&quot;Hello&quot;);</span><br><span class="line">                 fi.write(&quot;Java&quot;);</span><br><span class="line">                 fi.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h1><ul>
+<li>클래스 : 메서드와 변수들을 그룹화해서 하나의 부품화 시키는것.</li>
+<li>인스턴스 : new 키워드를 사용하여 만든 클래스의 복제본을 담는 변수(객체)</li>
+<li>메서드 : 맴버 변수를 이용하여 클래스의 기능을 구현한 함수</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1063,99 +1147,6 @@
 
 <h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><h2 id="Make-dir-first-on-the-git-bottom-up"><a href="#Make-dir-first-on-the-git-bottom-up" class="headerlink" title="Make dir first on the git (bottom up)"></a>Make dir first on the git (bottom up)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ mkdir second-repo</span><br><span class="line">2. $ cd second-repo</span><br><span class="line">3. $ git init</span><br><span class="line"> //after creating remote repo on github,</span><br><span class="line">4. $ git remote add mask&#123;repo_url&#125;</span><br><span class="line"></span><br><span class="line"> // After doing some work,</span><br><span class="line"></span><br><span class="line">5. $ git add&#123;filename&#125;</span><br><span class="line">6. $ git commit</span><br><span class="line">7. $ git branch -M main</span><br><span class="line">8. $ git push -u mask main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/03/30/My-2nd-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/30/My-2nd-post/" class="post-title-link" itemprop="url">About git (2) [How to make github blog]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-03-30 21:14:14" itemprop="dateCreated datePublished" datetime="2022-03-30T21:14:14+09:00">2022-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-17 23:44:16" itemprop="dateModified" datetime="2022-04-17T23:44:16+09:00">2022-04-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="How-to-start-github-blog"><a href="#How-to-start-github-blog" class="headerlink" title="How to start github blog"></a>How to start github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. In github, make a new repo.(repo name = Owner(like jinwoorim.github.io)).</span><br><span class="line">2. $ git clone (address)</span><br><span class="line">3. $ touch index.html</span><br><span class="line">4. node.js install</span><br><span class="line">5. write $ node- v </span><br><span class="line">6. write $ npm - v </span><br><span class="line">7. $ npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="How-to-restart-github-blog"><a href="#How-to-restart-github-blog" class="headerlink" title="How to restart github blog"></a>How to restart github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo init ghblog(on dev)</span><br><span class="line">2. $ cd ghblog</span><br><span class="line">3. $ hexo new post (&quot;title&quot;)</span><br><span class="line">4. $ vi (source/_posts/My-first-post.md)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="How-to-open-server"><a href="#How-to-open-server" class="headerlink" title="How to open server"></a>How to open server</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo server</span><br><span class="line">2. localhost:4000 on browser</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="How-to-close-server"><a href="#How-to-close-server" class="headerlink" title="How to close server"></a>How to close server</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. Press Ctrl+C to stop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="Make-a-themes"><a href="#Make-a-themes" class="headerlink" title="Make a themes"></a>Make a themes</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. $ npm install hexo-theme-(theme name)</span><br><span class="line">2. $ vi _config.yml</span><br><span class="line">3. theme: (theme name)</span><br><span class="line">4. $ hexo clean &amp;&amp; hexo deploy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>THE END..</p>
 
       
     </div>
