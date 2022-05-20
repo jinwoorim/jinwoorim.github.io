@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,129 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/20/220520-4th-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/20/220520-4th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (4) [Servlet(3)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-20 21:05:06 / Modified: 21:10:22" itemprop="dateCreated datePublished" datetime="2022-05-20T21:05:06+09:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="상태-정보-유지"><a href="#상태-정보-유지" class="headerlink" title="상태 정보 유지"></a>상태 정보 유지</h1><ul>
+<li>요청한 브라우저가 로그인을 한 상태인지 아닌지 Servlet이 식별할 수 있게하는것</li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><ul>
+<li><p>상태 정보 를 브라우저쪽 pc에 저장</p>
+</li>
+<li><p>텍스트 형태만 저장가능</p>
+</li>
+<li><p>저장에 대한 제한이 있음</p>
+</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><ul>
+<li><p>상태 정보를 서버에 저장</p>
+</li>
+<li><p>모든 타입 저장가능</p>
+</li>
+<li><p>메모리범위를 넘지않는 한 저장가능</p>
+</li>
+<li><p>브라우저 하나당 세션객체가 생성되고 세션 ID는 유니크하게 가진다</p>
+</li>
+</ul>
+<h1 id="정보-공유"><a href="#정보-공유" class="headerlink" title="정보 공유"></a>정보 공유</h1><ul>
+<li><p>HttpServletRequest :포워딩 관계에 있는 서브릿간에서 getAttribute로 가져다 쓸수있다. Request 객체는 서버가 브라우저에 응답하는 순간 삭제</p>
+</li>
+<li><p>HttpSession : 다른 서브릿에서 getAttribute로 가져다 쓸수있다(브라우저가 살아있는 동안 유지)</p>
+</li>
+<li><p>ServletContext : 다른 서브릿에서 getAttribute로 가져다 쓸수있다(브라우저가 죽어도 유지)</p>
+</li>
+</ul>
+<h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><ul>
+<li><p>특정 Servlet 실행 전과후에 작업을 할 수있다(대표적으로 encoding,currentTimeMills() 메소드를 통해 Servlet 실행 시간을 알때도 쓴다)</p>
+</li>
+<li><p>필터는 web.xml에 적용되고 pre-loading 방식이기에 서버구동되면 생성된다.</p>
+</li>
+<li><p>annotation 가능</p>
+</li>
+</ul>
+<h1 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h1><ul>
+<li><p>이벤트 처리용(request, session, context)</p>
+</li>
+<li><p>필터보다 먼저 생성됨</p>
+</li>
+<li><p>annotation 가능</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1168,96 +1291,6 @@
 <h2 id="Big-0-O-N"><a href="#Big-0-O-N" class="headerlink" title="Big 0 O(N)"></a>Big 0 O(N)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 int total = 0;</span><br><span class="line">		 for(int i = 1; i &lt;= number; i++) &#123;</span><br><span class="line"></span><br><span class="line">		 total += i;</span><br><span class="line">		 &#125;</span><br><span class="line"></span><br><span class="line">		 return total;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Big-0-O-1"><a href="#Big-0-O-1" class="headerlink" title="Big 0 O(1)"></a>Big 0 O(1)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 return number*(number+1)/2;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/25/220425-4th-CS/" class="post-title-link" itemprop="url">CS (4) [링크드 리스트(LinkedList)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-25 00:18:08 / Modified: 01:12:20" itemprop="dateCreated datePublished" datetime="2022-04-25T00:18:08+09:00">2022-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="링크드-리스트-Linked-List"><a href="#링크드-리스트-Linked-List" class="headerlink" title="링크드 리스트(Linked List)"></a>링크드 리스트(Linked List)</h1><ul>
-<li><p>배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.</p>
-</li>
-<li><p>링크드 리스트는 데이터와 주소를 동반함</p>
-</li>
-<li><p>노드 : 데이터값과 포인터(데이터 주소)로 구성</p>
-</li>
-<li><p>단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이 필요하므로 저장공간 효율이 좋지 못하다. 접근 속도가 느림.</p>
-</li>
-</ul>
-<h2 id="Node-클래스-구현-및-링크드리스트에-여러-기능구현"><a href="#Node-클래스-구현-및-링크드리스트에-여러-기능구현" class="headerlink" title="Node 클래스 구현 및 링크드리스트에 여러 기능구현"></a>Node 클래스 구현 및 링크드리스트에 여러 기능구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class SingleLinkedList &#123;</span><br><span class="line"></span><br><span class="line">	Node head = null;</span><br><span class="line"></span><br><span class="line">	  public class Node&#123; //Node 클래스 구현</span><br><span class="line"></span><br><span class="line">		  Object data;</span><br><span class="line">		  Node next = null;</span><br><span class="line"></span><br><span class="line">		Node(Object data)&#123;</span><br><span class="line"></span><br><span class="line">			this.data = data;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNode(Object data) &#123;// 링크드리스트에 데이터 추가하기</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			head = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = this.head;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line"></span><br><span class="line">				node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			node.next = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void printAll() &#123; // 링크드 리스트 데이터 출력하기</span><br><span class="line"></span><br><span class="line">		Node node = head;</span><br><span class="line">		System.out.println(node.data);</span><br><span class="line">		while(node.next != null) &#123;</span><br><span class="line">			node = node.next;</span><br><span class="line">			System.out.println(node.data);</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	public Node search(Object data) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			while(node != null) &#123;</span><br><span class="line"></span><br><span class="line">				if(node.data == data) &#123;</span><br><span class="line"></span><br><span class="line">					return node;</span><br><span class="line">				&#125;</span><br><span class="line">				else node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNodeInside(Object data, Object isdata) &#123;</span><br><span class="line"></span><br><span class="line">		Node searchedNode = search(isdata);</span><br><span class="line"></span><br><span class="line">		if(searchedNode == null) &#123;</span><br><span class="line"></span><br><span class="line">			addNode(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line"></span><br><span class="line">			Node nextNode = searchedNode.next;</span><br><span class="line">			searchedNode.next = new Node(data);</span><br><span class="line">			searchedNode.next.next = nextNode;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public boolean delNode(Object deldata) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			if(node.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">				head = head.next;</span><br><span class="line">				return true;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line">				if(node.next.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">					node.next = node.next.next;</span><br><span class="line">					return true;</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;</span><br><span class="line">					node = node.next;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class LinkedListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		SingleLinkedList linkedlist = new SingleLinkedList();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNode(1);</span><br><span class="line">		linkedlist.addNode(2);</span><br><span class="line">		linkedlist.addNode(3);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(linkedlist.head.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.next.data);</span><br><span class="line">		</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNodeInside(4, 1);// 1의 데이터를 가진 node 옆에 4를 넣겠다.</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.delNode(1);</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
