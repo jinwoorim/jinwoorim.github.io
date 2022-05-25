@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JSP(JavaServer Pages) Servlet과 같게 동적 컨텐츠를 처리하기 위함  서브릿으로 변환되어 실행됨   Servlet의 장점 Servlet은 Java로 구현된 클래스이기 때문에 플랫폼에 독립적(컴파일까지 해놓으면 바이너리(즉0.1의조합)이 아니라 바이트 파일이기때문에OS에 상관없이 실행가능)  멀티 스레드를 제공. 아무리많은 브라우저가 요">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet&amp;JSP (5) [JSP]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="JSP(JavaServer Pages) Servlet과 같게 동적 컨텐츠를 처리하기 위함  서브릿으로 변환되어 실행됨   Servlet의 장점 Servlet은 Java로 구현된 클래스이기 때문에 플랫폼에 독립적(컴파일까지 해놓으면 바이너리(즉0.1의조합)이 아니라 바이트 파일이기때문에OS에 상관없이 실행가능)  멀티 스레드를 제공. 아무리많은 브라우저가 요">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-25T10:49:21.000Z">
+<meta property="article:modified_time" content="2022-05-25T10:50:34.537Z">
+<meta property="article:author" content="jinwoorim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/","path":"2022/05/25/220525-5th-Servlet-and-JSP/","title":"Servlet&JSP (5) [JSP]"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Servlet&JSP (5) [JSP] | My blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My github blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JSP-JavaServer-Pages"><span class="nav-number">1.</span> <span class="nav-text">JSP(JavaServer Pages)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet%EC%9D%98-%EC%9E%A5%EC%A0%90"><span class="nav-number">1.1.</span> <span class="nav-text">Servlet의 장점</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0"><span class="nav-number">1.2.</span> <span class="nav-text">JSP를 사용하는 이유</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A3%BC%EC%84%9D%EB%AC%B8-lt-%E2%80%93-%E2%80%93-gt"><span class="nav-number">1.3.</span> <span class="nav-text">주석문(&lt;%– –%&gt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#page-%EC%A7%80%EC%8B%9C%EC%9E%90-lt-gt"><span class="nav-number">1.4.</span> <span class="nav-text">page 지시자(&lt;%@  %&gt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-%EC%A7%80%EC%8B%9C%EC%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">include 지시자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scriptlet-lt-gt"><span class="nav-number">1.6.</span> <span class="nav-text">Scriptlet (&lt;% %&gt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expression-lt-x3D-gt"><span class="nav-number">1.7.</span> <span class="nav-text">Expression (&lt;%&#x3D; %&gt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%82%B4%EC%9E%A5-%EA%B0%9D%EC%B2%B4"><span class="nav-number">1.8.</span> <span class="nav-text">내장 객체</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinwoorim</p>
+  <div class="site-description" itemprop="description">All stories about my develop</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Servlet&JSP (5) [JSP] | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Servlet&JSP (5) [JSP]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-25 19:49:21 / Modified: 19:50:34" itemprop="dateCreated datePublished" datetime="2022-05-25T19:49:21+09:00">2022-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="JSP-JavaServer-Pages"><a href="#JSP-JavaServer-Pages" class="headerlink" title="JSP(JavaServer Pages)"></a>JSP(JavaServer Pages)</h1><ul>
+<li><p>Servlet과 같게 동적 컨텐츠를 처리하기 위함</p>
+</li>
+<li><p>서브릿으로 변환되어 실행됨</p>
+</li>
+</ul>
+<h2 id="Servlet의-장점"><a href="#Servlet의-장점" class="headerlink" title="Servlet의 장점"></a>Servlet의 장점</h2><ul>
+<li><p>Servlet은 Java로 구현된 클래스이기 때문에 플랫폼에 독립적(컴파일까지 해놓으면 바이너리(즉0.1의조합)이 아니라 바이트 파일이기때문에<br>OS에 상관없이 실행가능)</p>
+</li>
+<li><p>멀티 스레드를 제공. 아무리많은 브라우저가 요청을 해도 서블릿객체는 메모리에 하나만 생성된다 예를들어 서비스를 처리하려면 스레드풀에서<br>스레드가 튀어나와 처리한다( 스레드는 서버엔진이 만든다). 즉, 메모리를 적게 사용</p>
+</li>
+</ul>
+<h2 id="JSP를-사용하는-이유"><a href="#JSP를-사용하는-이유" class="headerlink" title="JSP를 사용하는 이유"></a>JSP를 사용하는 이유</h2><ul>
+<li>Servlet의 단점을 보완하기 위함</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Servlet 단점&gt;</span><br><span class="line"></span><br><span class="line">1. 규칙을 외워야된다. (뭔가를 import를 해야되고, 반드시 HttpServlet을 상속해야되고, public 클래스로 작성해야되고, 반드시 디폴트 생성자가 </span><br><span class="line">있어야되고, 서비스라든지 do나 post메소드를 오버라이딩해야된다. 매겨변수 리턴타입 등등 어느거 하나 내맘대로 할 수가없다.)</span><br><span class="line"></span><br><span class="line">2. 서브릿이 실행하려면 어노테이션이라든지 web.xml에 등록해서 실행되게 하여야만한다</span><br><span class="line"></span><br><span class="line">3. 소스를 수정하면 리로딩될때 까지 기다려야됨</span><br><span class="line"></span><br><span class="line">4. 자바코드안에 디자인코드(HTML)를 가지고있음(디자인코드를 짤때 자바문법을 고려하면서 짜야됨). 유지보수가 어렵다 아니 불가능한 수준이다.</span><br><span class="line">JSP는 필요정도만 자바 코드가 추가된다.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="주석문-lt-–-–-gt"><a href="#주석문-lt-–-–-gt" class="headerlink" title="주석문(&lt;%– –%&gt;)"></a>주석문(&lt;%– –%&gt;)</h2><ul>
+<li>HTML 주석 : &lt;!– –!&gt;</li>
+<li>JSP 주석 : &lt;%– –%&gt;</li>
+<li>HTML 주석은 JSP가 Servlet 클래스로 변환될때 포함된다(유관으로 보여진다) JSP주석은 변환될때 포함안됨</li>
+</ul>
+<h2 id="page-지시자-lt-gt"><a href="#page-지시자-lt-gt" class="headerlink" title="page 지시자(&lt;%@  %&gt;)"></a>page 지시자(&lt;%@  %&gt;)</h2><ul>
+<li>JSP에서 Servlet 클래쓰로 변환할때 반영할 내용을 작성(인코딩, import 같은것)(&lt;%@page  %&gt;)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. isErrorPage : 해당 JSP 파일이 에러 페이지다</span><br><span class="line"></span><br><span class="line">2. errorPage : 에러뜨면 이동할 페이지</span><br><span class="line"></span><br><span class="line">3. import :변환될때 import할 것들</span><br><span class="line"></span><br><span class="line">4. session : session 객체를 사용하려면 request.getsession해서 setattribut 하고 getattribute해서 써야되는데 </span><br><span class="line">jsp에서는 막 쓸 수 있다. 왜냐하면 변환될때 자동으로 session 객체가 생성되므로(내장객체).(session = &quot;true&quot; 생략가능)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="include-지시자"><a href="#include-지시자" class="headerlink" title="include 지시자"></a>include 지시자</h2><ul>
+<li>웹 화면에서 Header와 Footer를 독립된 JSP로 만들고 include하면 공통된 웹화면을 만들 수 있다.</li>
+</ul>
+<h2 id="Scriptlet-lt-gt"><a href="#Scriptlet-lt-gt" class="headerlink" title="Scriptlet (&lt;% %&gt;)"></a>Scriptlet (&lt;% %&gt;)</h2><ul>
+<li>정상적인 자바 코드가 작성되는 영역</li>
+</ul>
+<h2 id="Expression-lt-x3D-gt"><a href="#Expression-lt-x3D-gt" class="headerlink" title="Expression (&lt;%&#x3D; %&gt;)"></a>Expression (&lt;%&#x3D; %&gt;)</h2><ul>
+<li>메소드 호출할 때</li>
+</ul>
+<h2 id="내장-객체"><a href="#내장-객체" class="headerlink" title="내장 객체"></a>내장 객체</h2><ul>
+<li><p>서버가 JSP를 Servlet으로 변환할 때 지정된 이름으로 변수가 선언되고 변수이름을 바꿀수도없다. 변수에 객체를 자동으로 할당해준다(초기화).</p>
+</li>
+<li><p>내장 객체로는 request, response, pageContext, session, application, config, out이 있다.</p>
+</li>
+<li><p>따라서, Scriptlet과 Expression 안에서 객체를 막 쓸 수 있다.따로 선언하지않고.</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/20/220520-4th-Servlet-and-JSP/" rel="prev" title="Servlet&JSP (4) [Servlet(3)]">
+                  <i class="fa fa-chevron-left"></i> Servlet&JSP (4) [Servlet(3)]
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/25/220525-6th-Servlet-and-JSP/" rel="next" title="Servlet&JSP (6) [MVC, EL, JSTL]">
+                  Servlet&JSP (6) [MVC, EL, JSTL] <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jinwoorim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
