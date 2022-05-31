@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738package pracitice06;class Cal&amp;#123;        public int sum(int v1, int v2) &amp;#123;                return v1+v2;        &amp;#125;&amp;#125;clas">
+    <meta name="description" content="Framework란 뼈대, 즉 아키텍처다  Framework를 사용하면 구조를 개발자가 고민하지않지 않는다 개발자가 개발하지않는다  개발자는 제공된 뼈대에 살만 붙이면 되는것  따라서, 유지보수 과정에서 살만 테스트하면되기 떄문에 유지보수에 유리함  정해진 구조를 사용하기 때문에 개발자마다의 역량이 획일화된다  개발자가 바뀌더라도 보다 쉽게 접근 가능하다">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java (7) [상속(inheritance)]">
-<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/18/220411-7th-java/index.html">
+<meta property="og:title" content="SpringFramework (1) [Framework란, Spring이란]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738package pracitice06;class Cal&amp;#123;        public int sum(int v1, int v2) &amp;#123;                return v1+v2;        &amp;#125;&amp;#125;clas">
+<meta property="og:description" content="Framework란 뼈대, 즉 아키텍처다  Framework를 사용하면 구조를 개발자가 고민하지않지 않는다 개발자가 개발하지않는다  개발자는 제공된 뼈대에 살만 붙이면 되는것  따라서, 유지보수 과정에서 살만 테스트하면되기 떄문에 유지보수에 유리함  정해진 구조를 사용하기 때문에 개발자마다의 역량이 획일화된다  개발자가 바뀌더라도 보다 쉽게 접근 가능하다">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-17T15:55:50.000Z">
-<meta property="article:modified_time" content="2022-04-17T16:00:00.596Z">
+<meta property="article:published_time" content="2022-05-31T06:28:11.000Z">
+<meta property="article:modified_time" content="2022-05-31T06:33:06.541Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/18/220411-7th-java/">
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/18/220411-7th-java/","path":"2022/04/18/220411-7th-java/","title":"java (7) [상속(inheritance)]"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/","path":"2022/05/31/220531-1st-SpringFramework/","title":"SpringFramework (1) [Framework란, Spring이란]"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>java (7) [상속(inheritance)] | My blog</title>
+<title>SpringFramework (1) [Framework란, Spring이란] | My blog</title>
   
 
 
@@ -103,7 +103,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -116,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Framework%EB%9E%80"><span class="nav-number">1.</span> <span class="nav-text">Framework란</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Framework-%EC%A2%85%EB%A5%98"><span class="nav-number">2.</span> <span class="nav-text">Framework 종류</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">3.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVN-REPOSTITORY-%EC%82%AC%EC%9D%B4%ED%8A%B8"><span class="nav-number">3.1.</span> <span class="nav-text">MVN REPOSTITORY 사이트</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220411-7th-java/">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="java (7) [상속(inheritance)] | My blog">
+      <meta itemprop="name" content="SpringFramework (1) [Framework란, Spring이란] | My blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          java (7) [상속(inheritance)]
+          SpringFramework (1) [Framework란, Spring이란]
         </h1>
 
         <div class="post-meta-container">
@@ -208,7 +209,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-04-18 00:55:50 / Modified: 01:00:00" itemprop="dateCreated datePublished" datetime="2022-04-18T00:55:50+09:00">2022-04-18</time>
+      <time title="Created: 2022-05-31 15:28:11 / Modified: 15:33:06" itemprop="dateCreated datePublished" datetime="2022-05-31T15:28:11+09:00">2022-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,7 +217,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
         </span>
     </span>
 
@@ -230,7 +231,51 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package pracitice06;</span><br><span class="line"></span><br><span class="line">class Cal&#123;</span><br><span class="line"></span><br><span class="line">        public int sum(int v1, int v2) &#123;</span><br><span class="line"></span><br><span class="line">                return v1+v2;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cal2 extends Cal&#123;</span><br><span class="line">        //extends를 사용하여 상속</span><br><span class="line">        public int minus(int v1, int v2) &#123;</span><br><span class="line"></span><br><span class="line">                return v1-v2;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class InheritanceApp &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">                Cal2 c2 = new Cal2();</span><br><span class="line">                System.out.println(c2.sum(2, 1));</span><br><span class="line">                System.out.println(c2.minus(2, 1));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Framework란"><a href="#Framework란" class="headerlink" title="Framework란"></a>Framework란</h1><ul>
+<li><p>뼈대, 즉 아키텍처다</p>
+</li>
+<li><p>Framework를 사용하면 구조를 개발자가 고민하지않지 않는다 개발자가 개발하지않는다</p>
+</li>
+<li><p>개발자는 제공된 뼈대에 살만 붙이면 되는것</p>
+</li>
+<li><p>따라서, 유지보수 과정에서 살만 테스트하면되기 떄문에 유지보수에 유리함</p>
+</li>
+<li><p>정해진 구조를 사용하기 때문에 개발자마다의 역량이 획일화된다</p>
+</li>
+<li><p>개발자가 바뀌더라도 보다 쉽게 접근 가능하다</p>
+</li>
+<li><p>사용자 입력정보 추출, DB연동 이런걸 한줄로 표현할 수 있기 때문에 소스의 양이 대폭 줄어든다</p>
+</li>
+</ul>
+<h1 id="Framework-종류"><a href="#Framework-종류" class="headerlink" title="Framework 종류"></a>Framework 종류</h1><ul>
+<li><p>Presentation (UI) 영역 : Spring(MVC) 모듈</p>
+</li>
+<li><p>Business 영역 : Spring(Ioc, AOP) 모듈</p>
+</li>
+<li><p>Persistence (DB 연동) 영역 :</p>
+<ul>
+<li>JPA : ORM(Object Relation Mapping) 프레임워크. SQL을 자체 생성하여 DB연동처리함. 어렵다</li>
+<li>MyBatis : 개발자가 SQL을 직접 작성해야한다.</li>
+<li>둘 다 DB연동을 자바코드 한줄로 표현 가능하다</li>
+</ul>
+</li>
+</ul>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<li><p>여러 Framework 모듈을 집합해놓은것</p>
+</li>
+<li><p>가볍다 : 모듈들 다 합쳐봐야 용량 얼마 안되고 POJO 기반이기 때문에 메모리를 적게사용한다. 따라서 속도빠름</p>
+</li>
+<li><p>POJO(Plain Old Java Object) 기반이다 : 내맘대로 만드는 클래스다. Servlet&amp;JSP 이런건 POJO 이전 기술이다.</p>
+</li>
+<li><p>컨테이너다. 애플리케이션 운용에 필요한 객체를 생성하고 관리한다. 내부적으로 객체들의 저장공간으로 컬렉션(MAP같은)을 사용한다</p>
+</li>
+</ul>
+<ul>
+<li>MVN REPOSTITORY 사이트 : 오만가지 Framework 를 검색해서 모듈(jar파일) 다운하는곳</li>
+</ul>
+<h2 id="MVN-REPOSTITORY-사이트"><a href="#MVN-REPOSTITORY-사이트" class="headerlink" title="MVN REPOSTITORY 사이트"></a>MVN REPOSTITORY 사이트</h2><ul>
+<li>오만가지 Framework 를 검색해서 모듈(jar파일) 다운하는곳</li>
+</ul>
 
     </div>
 
@@ -244,14 +289,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/18/220411-6th-java/" rel="prev" title="java (6) [Constructor and This]">
-                  <i class="fa fa-chevron-left"></i> java (6) [Constructor and This]
+                <a href="/2022/05/25/220525-6th-Servlet-and-JSP/" rel="prev" title="Servlet&JSP (6) [MVC, EL, JSTL]">
+                  <i class="fa fa-chevron-left"></i> Servlet&JSP (6) [MVC, EL, JSTL]
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/18/220411-8th-java/" rel="next" title="java (8) [Overloading and Overriding]">
-                  java (8) [Overloading and Overriding] <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
