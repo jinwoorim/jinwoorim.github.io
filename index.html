@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,167 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/04/220604-2nd-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/04/220604-2nd-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (2) [IoC(1)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-04 02:31:18 / Modified: 02:35:29" itemprop="dateCreated datePublished" datetime="2022-06-04T02:31:18+09:00">2022-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring-Container-GenericXmlApllicationContext-x2F-Web-만들-때는-XmlWebApplicationContext"><a href="#Spring-Container-GenericXmlApllicationContext-x2F-Web-만들-때는-XmlWebApplicationContext" class="headerlink" title="Spring Container(GenericXmlApllicationContext &#x2F; Web 만들 때는 XmlWebApplicationContext)"></a>Spring Container(GenericXmlApllicationContext &#x2F; Web 만들 때는 XmlWebApplicationContext)</h1><ul>
+<li><p>XML에 등록된 객체를 Pre-loading 한다</p>
+</li>
+<li><p>Pre-loading : 컨테이너가 생성될 때 자동으로 XML에 등록된 객체를 생성한다</p>
+</li>
+<li><p>객체를 생성할 때 디폴트 생성자만 호출한다</p>
+</li>
+<li><p>스프링 컨테이너는 XML에 등록된 순서대로 객체를 생성한다</p>
+</li>
+</ul>
+<h1 id="IoC-Inversion-of-Control-역제어-제어의-역전-lt-x3D-스프링을-쓰는-가장-큰-장점"><a href="#IoC-Inversion-of-Control-역제어-제어의-역전-lt-x3D-스프링을-쓰는-가장-큰-장점" class="headerlink" title="IoC(Inversion of Control) 역제어(제어의 역전) &lt;&#x3D; 스프링을 쓰는 가장 큰 장점"></a>IoC(Inversion of Control) 역제어(제어의 역전) &lt;&#x3D; 스프링을 쓰는 가장 큰 장점</h1><ul>
+<li><p>역제어란 : 어플리케이션 운용에 필요한 객체의 생성과 객체들 간의 의존관계를 자바 코드가 아닌 컨테이너가 모두 처리하는것</p>
+</li>
+<li><p>순제어란 : 우리가 객체생성할 때 new해서 직접 객체 생성하는것. 실행되는 객체를 바꾸기위해 우리는 손수 new 머시기 했던 자바코드를 수정해야된다. 전통적인 자바프로그래밍 방식. </p>
+</li>
+<li><p>역제어의 장점 : 자바코드를 전혀 수정하지않고 실행되는 객체를 바꿔치기할 수 있다. XML만 수정하면됨</p>
+</li>
+<li><p>IoC의 기능은 dependency lookup 과 dependency injection 로 나뉜다</p>
+</li>
+</ul>
+<h2 id="Lookup"><a href="#Lookup" class="headerlink" title="Lookup"></a>Lookup</h2><ul>
+<li><p>스프링 컨테이너로부터 id가 “id”인 ??타입의 객체를 획득하는것</p>
+</li>
+<li><p>ex) : TV tv1 &#x3D; (TV) 컨테이너 참조변수.getBean(“id”)</p>
+</li>
+</ul>
+<h2 id="XML-파일에서-xmlns-네임스페이스"><a href="#XML-파일에서-xmlns-네임스페이스" class="headerlink" title="XML 파일에서 xmlns(네임스페이스)"></a>XML 파일에서 xmlns(네임스페이스)</h2><ul>
+<li><p>XML 파일에 xmlns는 xmlns 여기에 등록된 태그만 쓸 수 있다</p>
+</li>
+<li><p>새로운 네임스페이스를 추가한다는 것은 다른 태그들 즉, 다른 종류의 작업을 지시 가능하도록 한다</p>
+</li>
+</ul>
+<h2 id="XML-파일에서-bean-태그"><a href="#XML-파일에서-bean-태그" class="headerlink" title="XML 파일에서 bean 태그"></a>XML 파일에서 bean 태그</h2><ul>
+<li><p>bean 태크를 사용해서 스프링 컨터이너가 xml 파일을 읽어들일 때 자동생성할 객체에 대한 클래스를 작성한다</p>
+</li>
+<li><p>bean 태그에는 id가 생략 가능하다. 하지만 class 속성은 필수다</p>
+</li>
+<li><p>id 속성 값은 반드시 전체 객체에서 유일해야한다</p>
+</li>
+<li><p>id 속성 값은 자바의 변수명 규칙을 적용한다.(숫자로 시작할 수 없고, 공백포함 할 수 없고, 특수문자x)버전 업되고는 가능하게되었다</p>
+</li>
+<li><p>init-method &#x3D; “메소드” : 컨테이너가 생성(구동)될 때 자동으로 <bean>태그에 등록된 class에서 “메소드”를 호출한다 </p>
+</li>
+<li><p>destroy-method &#x3D; “메소드” : 컨터이너가 종료될 때 <bean>태그에 등록된 class에서 “메소드”를 호출한다</p>
+<ul>
+<li>컨테이너종료 : 컨테이너 참조변수.close();</li>
+</ul>
+</li>
+<li><p>lazy-init&#x3D;”true” : 특정 객체를 Pre-loading이 아닌 Lazy-loding으로 생성하도록한다</p>
+<ul>
+<li>디폴트는  lazy-init&#x3D;”false”</li>
+</ul>
+</li>
+<li><p>scope&#x3D;”prototype” : 특정 객체를 요청(gerBean()) 할 때 마다 새로운 객체를 생성하여 리턴한다.즉, 새로운 객체를 생성할때 마다 메모리 주소가 바뀌겠지</p>
+<ul>
+<li>디폴트는 scope&#x3D;”singleton”</li>
+</ul>
+</li>
+</ul>
+<h2 id="Constructor-Injection-dependency-injection"><a href="#Constructor-Injection-dependency-injection" class="headerlink" title="Constructor Injection(dependency injection)"></a>Constructor Injection(dependency injection)</h2><ul>
+<li><p>constructor-arg 태그를 이용하여 생성자를 호출한다</p>
+</li>
+<li><p>컨테이너는 디폴트 생성자만 호출하기때문에 매개변수가 다른 생성자를 호출하기 위함</p>
+</li>
+</ul>
+<h2 id="Setter-Injection-dependency-injection"><a href="#Setter-Injection-dependency-injection" class="headerlink" title="Setter Injection(dependency injection)"></a>Setter Injection(dependency injection)</h2><ul>
+<li><p>property 태그를 이용하여 생성자를 호출한다</p>
+</li>
+<li><p>set 메소드 만드는 것</p>
+</li>
+<li><p>p 네임스페이스로 Setter Injection을 간결하게 표한할 수 있지만 가독성이 떨어지므로 비추</p>
+</li>
+</ul>
+<h2 id="IoC-설정에-Annotation을-적용"><a href="#IoC-설정에-Annotation을-적용" class="headerlink" title="IoC 설정에 Annotation을 적용"></a>IoC 설정에 Annotation을 적용</h2><ul>
+<li><p>방대한 양의 xml 코드량을 줄이기 사용 </p>
+</li>
+<li><p>&lt;context:component-scan base-package&#x3D;”패키지명”&#x2F;&gt; 태그를 사용한다</p>
+</li>
+<li><p>스프링 컨테이너로부터 Lookup 할때 getBean(“??”)한?? 을 해당 클래스에 @component(“??”)을 해준다</p>
+</li>
+<li><p>@component만 해주면 해당 클래스의 이름을 맨앞을 소문자로하여 취급된다</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1240,128 +1401,6 @@
 </li>
 <li><p>TABLE의 데이터 삭제 : DELETE 테이블명 WHERE 조건;</p>
 </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/01/220501-8th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/01/220501-8th-CS/" class="post-title-link" itemprop="url">CS (8) [힙]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-01 21:52:20 / Modified: 21:53:15" itemprop="dateCreated datePublished" datetime="2022-05-01T21:52:20+09:00">2022-05-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="힙"><a href="#힙" class="headerlink" title="힙"></a>힙</h1><ul>
-<li>데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리</li>
-</ul>
-<h2 id="힙의-구조"><a href="#힙의-구조" class="headerlink" title="힙의 구조"></a>힙의 구조</h2><ul>
-<li>힙은 최대값을 구하기 위한 구조 (최대 힙, Max Heap) 와, 최소값을 구하기 위한 구조 (최소 힙, Min Heap) 로 분류할 수 있음<ul>
-<li>Max Heap : 각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 같다</li>
-<li>Min Heap : 각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 작음</li>
-</ul>
-</li>
-</ul>
-<h2 id="힙에-데이터-삽입"><a href="#힙에-데이터-삽입" class="headerlink" title="힙에 데이터 삽입"></a>힙에 데이터 삽입</h2><ul>
-<li>Max Heap : 추가된 데이터를 부모노드와 비교하여 값이 클 경우 서로 swap</li>
-</ul>
-<h2 id="힙의-데이터-삭제"><a href="#힙의-데이터-삭제" class="headerlink" title="힙의 데이터 삭제"></a>힙의 데이터 삭제</h2><ul>
-<li>힙의 데이터 삭제는 보통 최상단(root)노드를 삭제하는것이 일반적이다.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(Max Heap 경우)</span><br><span class="line">1. root노드가 삭제되면 가장 마지막 노드를 root노드로 지정</span><br><span class="line">2. root노드를 자식노드와 비교해서 자식노드중 가장 큰값을 root노드와 swap</span><br><span class="line">3. swap된 이전root노드도 자식노드와 비교하여 2번과정을 Leaf Node일때까지 반복한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="힙-구현"><a href="#힙-구현" class="headerlink" title="힙 구현"></a>힙 구현</h2><ul>
-<li><p>일반적으로 힙은 배열을 활용함</p>
-<ul>
-<li><ol>
-<li>배열은 인덱스가 0번부터 시작하지만 힙은 편의를위해 root노드를 1번으로 지정한다(0번은 null)</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>부모 노드의 인덱스번호 &#x3D;&#x3D; (자식노드의 인덱스번호 &#x2F; 2)</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>왼쪽 자식노드의 인덱스번호 &#x3D;&#x3D; (부모 노드의 인덱스번호 * 2)</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>오른쪽 자식노드의 인덱스번호 &#x3D;&#x3D; ((부모 노드의 인덱스번호 * 2) + 1)</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice26;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Heap&#123;</span><br><span class="line">	ArrayList&lt;Integer&gt; heapArray = null;</span><br><span class="line"></span><br><span class="line">	Heap(int data)&#123;</span><br><span class="line">		heapArray = new ArrayList&lt;Integer&gt;();</span><br><span class="line">		heapArray.add(null);</span><br><span class="line">		heapArray.add(data);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Heap [heapArray=&quot; + heapArray + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	boolean move_up(int data_index) &#123;</span><br><span class="line">        if (data_index &lt;= 1) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">         int parent_index = (data_index / 2);</span><br><span class="line"></span><br><span class="line">        if(this.heapArray.get(data_index) &gt; this.heapArray.get(parent_index)) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	boolean insert(int data) &#123;</span><br><span class="line">		int data_index;</span><br><span class="line">		int parent_index;</span><br><span class="line"></span><br><span class="line">		if(heapArray == null) &#123;</span><br><span class="line">			heapArray = new ArrayList&lt;Integer&gt;();</span><br><span class="line">			heapArray.add(null);</span><br><span class="line">			heapArray.add(data);</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			heapArray.add(data);</span><br><span class="line"></span><br><span class="line">			data_index = heapArray.size() - 1;</span><br><span class="line"></span><br><span class="line">			 while (this.move_up(data_index)) &#123;</span><br><span class="line">		            parent_index = data_index / 2;</span><br><span class="line">		            Collections.swap(this.heapArray, data_index, parent_index);// Collections.swap() 메서드를 활용하여 스왑</span><br><span class="line">		            data_index = parent_index;</span><br><span class="line">		&#125;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class HeapTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Heap heap = new Heap(1);</span><br><span class="line">		System.out.println(heap);</span><br><span class="line"></span><br><span class="line">		heap.insert(2);</span><br><span class="line">		heap.insert(3);</span><br><span class="line">		heap.insert(4);</span><br><span class="line">		heap.insert(5);</span><br><span class="line">		System.out.println(heap);// [null, 5, 4, 2, 1, 3]</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>힙 데이터 삭제는 복잡하므로 생략</li>
 </ul>
 
       
