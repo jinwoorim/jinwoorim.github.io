@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,121 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/07/220607-3rd-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/07/220607-3rd-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (3) [IoC (2)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-07 17:10:55 / Modified: 17:11:56" itemprop="dateCreated datePublished" datetime="2022-06-07T17:10:55+09:00">2022-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="lt-context-component-scan-base-package-x3D-”패키지명”-x2F-gt-중요-포인트"><a href="#lt-context-component-scan-base-package-x3D-”패키지명”-x2F-gt-중요-포인트" class="headerlink" title="&lt;context:component-scan base-package&#x3D;”패키지명”&#x2F;&gt; 중요 포인트"></a>&lt;context:component-scan base-package&#x3D;”패키지명”&#x2F;&gt; 중요 포인트</h2><ul>
+<li>base-package로 지정한 패키지로 시작하는 모든 클래스를 스캔한다</li>
+</ul>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><ul>
+<li><p>주로 변수 위에 설정하여 해당 타입의 객체를 찾아서 자동으로 할당</p>
+</li>
+<li><p>해당 타입의 객체가 반드시 메모리에 있어야함(해당 객체 클래스에 @component 설정이 되있어야함)</p>
+</li>
+<li><p>유니크하게 존재해야만 한다(해당 타입의 객체를 implements한 클래스가 여러개일 경우 각각의 클래스에 @component가 설정되있다면 어떤 클래스의 객체를 할당해야하는지 모름)</p>
+</li>
+</ul>
+<h2 id="유지보수-운영-과정"><a href="#유지보수-운영-과정" class="headerlink" title="유지보수(운영)과정"></a>유지보수(운영)과정</h2><ul>
+<li><p>변경되는 객체는 XML 파일에 bean 등록한다</p>
+</li>
+<li><p>변경되지 않는 객체는 최대한 @components를 적용한다</p>
+</li>
+</ul>
+<h2 id="components-세분화"><a href="#components-세분화" class="headerlink" title="@components 세분화"></a>@components 세분화</h2><ul>
+<li><p>@Service : 비즈니스 로직을 처리</p>
+</li>
+<li><p>@Repository : DB 연동 처리</p>
+</li>
+<li><p>@Controller : 사용자 요청 제어</p>
+</li>
+</ul>
+<h2 id="컴포넌트-Component-란"><a href="#컴포넌트-Component-란" class="headerlink" title="컴포넌트(Component)란?"></a>컴포넌트(Component)란?</h2><ul>
+<li><p>부품처럼 사용할 수 있는 소프트웨어 모듈</p>
+</li>
+<li><p>일반적으로 소프트웨어 컴포넌트는 테이블 당 하나씩 작성하며, 테이블에 대한 CRUD 작업을 처리한다.</p>
+</li>
+<li><p>CRUD(Create(insert), Read(Select), Update, Delete)</p>
+</li>
+<li><p>VO, DAO, Service(인터페이스), ServiceImpl로 구성</p>
+</li>
+<li><p>ServiceClient는 메인클래스</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1274,132 +1389,6 @@
 <li><p>GET방식 : 브라우저가 URL을 통해 서버에게 요청할때</p>
 </li>
 <li><p>POST방식 : 입력된 정보가 노출되지않도록 message-body에 포함시켜 전달하는것(로그인같은것)</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/07/220507-1st-db/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/07/220507-1st-db/" class="post-title-link" itemprop="url">DB (1) BASIC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-07 15:05:26 / Modified: 15:06:30" itemprop="dateCreated datePublished" datetime="2022-05-07T15:05:26+09:00">2022-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/DB-MYSQL/" itemprop="url" rel="index"><span itemprop="name">DB(MYSQL)</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>RDBS 관계형 데이터데이스 ( ORACLE, MYSQL ) &#x3D; 테이블</li>
-</ul>
-<h2 id="데이터베이스"><a href="#데이터베이스" class="headerlink" title="데이터베이스"></a>데이터베이스</h2><ul>
-<li><p>DB 생성 : CREATE DATABASE dbname;</p>
-</li>
-<li><p>DB 목록 보기 : SHOW DATABASES;</p>
-</li>
-<li><p>DB 사용 : USE dbname;</p>
-</li>
-<li><p>DB 삭제 : DROP DATABASE [IF EXISTS] dbname; &#x2F;&#x2F; [IF EXISTS] : 해당 데이터베이스 이름이 없더라도 오류내지마라</p>
-</li>
-</ul>
-<h2 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h2><ul>
-<li><p>TABLE 생성 :</p>
-<ul>
-<li>CREATE DATABASE DB명;</li>
-<li>USE DB명;</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CREATE TABLE 테이블명(</span><br><span class="line"></span><br><span class="line">컬럼명 INT UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line"></span><br><span class="line">컬럼명 VARCHAR(50) NOT NULL,</span><br><span class="line"></span><br><span class="line">컬럼명 CHAR(10) NOT NULL,</span><br><span class="line"></span><br><span class="line">컬럼명 VARCHAR(50)</span><br><span class="line"></span><br><span class="line">PRIMARY KEY (컬럼명)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<pre><code>- INT : 정수형 데이터 타입
-- UNSIGNED : 데이터 타입의 표한 가능 범위를 양수값으로만 표현
-- NOT NULL : 데이터값이 없으면 안됨
-- AUTO_INCREMENT : 자동으로 숫자가 1씩 증가하여 저장됨. 테이블안에 하나만 지정 가능
-- CHAR : 고정 길이
-- VARCHAR : 가변 길이
-- PRIMARY KEY : 테이블의 각 로우를 유일하게 식별해주는 컬럼. NOT NULL
-- FOREIGN KEY : 한 테이블의 필드 중 다른 테이블의 로우를 식별할 수 있는 키
-</code></pre>
-<ul>
-<li><p>TABLE 조회 : SHOW TABLES; , DESC 테이블명;</p>
-</li>
-<li><p>TABLE 삭제 : DROP TABLE 테이블명;</p>
-</li>
-</ul>
-<h2 id="TABLE-CRUD-CREATE-READ-UPDATE-DELETE"><a href="#TABLE-CRUD-CREATE-READ-UPDATE-DELETE" class="headerlink" title="TABLE CRUD (CREATE, READ, UPDATE, DELETE)"></a>TABLE CRUD (CREATE, READ, UPDATE, DELETE)</h2><ul>
-<li><p>TABLE에 데이터 넣기 : INSERT INTO 테이블이름 (컬럼명, 컬럼명, …) VALUES (컬럼값, 컬럼값, …);</p>
-</li>
-<li><p>TABLE의 데이터 조회 : SELECT * FROM 테이블명; &#x2F; SELECT * FROM 테이블명 WHERE 조건;</p>
-</li>
-<li><p>TABLE의 데이터 수정 : UPDATE 테이블명 SET 컬럼명 &#x3D; 컬럼값 WHERE 조건;</p>
-</li>
-<li><p>TABLE의 데이터 삭제 : DELETE 테이블명 WHERE 조건;</p>
 </li>
 </ul>
 

@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,132 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/07/220507-1st-db/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/07/220507-1st-db/" class="post-title-link" itemprop="url">DB (1) BASIC</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-07 15:05:26 / Modified: 15:06:30" itemprop="dateCreated datePublished" datetime="2022-05-07T15:05:26+09:00">2022-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB-MYSQL/" itemprop="url" rel="index"><span itemprop="name">DB(MYSQL)</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>RDBS 관계형 데이터데이스 ( ORACLE, MYSQL ) &#x3D; 테이블</li>
+</ul>
+<h2 id="데이터베이스"><a href="#데이터베이스" class="headerlink" title="데이터베이스"></a>데이터베이스</h2><ul>
+<li><p>DB 생성 : CREATE DATABASE dbname;</p>
+</li>
+<li><p>DB 목록 보기 : SHOW DATABASES;</p>
+</li>
+<li><p>DB 사용 : USE dbname;</p>
+</li>
+<li><p>DB 삭제 : DROP DATABASE [IF EXISTS] dbname; &#x2F;&#x2F; [IF EXISTS] : 해당 데이터베이스 이름이 없더라도 오류내지마라</p>
+</li>
+</ul>
+<h2 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h2><ul>
+<li><p>TABLE 생성 :</p>
+<ul>
+<li>CREATE DATABASE DB명;</li>
+<li>USE DB명;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CREATE TABLE 테이블명(</span><br><span class="line"></span><br><span class="line">컬럼명 INT UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line"></span><br><span class="line">컬럼명 VARCHAR(50) NOT NULL,</span><br><span class="line"></span><br><span class="line">컬럼명 CHAR(10) NOT NULL,</span><br><span class="line"></span><br><span class="line">컬럼명 VARCHAR(50)</span><br><span class="line"></span><br><span class="line">PRIMARY KEY (컬럼명)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<pre><code>- INT : 정수형 데이터 타입
+- UNSIGNED : 데이터 타입의 표한 가능 범위를 양수값으로만 표현
+- NOT NULL : 데이터값이 없으면 안됨
+- AUTO_INCREMENT : 자동으로 숫자가 1씩 증가하여 저장됨. 테이블안에 하나만 지정 가능
+- CHAR : 고정 길이
+- VARCHAR : 가변 길이
+- PRIMARY KEY : 테이블의 각 로우를 유일하게 식별해주는 컬럼. NOT NULL
+- FOREIGN KEY : 한 테이블의 필드 중 다른 테이블의 로우를 식별할 수 있는 키
+</code></pre>
+<ul>
+<li><p>TABLE 조회 : SHOW TABLES; , DESC 테이블명;</p>
+</li>
+<li><p>TABLE 삭제 : DROP TABLE 테이블명;</p>
+</li>
+</ul>
+<h2 id="TABLE-CRUD-CREATE-READ-UPDATE-DELETE"><a href="#TABLE-CRUD-CREATE-READ-UPDATE-DELETE" class="headerlink" title="TABLE CRUD (CREATE, READ, UPDATE, DELETE)"></a>TABLE CRUD (CREATE, READ, UPDATE, DELETE)</h2><ul>
+<li><p>TABLE에 데이터 넣기 : INSERT INTO 테이블이름 (컬럼명, 컬럼명, …) VALUES (컬럼값, 컬럼값, …);</p>
+</li>
+<li><p>TABLE의 데이터 조회 : SELECT * FROM 테이블명; &#x2F; SELECT * FROM 테이블명 WHERE 조건;</p>
+</li>
+<li><p>TABLE의 데이터 수정 : UPDATE 테이블명 SET 컬럼명 &#x3D; 컬럼값 WHERE 조건;</p>
+</li>
+<li><p>TABLE의 데이터 삭제 : DELETE 테이블명 WHERE 조건;</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1030,110 +1156,6 @@
 <h2 id="데이터-검색"><a href="#데이터-검색" class="headerlink" title="데이터 검색"></a>데이터 검색</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT*FROM STUDENT WHERE NAME = &#x27;우림&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="순서-정렬"><a href="#순서-정렬" class="headerlink" title="순서 정렬"></a>순서 정렬</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ORDER BY STUDENT_N0 DESC; // 내림차순</span><br><span class="line">ORDER BY STUDENT_N0 ASC; // 오름차순</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/20/220420-19th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/220420-19th-java/" class="post-title-link" itemprop="url">java (19) [java.io 패키지]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-20 16:09:59" itemprop="dateCreated datePublished" datetime="2022-04-20T16:09:59+09:00">2022-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-26 21:39:13" itemprop="dateModified" datetime="2022-04-26T21:39:13+09:00">2022-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="java-io-패키지"><a href="#java-io-패키지" class="headerlink" title="java.io 패키지"></a>java.io 패키지</h1><h2 id="입력스트림"><a href="#입력스트림" class="headerlink" title="입력스트림"></a>입력스트림</h2><ul>
-<li><p>InputStream : 1바이트단위 입력 스트림 (이미지나 영상)&#x2F; 따라서 한글깨짐</p>
-</li>
-<li><p>Reader : 문자단위(2바이트씩 받음) 입력 스트림(한글 영어 이런거). FileReader</p>
-</li>
-</ul>
-<h2 id="출력스트림"><a href="#출력스트림" class="headerlink" title="출력스트림"></a>출력스트림</h2><ul>
-<li><p>OutputStream : 1바이트단위 출력 스트림 (이미지나 영상)&#x2F; 따라서 한글깨짐</p>
-</li>
-<li><p>Writer : 문자단위(2바이트씩 받음) 출력 스트림(한글 영어 이런거). FileWriter</p>
-</li>
-</ul>
-<h3 id="PrintStream-출력-스트림만-가짐-표준-출력-스트림"><a href="#PrintStream-출력-스트림만-가짐-표준-출력-스트림" class="headerlink" title="PrintStream : 출력 스트림만 가짐. 표준 출력 스트림."></a>PrintStream : 출력 스트림만 가짐. 표준 출력 스트림.</h3><h3 id="Buffered-필터스트림-기능-향상을-목적으로함-예를들어-입출력작업의-속도를-빠르게할때-버퍼와-파일리더는-같이쓴다-항상"><a href="#Buffered-필터스트림-기능-향상을-목적으로함-예를들어-입출력작업의-속도를-빠르게할때-버퍼와-파일리더는-같이쓴다-항상" class="headerlink" title="Buffered : 필터스트림. 기능 향상을 목적으로함(예를들어 입출력작업의 속도를 빠르게할때)(버퍼와 파일리더는 같이쓴다 항상)"></a>Buffered : 필터스트림. 기능 향상을 목적으로함(예를들어 입출력작업의 속도를 빠르게할때)(버퍼와 파일리더는 같이쓴다 항상)</h3><ul>
-<li>BufferedReader reader &#x3D; new BufferedReader(new FileReader());</li>
-</ul>
-<h3 id="close-입-x2F-출력이-끝났으면-close-로-닫아주어야한다-System-in-close-x2F-System-out-close"><a href="#close-입-x2F-출력이-끝났으면-close-로-닫아주어야한다-System-in-close-x2F-System-out-close" class="headerlink" title="close(); : 입&#x2F;출력이 끝났으면 close(); 로 닫아주어야한다.(System.in.close(); &#x2F; System.out.close();)"></a>close(); : 입&#x2F;출력이 끝났으면 close(); 로 닫아주어야한다.(System.in.close(); &#x2F; System.out.close();)</h3><h3 id="currentTimeMillis-수행시간-알고싶을때-사용"><a href="#currentTimeMillis-수행시간-알고싶을때-사용" class="headerlink" title="currentTimeMillis(); : 수행시간 알고싶을때 사용"></a>currentTimeMillis(); : 수행시간 알고싶을때 사용</h3><h3 id="readLine-문자열-한줄을-읽어올수-있다"><a href="#readLine-문자열-한줄을-읽어올수-있다" class="headerlink" title="readLine(); : 문자열 한줄을 읽어올수 있다"></a>readLine(); : 문자열 한줄을 읽어올수 있다</h3><h2 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line"></span><br><span class="line">public class IOTest &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">		FileReader reader = new FileReader(&quot;data.txt&quot;);</span><br><span class="line">		BufferedReader buffReader = new BufferedReader(reader);</span><br><span class="line"></span><br><span class="line">		String data = null;</span><br><span class="line">		int total = 0;</span><br><span class="line"></span><br><span class="line">		while ((data = buffReader.readLine()) != null) &#123;</span><br><span class="line">			String[] scoreList = data.split(&quot;,&quot;);</span><br><span class="line">			int sum = 0;</span><br><span class="line">			for(String score : scoreList) &#123;</span><br><span class="line">				sum += Integer.parseInt(score);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(data + &quot;\t 합친점수 = &quot; + sum);</span><br><span class="line">			total++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;총 학생 수 : &quot; + total);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		reader.close();</span><br><span class="line">		buffReader.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Chapter11;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line"></span><br><span class="line">public class IO &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">		FileWriter writer = new FileWriter(&quot;./da.txt&quot;);</span><br><span class="line">		BufferedWriter buffwriter = new BufferedWriter(writer);</span><br><span class="line">		writer.write(65);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		char[] data = &#123;66, 67, 68&#125;;</span><br><span class="line">		writer.write(data);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		writer.write(&#x27;우&#x27;);</span><br><span class="line">		writer.write(&#x27;림&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		writer.write(&quot;예림&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		writer.close();</span><br><span class="line">		System.out.println(&quot;프로그램 종료&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Scanner input = new Scanner(System.in); // System.in 즉, 표준 입력 스트림인 키보드로 라인단위로 읽어드리겠다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="next"><a href="#next" class="headerlink" title="next"></a>next</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String message = input.nextLine(); // nextLine은  문자나 숫자를 전부 다 받고자할때. 숫자만 받는다면 nextInt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
