@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,118 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/08/220608-4th-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/08/220608-4th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (4) [AOP (1)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-08 20:00:58 / Modified: 20:01:56" itemprop="dateCreated datePublished" datetime="2022-06-08T20:00:58+09:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AOP-Aspect-Oriented-Programming-관심지향-프로그래밍"><a href="#AOP-Aspect-Oriented-Programming-관심지향-프로그래밍" class="headerlink" title="AOP(Aspect Oriented Programming) 관심지향 프로그래밍"></a>AOP(Aspect Oriented Programming) 관심지향 프로그래밍</h1><ul>
+<li><p>관심 분리(Separation of Concerns) : 횡단 관심과 핵심 관심을 분리시키자</p>
+</li>
+<li><p>횡단 관심(Crosscutting Concerns)</p>
+</li>
+<li><p>핵심 관심(Core Concerns)</p>
+</li>
+<li><p>XXXServiceImpl</p>
+<ul>
+<li>XXXServiceImpl 클래스가 비즈니스 클래스다</li>
+<li>비즈니스 클래스에는 비즈니스 메소드가 구현되어있다</li>
+<li>비즈니스 메소드가 가진 코드가 핵심 관심 코드다</li>
+</ul>
+</li>
+<li><p>XXXAdvice</p>
+<ul>
+<li>XXXAdvice 클래스가 횡단 관심 클래스다</li>
+<li>횡단 관심 클래스에는 비즈니스 메소드마다 실행될 공통의 로직이 들어있다</li>
+<li>공통 로직이 횡단 관심 코드다</li>
+</ul>
+</li>
+</ul>
+<h2 id="AOP-용어"><a href="#AOP-용어" class="headerlink" title="AOP 용어"></a>AOP 용어</h2><ul>
+<li>Pointcut : 필터링된 비즈니스 메소드</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">리턴 타입 필터링 : *, void, !void</span><br><span class="line"></span><br><span class="line">패키지 경로 필터링 : com.ssamz.biz.board, com.ssamz.biz.., com.ssamz.board</span><br><span class="line"></span><br><span class="line">클래스 이름 필터링 : BoardServiceImpl, *Impl</span><br><span class="line"></span><br><span class="line">메소드 이름 필터링 : getBoardList, get*</span><br><span class="line"></span><br><span class="line">매개변수 필터링 : (..), (int, int, object)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Advice : 횡단 관심에 해당하는 공통 기능의 코드(이 공통 기능의 코드를 가진 메소드 자체를 Advice라 부르기도한다)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;Advice 동작 시점 5가지&gt;</span><br><span class="line"></span><br><span class="line">   before : 필터링된 비즈니스 메소드 실행 전 참조하고있는 클래스의 메소드를 실행</span><br><span class="line"></span><br><span class="line">   after : 필터링된 비즈니스 메소드 실행 후 참조하고있는 클래스의 메소드를 실행</span><br><span class="line"></span><br><span class="line">   afterReturning : 필터링된 비즈니스 메소드 실행 후 리턴된 것을 참조하고있는 클래스의 메소드에 인자로 던져준다</span><br><span class="line"></span><br><span class="line">   afterThrowing : 필터링된 비즈니스 메소드 실행 중 예외 발생하면 참조하고있는 클래스의 메소드를 실행</span><br><span class="line"></span><br><span class="line">   around :필터링된 비즈니스 메소드 실행 전 후 둘다</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Aspect(&#x3D;Advisor) : Pointcut + Advice</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1268,128 +1380,6 @@
 <h1 id="Servlet-라이프사이클"><a href="#Servlet-라이프사이클" class="headerlink" title="Servlet 라이프사이클"></a>Servlet 라이프사이클</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 브라우저가 서버에 최초요청 -&gt; 메모리에 servlet class 올림 -&gt; 객체생성 -&gt; 오버라이딩된 init 메서드가 있다면 호출</span><br><span class="line"></span><br><span class="line">- 브라우저가 서버에 요청(최초x) -&gt; Tread -&gt; 오버라이딩된 service 메서드가 있다면 service 메서드 호출</span><br><span class="line">- 브라우저가 서버에 요청(최초x) -&gt; Tread -&gt; service메서드 오버라이딩 안되어있으면 -&gt; 요청방식에 따라 doGet or doPost 메서드 호출</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="Annotation-설정"><a href="#Annotation-설정" class="headerlink" title="Annotation 설정"></a>Annotation 설정</h1><ul>
 <li>web.xml의 servlet부분을 없애고 Servlet에 @WebServlet(“URL 요청”)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/11/220511-1st-Servlet-and-JSP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/11/220511-1st-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (1) [HTTP와 프로토콜]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-11 17:36:40 / Modified: 17:44:49" itemprop="dateCreated datePublished" datetime="2022-05-11T17:36:40+09:00">2022-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HTTP-HyperText-Transfer-Protocol"><a href="#HTTP-HyperText-Transfer-Protocol" class="headerlink" title="HTTP(HyperText Transfer Protocol)"></a>HTTP(HyperText Transfer Protocol)</h1><ul>
-<li><p>브라우저와 서버가 통신할때 쓰는 통신 규약</p>
-</li>
-<li><p>프로토콜 : 어떠한 데이터를 전달할때 똑같은 형태로 하자는 약속이기 때문에 변경시 다 바꾸어줘야하기 변경이 어렵다</p>
-</li>
-</ul>
-<h2 id="HTTP-특징"><a href="#HTTP-특징" class="headerlink" title="HTTP 특징"></a>HTTP 특징</h2><ul>
-<li><p>비연결성 : 브라우저가 서버쪽에 데이터를 요청하는 순간 서로 연결되는데 응답 후에는 연결이 끊어진다.</p>
-</li>
-<li><p>무상태 : 서버가 클라이언트의 상태 정보를 유지하지 않는다</p>
-</li>
-<li><p>따라서, 상태 정보를 유지하기 위해 쿠키나 세션을 사용한다</p>
-</li>
-</ul>
-<h2 id="HTTP-요청-프로토콜"><a href="#HTTP-요청-프로토콜" class="headerlink" title="HTTP 요청 프로토콜"></a>HTTP 요청 프로토콜</h2><h3 id="HTTP-요청-URL"><a href="#HTTP-요청-URL" class="headerlink" title="HTTP 요청 URL"></a>HTTP 요청 URL</h3><ul>
-<li><p>브라우저가 서버에게 요청</p>
-</li>
-<li><p>URL을 통해 요청되며 URL에는 다양한 정보를 포함한다</p>
-</li>
-</ul>
-<h3 id="HTTP-요청-프로토콜-구조"><a href="#HTTP-요청-프로토콜-구조" class="headerlink" title="HTTP 요청 프로토콜 구조"></a>HTTP 요청 프로토콜 구조</h3><ul>
-<li>start-line, message-header, messager-body로 구성</li>
-</ul>
-<p>start-line : 요청방식,요청 URI, 프로토콜&#x2F;버전으로 구성</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[요청방식]</span><br><span class="line"></span><br><span class="line">GET(조회), POST(등록), PUT(수정), DELETE(삭제)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>message-header : Key Value로 설정되는데 보통 브라우저와 관련된 정보이다.</p>
-<p>messager-body : 사용자가 입력한 정보. start-line에 설정된 요청방식에 따라 상태가 달리짐</p>
-<h2 id="HTTP-응답-프로토콜"><a href="#HTTP-응답-프로토콜" class="headerlink" title="HTTP 응답 프로토콜"></a>HTTP 응답 프로토콜</h2><ul>
-<li>서버에서 브라우저에게 요청</li>
-</ul>
-<h3 id="HTTP-응답-프로토콜-구조"><a href="#HTTP-응답-프로토콜-구조" class="headerlink" title="HTTP 응답 프로토콜 구조"></a>HTTP 응답 프로토콜 구조</h3><ul>
-<li>status-line, message-header, message-body로 구성</li>
-</ul>
-<p>status-line : HTTP버전, 상태코드, 상태메시지로 구성</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[상태코드]</span><br><span class="line"></span><br><span class="line">200 : 정상처리</span><br><span class="line">403 : 접근x</span><br><span class="line">404 : 서버존재x</span><br><span class="line">405 : 요청방식을 지원하지않음</span><br><span class="line">500 : Exception 발생</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>message-header : 서버가 브라우저한테 응답하는 문서정보</p>
-<p>message-body : 요청한 문서의 실질적정보</p>
-<h2 id="GET방식-POST방식"><a href="#GET방식-POST방식" class="headerlink" title="GET방식, POST방식"></a>GET방식, POST방식</h2><ul>
-<li><p>GET방식 : 브라우저가 URL을 통해 서버에게 요청할때</p>
-</li>
-<li><p>POST방식 : 입력된 정보가 노출되지않도록 message-body에 포함시켜 전달하는것(로그인같은것)</p>
-</li>
 </ul>
 
       

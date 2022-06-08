@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,128 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/11/220511-1st-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/11/220511-1st-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (1) [HTTP와 프로토콜]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-11 17:36:40 / Modified: 17:44:49" itemprop="dateCreated datePublished" datetime="2022-05-11T17:36:40+09:00">2022-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="HTTP-HyperText-Transfer-Protocol"><a href="#HTTP-HyperText-Transfer-Protocol" class="headerlink" title="HTTP(HyperText Transfer Protocol)"></a>HTTP(HyperText Transfer Protocol)</h1><ul>
+<li><p>브라우저와 서버가 통신할때 쓰는 통신 규약</p>
+</li>
+<li><p>프로토콜 : 어떠한 데이터를 전달할때 똑같은 형태로 하자는 약속이기 때문에 변경시 다 바꾸어줘야하기 변경이 어렵다</p>
+</li>
+</ul>
+<h2 id="HTTP-특징"><a href="#HTTP-특징" class="headerlink" title="HTTP 특징"></a>HTTP 특징</h2><ul>
+<li><p>비연결성 : 브라우저가 서버쪽에 데이터를 요청하는 순간 서로 연결되는데 응답 후에는 연결이 끊어진다.</p>
+</li>
+<li><p>무상태 : 서버가 클라이언트의 상태 정보를 유지하지 않는다</p>
+</li>
+<li><p>따라서, 상태 정보를 유지하기 위해 쿠키나 세션을 사용한다</p>
+</li>
+</ul>
+<h2 id="HTTP-요청-프로토콜"><a href="#HTTP-요청-프로토콜" class="headerlink" title="HTTP 요청 프로토콜"></a>HTTP 요청 프로토콜</h2><h3 id="HTTP-요청-URL"><a href="#HTTP-요청-URL" class="headerlink" title="HTTP 요청 URL"></a>HTTP 요청 URL</h3><ul>
+<li><p>브라우저가 서버에게 요청</p>
+</li>
+<li><p>URL을 통해 요청되며 URL에는 다양한 정보를 포함한다</p>
+</li>
+</ul>
+<h3 id="HTTP-요청-프로토콜-구조"><a href="#HTTP-요청-프로토콜-구조" class="headerlink" title="HTTP 요청 프로토콜 구조"></a>HTTP 요청 프로토콜 구조</h3><ul>
+<li>start-line, message-header, messager-body로 구성</li>
+</ul>
+<p>start-line : 요청방식,요청 URI, 프로토콜&#x2F;버전으로 구성</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[요청방식]</span><br><span class="line"></span><br><span class="line">GET(조회), POST(등록), PUT(수정), DELETE(삭제)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>message-header : Key Value로 설정되는데 보통 브라우저와 관련된 정보이다.</p>
+<p>messager-body : 사용자가 입력한 정보. start-line에 설정된 요청방식에 따라 상태가 달리짐</p>
+<h2 id="HTTP-응답-프로토콜"><a href="#HTTP-응답-프로토콜" class="headerlink" title="HTTP 응답 프로토콜"></a>HTTP 응답 프로토콜</h2><ul>
+<li>서버에서 브라우저에게 요청</li>
+</ul>
+<h3 id="HTTP-응답-프로토콜-구조"><a href="#HTTP-응답-프로토콜-구조" class="headerlink" title="HTTP 응답 프로토콜 구조"></a>HTTP 응답 프로토콜 구조</h3><ul>
+<li>status-line, message-header, message-body로 구성</li>
+</ul>
+<p>status-line : HTTP버전, 상태코드, 상태메시지로 구성</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[상태코드]</span><br><span class="line"></span><br><span class="line">200 : 정상처리</span><br><span class="line">403 : 접근x</span><br><span class="line">404 : 서버존재x</span><br><span class="line">405 : 요청방식을 지원하지않음</span><br><span class="line">500 : Exception 발생</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>message-header : 서버가 브라우저한테 응답하는 문서정보</p>
+<p>message-body : 요청한 문서의 실질적정보</p>
+<h2 id="GET방식-POST방식"><a href="#GET방식-POST방식" class="headerlink" title="GET방식, POST방식"></a>GET방식, POST방식</h2><ul>
+<li><p>GET방식 : 브라우저가 URL을 통해 서버에게 요청할때</p>
+</li>
+<li><p>POST방식 : 입력된 정보가 노출되지않도록 message-body에 포함시켜 전달하는것(로그인같은것)</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1031,131 +1153,6 @@
 <ul>
 <li>JDBDUtil, StudentDAO 는 이클립스  Chapter11 에서 참고. (insert, upadte, delete, select 의 소스들을 클래스와 메소드를 활용해서 중복되는 코드를 줄이고 간략하게 만드는 방법)</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/20/220420-20th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/220420-20th-java/" class="post-title-link" itemprop="url">java (20) [java.sql 패키지]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-20 17:17:30" itemprop="dateCreated datePublished" datetime="2022-04-20T17:17:30+09:00">2022-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-21 14:11:04" itemprop="dateModified" datetime="2022-04-21T14:11:04+09:00">2022-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="java-sql-패키지"><a href="#java-sql-패키지" class="headerlink" title="java.sql 패키지"></a>java.sql 패키지</h1><ul>
-<li>DBMS(Database Management System) : 데이터베이스를 관리하는 프로그램(h2, Oracle, MySQL)</li>
-<li>SQL : DBMS와 대화하기 위한 언어</li>
-<li>DDL : 데이터가 저장되는 공간(테이블생성) CREATE<ul>
-<li>create table student</li>
-</ul>
-</li>
-<li>DML : 데이터를 등록 수정 삭제 INSERT UPDATE DELETE<ul>
-<li>insert into student() values ();</li>
-<li>update student set &#x2F; where (해당 항목)</li>
-<li>delete student where (특정조건삭제)</li>
-</ul>
-</li>
-<li>DQL : 데이터 검색 SELECT<ul>
-<li>select * from student(모든 컬럼을 보고싶을 땐 *) &#x2F;  select students_no from student(특정 컬럼만 보고싶다)</li>
-</ul>
-</li>
-<li>ORDER : 순서정렬<ul>
-<li>order by student_no desc; &#x2F;&#x2F; 내림차순 정렬</li>
-<li>order by student_no asc; &#x2F;&#x2F; 오름차순 정렬</li>
-</ul>
-</li>
-<li>JDBC(Java Database Connectivity) : 자바프로그램에서 관계형 데이터베이스를 연동하기 위해 제공하는 표준 API &#x2F; java.sql을 사용하면 DBMS종류에 상관없이 개발가능.</li>
-</ul>
-<h2 id="테이블-생성"><a href="#테이블-생성" class="headerlink" title="테이블 생성"></a>테이블 생성</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CREATE TABLE STUDENT (</span><br><span class="line">	STUDENT_NO	VARCHAR(40)	PRIMARY KEY,</span><br><span class="line">	NAME		VARCHAR(20)	NOT NULL,</span><br><span class="line">	SCORE		NUMBER(3),</span><br><span class="line">	MAJOR		VARCHAR(50)	NOT NULL</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>VARCHAR 와 NUMBER 뒤에 숫자는 몇글자 몇단위 까지 할건지 범위 설정</li>
-<li>PRIMARY KEY : STUDENT_NO는 고유의 값을 가져야한다. 그렇지못하면 데이터 입력 불가능</li>
-<li>NOT NULL : 내용이 없으면 데이터 입력 불가능</li>
-</ul>
-<h2 id="데이터-등록-삽입"><a href="#데이터-등록-삽입" class="headerlink" title="데이터 등록(삽입)"></a>데이터 등록(삽입)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO STUDENT(STUDENT_NO, NAME, SCORE, MAJOR) VALUES(&#x27;STD-10&#x27;, &#x27;우림&#x27;, 100, &#x27;전자공학&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="데이터-수정-업데이트"><a href="#데이터-수정-업데이트" class="headerlink" title="데이터 수정(업데이트)"></a>데이터 수정(업데이트)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE STUDENT SET NAME = &#x27;예림&#x27;, SCORE = 90 WHERE STUDENT_NO = &#x27;STD-10&#x27;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>WHERE 안하면 모든 테이블의 학생이 다 에림과 90으로 변경됨</li>
-</ul>
-<h2 id="데이터-삭제"><a href="#데이터-삭제" class="headerlink" title="데이터 삭제"></a>데이터 삭제</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE STUDENT WHERE STUDENT_NO = &#x27;STD-10&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="데이터-검색"><a href="#데이터-검색" class="headerlink" title="데이터 검색"></a>데이터 검색</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT*FROM STUDENT WHERE NAME = &#x27;우림&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="순서-정렬"><a href="#순서-정렬" class="headerlink" title="순서 정렬"></a>순서 정렬</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ORDER BY STUDENT_N0 DESC; // 내림차순</span><br><span class="line">ORDER BY STUDENT_N0 ASC; // 오름차순</span><br></pre></td></tr></table></figure>
 
       
     </div>
