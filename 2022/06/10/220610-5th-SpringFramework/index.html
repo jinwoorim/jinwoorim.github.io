@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="알고리즘 복잡도 표현 방법 시간복잡도 : 알고리즘 실행 속도 공간복잡도 : 알고리즘이 사용하는 메모리 사이즈  알고리즘 성능 표기법 Big 0(빅-오) 표기법 O(N) : 알고리즘 최악의 실행 시간을 표기. 아무리 최악의 상황이라도 이정도의 성능은 보장한다의 의미. 오메가 표기법 : 최상의 실행 시간을 표기 세타 표기법 : 평균 실행 시간을 표기  Big">
+    <meta name="description" content="JoinPoint 메소드 JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환  JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)   ProceedingJoinPoint 메소드 JoinPoint 상속받음  Around">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS (5) [시간복잡도]">
-<meta property="og:url" content="http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/index.html">
+<meta property="og:title" content="SpringFramework (5) [AOP (2)]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="알고리즘 복잡도 표현 방법 시간복잡도 : 알고리즘 실행 속도 공간복잡도 : 알고리즘이 사용하는 메모리 사이즈  알고리즘 성능 표기법 Big 0(빅-오) 표기법 O(N) : 알고리즘 최악의 실행 시간을 표기. 아무리 최악의 상황이라도 이정도의 성능은 보장한다의 의미. 오메가 표기법 : 최상의 실행 시간을 표기 세타 표기법 : 평균 실행 시간을 표기  Big">
+<meta property="og:description" content="JoinPoint 메소드 JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환  JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)   ProceedingJoinPoint 메소드 JoinPoint 상속받음  Around">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-29T06:57:10.000Z">
-<meta property="article:modified_time" content="2022-04-29T06:59:36.488Z">
+<meta property="article:published_time" content="2022-06-10T07:36:56.000Z">
+<meta property="article:modified_time" content="2022-06-10T07:37:57.900Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/">
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/","path":"2022/04/29/220429-5th-CS/","title":"CS (5) [시간복잡도]"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/","path":"2022/06/10/220610-5th-SpringFramework/","title":"SpringFramework (5) [AOP (2)]"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CS (5) [시간복잡도] | My blog</title>
+<title>SpringFramework (5) [AOP (2)] | My blog</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84-%ED%91%9C%ED%98%84-%EB%B0%A9%EB%B2%95"><span class="nav-number">1.</span> <span class="nav-text">알고리즘 복잡도 표현 방법</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%B1%EB%8A%A5-%ED%91%9C%EA%B8%B0%EB%B2%95"><span class="nav-number">2.</span> <span class="nav-text">알고리즘 성능 표기법</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-0-O-N"><span class="nav-number">2.1.</span> <span class="nav-text">Big 0 O(N)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-0-O-1"><span class="nav-number">2.2.</span> <span class="nav-text">Big 0 O(1)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JoinPoint-%EB%A9%94%EC%86%8C%EB%93%9C"><span class="nav-number">1.</span> <span class="nav-text">JoinPoint 메소드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProceedingJoinPoint-%EB%A9%94%EC%86%8C%EB%93%9C"><span class="nav-number">2.</span> <span class="nav-text">ProceedingJoinPoint 메소드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%EC%97%90-Annotation%EC%9D%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%84%A4%EC%A0%95"><span class="nav-number">3.</span> <span class="nav-text">AOP에 Annotation을 적용하기 위한 설정</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="CS (5) [시간복잡도] | My blog">
+      <meta itemprop="name" content="SpringFramework (5) [AOP (2)] | My blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CS (5) [시간복잡도]
+          SpringFramework (5) [AOP (2)]
         </h1>
 
         <div class="post-meta-container">
@@ -209,7 +209,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-04-29 15:57:10 / Modified: 15:59:36" itemprop="dateCreated datePublished" datetime="2022-04-29T15:57:10+09:00">2022-04-29</time>
+      <time title="Created: 2022-06-10 16:36:56 / Modified: 16:37:57" itemprop="dateCreated datePublished" datetime="2022-06-10T16:36:56+09:00">2022-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
         </span>
     </span>
 
@@ -231,18 +231,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="알고리즘-복잡도-표현-방법"><a href="#알고리즘-복잡도-표현-방법" class="headerlink" title="알고리즘 복잡도 표현 방법"></a>알고리즘 복잡도 표현 방법</h1><ul>
-<li>시간복잡도 : 알고리즘 실행 속도</li>
-<li>공간복잡도 : 알고리즘이 사용하는 메모리 사이즈</li>
+        <h2 id="JoinPoint-메소드"><a href="#JoinPoint-메소드" class="headerlink" title="JoinPoint 메소드"></a>JoinPoint 메소드</h2><ul>
+<li><p>JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환</p>
+</li>
+<li><p>JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)</p>
+</li>
 </ul>
-<h1 id="알고리즘-성능-표기법"><a href="#알고리즘-성능-표기법" class="headerlink" title="알고리즘 성능 표기법"></a>알고리즘 성능 표기법</h1><ul>
-<li>Big 0(빅-오) 표기법 O(N) : 알고리즘 최악의 실행 시간을 표기. 아무리 최악의 상황이라도 이정도의 성능은 보장한다의 의미.</li>
-<li>오메가 표기법 : 최상의 실행 시간을 표기</li>
-<li>세타 표기법 : 평균 실행 시간을 표기</li>
+<h2 id="ProceedingJoinPoint-메소드"><a href="#ProceedingJoinPoint-메소드" class="headerlink" title="ProceedingJoinPoint 메소드"></a>ProceedingJoinPoint 메소드</h2><ul>
+<li><p>JoinPoint 상속받음</p>
+</li>
+<li><p>Around 어드바이스는 매개변수로 ProceedingJoinPoint 로 받아야한다</p>
+</li>
+<li><p>나머지 어드바이스는 매개변수로 JoinPoint 로 받아야한다</p>
+</li>
 </ul>
-<h2 id="Big-0-O-N"><a href="#Big-0-O-N" class="headerlink" title="Big 0 O(N)"></a>Big 0 O(N)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 int total = 0;</span><br><span class="line">		 for(int i = 1; i &lt;= number; i++) &#123;</span><br><span class="line"></span><br><span class="line">		 total += i;</span><br><span class="line">		 &#125;</span><br><span class="line"></span><br><span class="line">		 return total;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Big-0-O-1"><a href="#Big-0-O-1" class="headerlink" title="Big 0 O(1)"></a>Big 0 O(1)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 return number*(number+1)/2;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AOP에-Annotation을-적용하기-위한-설정"><a href="#AOP에-Annotation을-적용하기-위한-설정" class="headerlink" title="AOP에 Annotation을 적용하기 위한 설정"></a>AOP에 Annotation을 적용하기 위한 설정</h2><ul>
+<li><p>XML에 aop:aspectj-autoproxy 태그 설정</p>
+</li>
+<li><p>각각 Advice 클래스위에 @Service 와 @Aspect 추가</p>
+</li>
+<li><p>클래스 안에 참조용 메소드 추가</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.*(..))&quot;)</span><br><span class="line">public void allPointcut() &#123;&#125;</span><br><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.get*(..))&quot;)</span><br><span class="line">public void getPointcut() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>메소드 위에 @Before(“allPointcut()”) 추가 (AfterReturning 과 AfterThrowing 은 뒤에 returning 과 throwing 추가)</li>
+</ul>
 
     </div>
 
@@ -256,14 +270,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/25/220425-4th-CS/" rel="prev" title="CS (4) [링크드 리스트(LinkedList)]">
-                  <i class="fa fa-chevron-left"></i> CS (4) [링크드 리스트(LinkedList)]
+                <a href="/2022/06/08/220608-4th-SpringFramework/" rel="prev" title="SpringFramework (4) [AOP (1)]">
+                  <i class="fa fa-chevron-left"></i> SpringFramework (4) [AOP (1)]
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/29/220429-6th-CS/" rel="next" title="CS (6) [해쉬테이블]">
-                  CS (6) [해쉬테이블] <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
