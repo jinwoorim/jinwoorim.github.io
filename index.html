@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,88 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/21/220621-9th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (9) [Layer 통합]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-21 15:26:28 / Modified: 15:27:49" itemprop="dateCreated datePublished" datetime="2022-06-21T15:26:28+09:00">2022-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Layer-연결"><a href="#Layer-연결" class="headerlink" title="Layer 연결"></a>Layer 연결</h2><ul>
+<li>Presentation Layer(MVC) 와 Business Layer를 연결</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 브라우저 요청 들어온다(.do)</span><br><span class="line">2. .do 요청이 들어오면 DispatcherServlet 객체가 만들어진다(web.xml에 등록되있음)</span><br><span class="line">3. DispatcherServlet은 presentation-layer.xml을 로딩한다</span><br><span class="line">4. presentation-layer.xml에 의해 Controller 객체들이 메모리에 뜬다</span><br><span class="line">5. Controller클래스는 BoardService(인터페이스 즉, 리모컨)를 Autowired하고 있다. 이걸로 ServiceImpl 실행</span><br><span class="line">6. 하지만, BoardService가 메모리에 떠있지 않기 때문에 Autowired가 실패하게된다</span><br><span class="line">7. 따라서, Business Layer를 presentation-layer.xml가 로딩되기 이전에 로딩해야한다</span><br><span class="line">8. 즉, web.xml에 리스너를 통해 Business Layer가 미리 pre-loading되게 만들어야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1179,127 +1261,6 @@
 </ul>
 <h2 id="JSTP-lt-c-if-gt-lt-c-forEach-gt"><a href="#JSTP-lt-c-if-gt-lt-c-forEach-gt" class="headerlink" title="JSTP (&lt;c:if&gt;) (&lt;c:forEach&gt;)"></a>JSTP (&lt;c:if&gt;</c:if>) (&lt;c:forEach&gt;</c:forEach>)</h2><ul>
 <li>JSP 파일에서 if, for, switch 같은 자바 코드를 대체하기위한 표준 태그</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/25/220525-5th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (5) [JSP]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-25 19:49:21 / Modified: 19:50:34" itemprop="dateCreated datePublished" datetime="2022-05-25T19:49:21+09:00">2022-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="JSP-JavaServer-Pages"><a href="#JSP-JavaServer-Pages" class="headerlink" title="JSP(JavaServer Pages)"></a>JSP(JavaServer Pages)</h1><ul>
-<li><p>Servlet과 같게 동적 컨텐츠를 처리하기 위함</p>
-</li>
-<li><p>서브릿으로 변환되어 실행됨</p>
-</li>
-</ul>
-<h2 id="Servlet의-장점"><a href="#Servlet의-장점" class="headerlink" title="Servlet의 장점"></a>Servlet의 장점</h2><ul>
-<li><p>Servlet은 Java로 구현된 클래스이기 때문에 플랫폼에 독립적(컴파일까지 해놓으면 바이너리(즉0.1의조합)이 아니라 바이트 파일이기때문에<br>OS에 상관없이 실행가능)</p>
-</li>
-<li><p>멀티 스레드를 제공. 아무리많은 브라우저가 요청을 해도 서블릿객체는 메모리에 하나만 생성된다 예를들어 서비스를 처리하려면 스레드풀에서<br>스레드가 튀어나와 처리한다( 스레드는 서버엔진이 만든다). 즉, 메모리를 적게 사용</p>
-</li>
-</ul>
-<h2 id="JSP를-사용하는-이유"><a href="#JSP를-사용하는-이유" class="headerlink" title="JSP를 사용하는 이유"></a>JSP를 사용하는 이유</h2><ul>
-<li>Servlet의 단점을 보완하기 위함</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Servlet 단점&gt;</span><br><span class="line"></span><br><span class="line">1. 규칙을 외워야된다. (뭔가를 import를 해야되고, 반드시 HttpServlet을 상속해야되고, public 클래스로 작성해야되고, 반드시 디폴트 생성자가 </span><br><span class="line">있어야되고, 서비스라든지 do나 post메소드를 오버라이딩해야된다. 매겨변수 리턴타입 등등 어느거 하나 내맘대로 할 수가없다.)</span><br><span class="line"></span><br><span class="line">2. 서브릿이 실행하려면 어노테이션이라든지 web.xml에 등록해서 실행되게 하여야만한다</span><br><span class="line"></span><br><span class="line">3. 소스를 수정하면 리로딩될때 까지 기다려야됨</span><br><span class="line"></span><br><span class="line">4. 자바코드안에 디자인코드(HTML)를 가지고있음(디자인코드를 짤때 자바문법을 고려하면서 짜야됨). 유지보수가 어렵다 아니 불가능한 수준이다.</span><br><span class="line">JSP는 필요정도만 자바 코드가 추가된다.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="주석문-lt-–-–-gt"><a href="#주석문-lt-–-–-gt" class="headerlink" title="주석문(&lt;%– –%&gt;)"></a>주석문(&lt;%– –%&gt;)</h2><ul>
-<li>HTML 주석 : &lt;!– –!&gt;</li>
-<li>JSP 주석 : &lt;%– –%&gt;</li>
-<li>HTML 주석은 JSP가 Servlet 클래스로 변환될때 포함된다(유관으로 보여진다) JSP주석은 변환될때 포함안됨</li>
-</ul>
-<h2 id="page-지시자-lt-gt"><a href="#page-지시자-lt-gt" class="headerlink" title="page 지시자(&lt;%@  %&gt;)"></a>page 지시자(&lt;%@  %&gt;)</h2><ul>
-<li>JSP에서 Servlet 클래쓰로 변환할때 반영할 내용을 작성(인코딩, import 같은것)(&lt;%@page  %&gt;)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. isErrorPage : 해당 JSP 파일이 에러 페이지다</span><br><span class="line"></span><br><span class="line">2. errorPage : 에러뜨면 이동할 페이지</span><br><span class="line"></span><br><span class="line">3. import :변환될때 import할 것들</span><br><span class="line"></span><br><span class="line">4. session : session 객체를 사용하려면 request.getsession해서 setattribut 하고 getattribute해서 써야되는데 </span><br><span class="line">jsp에서는 막 쓸 수 있다. 왜냐하면 변환될때 자동으로 session 객체가 생성되므로(내장객체).(session = &quot;true&quot; 생략가능)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="include-지시자"><a href="#include-지시자" class="headerlink" title="include 지시자"></a>include 지시자</h2><ul>
-<li>웹 화면에서 Header와 Footer를 독립된 JSP로 만들고 include하면 공통된 웹화면을 만들 수 있다.</li>
-</ul>
-<h2 id="Scriptlet-lt-gt"><a href="#Scriptlet-lt-gt" class="headerlink" title="Scriptlet (&lt;% %&gt;)"></a>Scriptlet (&lt;% %&gt;)</h2><ul>
-<li>정상적인 자바 코드가 작성되는 영역</li>
-</ul>
-<h2 id="Expression-lt-x3D-gt"><a href="#Expression-lt-x3D-gt" class="headerlink" title="Expression (&lt;%&#x3D; %&gt;)"></a>Expression (&lt;%&#x3D; %&gt;)</h2><ul>
-<li>메소드 호출할 때</li>
-</ul>
-<h2 id="내장-객체"><a href="#내장-객체" class="headerlink" title="내장 객체"></a>내장 객체</h2><ul>
-<li><p>서버가 JSP를 Servlet으로 변환할 때 지정된 이름으로 변수가 선언되고 변수이름을 바꿀수도없다. 변수에 객체를 자동으로 할당해준다(초기화).</p>
-</li>
-<li><p>내장 객체로는 request, response, pageContext, session, application, config, out이 있다.</p>
-</li>
-<li><p>따라서, Scriptlet과 Expression 안에서 객체를 막 쓸 수 있다.따로 선언하지않고.</p>
-</li>
 </ul>
 
       
