@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Layer 연결 Presentation Layer(MVC) 와 Business Layer를 연결  123456789101. 브라우저 요청 들어온다(.do)2. .do 요청이 들어오면 DispatcherServlet 객체가 만들어진다(web.xml에 등록되있음)3. DispatcherServlet은 presentation-layer.xml을 로딩한다4. pr">
+    <meta name="description" content="iBATIS 장점 : sql 명령어를 외부의 xml 파일에 분리시키고 자바코드 한줄로 모든 DB연동을 하려고 사용  sqlmap 파일(xml)에 sql 명령어작성  DAO 클래스에서 SqlMapClient라는 iBATIS 컨테이너 획득(ibatis &#x3D; SqlMapClientFactoryBean.getSqlMapClientInstance();)  획">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringFramework (9) [Layer 통합]">
-<meta property="og:url" content="http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/index.html">
+<meta property="og:title" content="SpringFramework (10) [iBatis 와 MyBatis]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/06/25/220625-10th-SpringFramework/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="Layer 연결 Presentation Layer(MVC) 와 Business Layer를 연결  123456789101. 브라우저 요청 들어온다(.do)2. .do 요청이 들어오면 DispatcherServlet 객체가 만들어진다(web.xml에 등록되있음)3. DispatcherServlet은 presentation-layer.xml을 로딩한다4. pr">
+<meta property="og:description" content="iBATIS 장점 : sql 명령어를 외부의 xml 파일에 분리시키고 자바코드 한줄로 모든 DB연동을 하려고 사용  sqlmap 파일(xml)에 sql 명령어작성  DAO 클래스에서 SqlMapClient라는 iBATIS 컨테이너 획득(ibatis &#x3D; SqlMapClientFactoryBean.getSqlMapClientInstance();)  획">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-21T06:26:28.000Z">
-<meta property="article:modified_time" content="2022-06-21T06:27:49.115Z">
+<meta property="article:published_time" content="2022-06-24T16:17:01.000Z">
+<meta property="article:modified_time" content="2022-06-24T16:18:02.525Z">
 <meta property="article:author" content="jinwoorim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/">
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/06/25/220625-10th-SpringFramework/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/","path":"2022/06/21/220621-9th-SpringFramework/","title":"SpringFramework (9) [Layer 통합]"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/06/25/220625-10th-SpringFramework/","path":"2022/06/25/220625-10th-SpringFramework/","title":"SpringFramework (10) [iBatis 와 MyBatis]"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>SpringFramework (9) [Layer 통합] | My blog</title>
+<title>SpringFramework (10) [iBatis 와 MyBatis] | My blog</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Layer-%EC%97%B0%EA%B2%B0"><span class="nav-number">1.</span> <span class="nav-text">Layer 연결</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iBATIS"><span class="nav-number">1.</span> <span class="nav-text">iBATIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis"><span class="nav-number">2.</span> <span class="nav-text">MyBatis</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/25/220625-10th-SpringFramework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="SpringFramework (9) [Layer 통합] | My blog">
+      <meta itemprop="name" content="SpringFramework (10) [iBatis 와 MyBatis] | My blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SpringFramework (9) [Layer 통합]
+          SpringFramework (10) [iBatis 와 MyBatis]
         </h1>
 
         <div class="post-meta-container">
@@ -209,7 +209,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-21 15:26:28 / Modified: 15:27:49" itemprop="dateCreated datePublished" datetime="2022-06-21T15:26:28+09:00">2022-06-21</time>
+      <time title="Created: 2022-06-25 01:17:01 / Modified: 01:18:02" itemprop="dateCreated datePublished" datetime="2022-06-25T01:17:01+09:00">2022-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,10 +231,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Layer-연결"><a href="#Layer-연결" class="headerlink" title="Layer 연결"></a>Layer 연결</h2><ul>
-<li>Presentation Layer(MVC) 와 Business Layer를 연결</li>
+        <h2 id="iBATIS"><a href="#iBATIS" class="headerlink" title="iBATIS"></a>iBATIS</h2><ul>
+<li><p>장점 : sql 명령어를 외부의 xml 파일에 분리시키고 자바코드 한줄로 모든 DB연동을 하려고 사용</p>
+</li>
+<li><p>sqlmap 파일(xml)에 sql 명령어작성</p>
+</li>
+<li><p>DAO 클래스에서 SqlMapClient라는 iBATIS 컨테이너 획득(ibatis &#x3D; SqlMapClientFactoryBean.getSqlMapClientInstance();)</p>
+</li>
+<li><p>획득하는 과정에서 iBATIS 컨테이너가 sql-map-confing.xml 로딩</p>
+</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 브라우저 요청 들어온다(.do)</span><br><span class="line">2. .do 요청이 들어오면 DispatcherServlet 객체가 만들어진다(web.xml에 등록되있음)</span><br><span class="line">3. DispatcherServlet은 presentation-layer.xml을 로딩한다</span><br><span class="line">4. presentation-layer.xml에 의해 Controller 객체들이 메모리에 뜬다</span><br><span class="line">5. Controller클래스는 BoardService(인터페이스 즉, 리모컨)를 Autowired하고 있다. 이걸로 ServiceImpl 실행</span><br><span class="line">6. 하지만, BoardService가 메모리에 떠있지 않기 때문에 Autowired가 실패하게된다</span><br><span class="line">7. 따라서, Business Layer를 presentation-layer.xml가 로딩되기 이전에 로딩해야한다</span><br><span class="line">8. 즉, web.xml에 리스너를 통해 Business Layer가 미리 pre-loading되게 만들어야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  	&lt;insert의 경우&gt;</span><br><span class="line"></span><br><span class="line">1. ibatis.insert(&quot;insertBoard&quot;, vo); 하게되면 sqlmap 파일(xml)에 등록된 id가 insertBoard인 sql 실행</span><br><span class="line"></span><br><span class="line">2. 파라미터로 sqlmap 파일(xml)에 등록된 parameterClass 속성에 해당하는 VO를 넘겨준다</span><br><span class="line"></span><br><span class="line">3. 넘겨 받은 VO에 해당하는 값들을 sql ? 에 해당하는 곳에 세팅해서 DBMS에 전달</span><br><span class="line"></span><br><span class="line">	&lt;상세 조회의 경우&gt;</span><br><span class="line"></span><br><span class="line">1. ibatis.queryForObject(&quot;getBoard&quot;, vo); 하게되면 sqlmap 파일(xml)에 등록된 id가 getBoard인 sql 실행</span><br><span class="line"></span><br><span class="line">2. 파라미터 객체로 sqlmap 파일(xml)에 등록된 parameterClass 속성에 해당하는 VO를 넘겨준다</span><br><span class="line"></span><br><span class="line">3. 넘겨 받은 VO에 해당하는 값들을 sql ? 에 해당하는 곳에 세팅해서 DBMS에 전달</span><br><span class="line"></span><br><span class="line">4. resultset에 들어있는 검색 결과를 sqlmap 파일(xml)에 등록된 resultClass 속성에 등록된 VO에 매핑해서 리턴</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><ul>
+<li><p>MyBatis 홈페이지 들어가보면 xml에 작성할 초기 세팅 정보들이 있음. 가져다 쓰면됨(sqlmap파일xml, sql-map-config.xml(메인설정xml))</p>
+</li>
+<li><p>iBatis와의 차이점 (sqlmap파일xml)</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. parameterMap 이 parameterType으로 바뀜, resultMap 이 resultType으로 바뀜</span><br><span class="line">2. sql 구문에서 변수이름이 #변수이름# 에서 $&#123;변수이름&#125;으로 바뀜</span><br><span class="line">3. Alias 설정을 sqlmap파일xml에서 하지않는다(태그 : typeAlias alias=&quot;board&quot; type=&quot;com.ssamz.biz.board.BoardVO&quot;/)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점 (sql-map-config.xml(메인설정xml))</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Alias 등록</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점(business-layer.xml)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">business-layer.xml 참고하기</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점(DAO 클래스)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Template이 SqlMapClient에서 SqlMapClientTemplate로 변경</span><br><span class="line">2. 상세조회 : queryForObject 에서 selectOne으로 변경</span><br><span class="line">3. 목록조회 : queryForList 에서 selectList로 변경</span><br></pre></td></tr></table></figure>
+<ul>
+<li>만약, 여러 sqlmap파일xml이 등록되고 각각의 xml에 선언된 id값이 같을때 DAO클래스에서 access 하는법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap파일xml에서 namespace를 설정한다</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -248,14 +278,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/18/220618-8th-SpringFramework/" rel="prev" title="SpringFramework (8) [Spring MVC]">
-                  <i class="fa fa-chevron-left"></i> SpringFramework (8) [Spring MVC]
+                <a href="/2022/06/21/220621-9th-SpringFramework/" rel="prev" title="SpringFramework (9) [Layer 통합]">
+                  <i class="fa fa-chevron-left"></i> SpringFramework (9) [Layer 통합]
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/25/220625-10th-SpringFramework/" rel="next" title="SpringFramework (10) [iBatis 와 MyBatis]">
-                  SpringFramework (10) [iBatis 와 MyBatis] <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
