@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,193 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/29/220629-6th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/29/220629-6th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (6) [자동설정]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-29 16:46:38 / Modified: 16:48:45" itemprop="dateCreated datePublished" datetime="2022-06-29T16:46:38+09:00">2022-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="자동-설정"><a href="#자동-설정" class="headerlink" title="자동 설정"></a>자동 설정</h2><ul>
+<li><p>애플리케이션을 운영하기 위해서는 두종류의 객체가 필요하다</p>
+</li>
+<li><p>예를 들어, 스프링이 제공해주는 HandlerMapping이나 ViewResolver 같은 스프링이 제공해주는 객체와 내가 만든 Controller 객체가 필요하다</p>
+</li>
+<li><p>@ComponentScan : 내가 만든 클래스 객체</p>
+</li>
+<li><p>@EnableAutoConfiguration : 스프링이 제공해주는 클래스 객체(수십가지 클래스 제공 HandlerMapping, ViewResolver 이런거 다있음)</p>
+</li>
+<li><p>@ComponentScan를 먼저 메모리에 띄우고 @EnableAutoConfiguration을 메모리에 띄운다</p>
+</li>
+<li><p>@ComponentScan @EnableAutoConfiguration는 @SpringBootApplication에 포함되어있다.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/29/220629-5th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/29/220629-5th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (5) [의존성관리(스타터)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-29 16:46:24 / Modified: 16:47:46" itemprop="dateCreated datePublished" datetime="2022-06-29T16:46:24+09:00">2022-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공"><a href="#스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공" class="headerlink" title="스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)"></a>스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)</h2><ul>
+<li><p>관련된 라이브러리들의 묶음</p>
+</li>
+<li><p>스타터와 기존방식의 차이</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">					&lt;기존 방식&gt;</span><br><span class="line"></span><br><span class="line">* MVNrepository 홈페이지에서 라이브러리를 찾아 pom.xml에 dependency로 의존성 설정을 해야한다</span><br><span class="line"></span><br><span class="line">* 라이브러리를 하나만 다운받는다고 되는것도 아니고 관련된걸 일일히 다 찾아서 dependency해야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>스타터 사용방법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. pom.xml에서 ctrl+spacebar 하고 Add starters</span><br><span class="line">2. 라이브러리 추가하고 next</span><br><span class="line">3. pom.xml 체크하고 finish</span><br></pre></td></tr></table></figure>
+
+<h2 id="사용자-정의-스타터-내가-만든-스타터"><a href="#사용자-정의-스타터-내가-만든-스타터" class="headerlink" title="사용자 정의 스타터 (내가 만든 스타터)"></a>사용자 정의 스타터 (내가 만든 스타터)</h2><ul>
+<li>사용자 정의 스타터 생성 방법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 일반 프로젝트 생성</span><br><span class="line">2. maven -&gt; maven project</span><br><span class="line">3. filter에 maven-archetye-qu 검색해서 org.apache.maven.archetypes 템플릿선택</span><br><span class="line">4. next -&gt; next</span><br><span class="line">5. Artifact id에 &quot;내가원하는 모듈명-spring-boot-starter&quot;</span><br><span class="line">6. 해당 프로젝트 pom.xml에서   &lt;groupId&gt;com.rubypaper&lt;/groupId&gt;</span><br><span class="line"> 				       &lt;artifactId&gt;내가원하는 모듈명-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line"> 				       &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt; 복사</span><br><span class="line">7. 해당 프로젝트 오른쪽클릭 run as 하고 maven install 클릭</span><br><span class="line">8. 내가 만든 스타터가 .m2 디렉토리안에 SNAPSHOT 폴더안에 JAR파일로 추가되어있다.</span><br><span class="line">9. 6.에서 복사한 것을 넣고 싶은 프로젝트 파일 pom.xml에 붙여넣기해서 dependency추가하기</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/28/220628-4th-SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -211,7 +398,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-29 14:07:17" itemprop="dateModified" datetime="2022-06-29T14:07:17+09:00">2022-06-29</time>
+      <time title="Modified: 2022-06-29 16:45:51" itemprop="dateModified" datetime="2022-06-29T16:45:51+09:00">2022-06-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,7 +437,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">해당 메소드 위에 @RequestMapping(value = &quot;요청 uri&quot;, method = RequestMethod.GET)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>@ResponseBody : @ResponseBody는 리턴 값을 JSON으로 변환하여 응답 프로토콜 Body에 출력한다(콘솔말고 브라우저에 메세지 띄우기)</li>
+<li><p>@ResponseBody : @ResponseBody는 리턴 값을 JSON으로 변환하여 응답 프로토콜 Body에 출력한다(콘솔말고 브라우저에 메세지 띄우기)</p>
+</li>
+<li><p>@RestController : 메소드 마다 @ResponseBody를 붙여야하는걸 controller클래스 위에 @RestController 붙여 퉁친다</p>
+</li>
 </ul>
 
       
@@ -1002,209 +1192,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/12/220612-6th-SpringFramework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/12/220612-6th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (6) [SpringDAO]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-12 20:43:02 / Modified: 20:44:35" itemprop="dateCreated datePublished" datetime="2022-06-12T20:43:02+09:00">2022-06-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><ul>
-<li><p>기존 JDBC로는 DAO 클래스의 CRUD 메소드에서 반복되는 코드가 너무 많았다. 실수를 범할 수 있다. Spring JDBC 는 한줄로 표현가능</p>
-</li>
-<li><p>JdbcTemplate를 import하고 맴버변수로 선언해준다(@Autowired)</p>
-</li>
-<li><p>XML에 JdbcTemplate 등록해줘야한다(내가만든 클래스가 아닌 Spring에서 제공하는 클래스이기때문에 bean등록이 필수)</p>
-</li>
-</ul>
-<h2 id="JDBCTemplate-메소드"><a href="#JDBCTemplate-메소드" class="headerlink" title="JDBCTemplate 메소드"></a>JDBCTemplate 메소드</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 등록, 수정, 삭제 : JdbcTemplate 참조변수.update(맴버변수, ?에 해당하는것);</span><br><span class="line"></span><br><span class="line">2. 글 목록 검색 : JdbcTemplate 참조변수.query(sql, new RowMapper클래스(), vo.getSearchKeyword());</span><br><span class="line">	 : 여러개 저장 리턴</span><br><span class="line"></span><br><span class="line">3. 글 상세 조회 : JdbcTemplate 참조변수.queryForObject(sql, new RowMapper클래스(), vo.getSeq());</span><br><span class="line">	 : queryForObject() : 객체 하나만 매핑 리턴</span><br></pre></td></tr></table></figure>
-
-<h2 id="Datasource-등록"><a href="#Datasource-등록" class="headerlink" title="Datasource 등록"></a>Datasource 등록</h2><ul>
-<li>XML에 DataSource 등록해줘야한다(특정 DB와 연결해주기위해)</li>
-</ul>
-<h2 id="datasource-properties"><a href="#datasource-properties" class="headerlink" title="datasource.properties"></a>datasource.properties</h2><ul>
-<li><p>만약 DBMS가 변경되면 XML에 설정 정보를 수정해야한다.</p>
-</li>
-<li><p>datasource.properties 와부 파일로 빼면 유지보수 편리하다</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/10/220610-5th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (5) [AOP (2)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-10 16:36:56 / Modified: 16:37:57" itemprop="dateCreated datePublished" datetime="2022-06-10T16:36:56+09:00">2022-06-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="JoinPoint-메소드"><a href="#JoinPoint-메소드" class="headerlink" title="JoinPoint 메소드"></a>JoinPoint 메소드</h2><ul>
-<li><p>JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환</p>
-</li>
-<li><p>JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)</p>
-</li>
-</ul>
-<h2 id="ProceedingJoinPoint-메소드"><a href="#ProceedingJoinPoint-메소드" class="headerlink" title="ProceedingJoinPoint 메소드"></a>ProceedingJoinPoint 메소드</h2><ul>
-<li><p>JoinPoint 상속받음</p>
-</li>
-<li><p>Around 어드바이스는 매개변수로 ProceedingJoinPoint 로 받아야한다</p>
-</li>
-<li><p>나머지 어드바이스는 매개변수로 JoinPoint 로 받아야한다</p>
-</li>
-</ul>
-<h2 id="AOP에-Annotation을-적용하기-위한-설정"><a href="#AOP에-Annotation을-적용하기-위한-설정" class="headerlink" title="AOP에 Annotation을 적용하기 위한 설정"></a>AOP에 Annotation을 적용하기 위한 설정</h2><ul>
-<li><p>XML에 aop:aspectj-autoproxy 태그 설정</p>
-</li>
-<li><p>각각 Advice 클래스위에 @Service 와 @Aspect 추가</p>
-</li>
-<li><p>클래스 안에 참조용 메소드 추가</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.*(..))&quot;)</span><br><span class="line">public void allPointcut() &#123;&#125;</span><br><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.get*(..))&quot;)</span><br><span class="line">public void getPointcut() &#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>메소드 위에 @Before(“allPointcut()”) 추가 (AfterReturning 과 AfterThrowing 은 뒤에 returning 과 throwing 추가)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
