@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,605 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/31/220531-1st-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (1) [Framework란, Spring이란]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-31 15:28:11" itemprop="dateCreated datePublished" datetime="2022-05-31T15:28:11+09:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-03 23:35:57" itemprop="dateModified" datetime="2022-06-03T23:35:57+09:00">2022-06-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Framework란"><a href="#Framework란" class="headerlink" title="Framework란"></a>Framework란</h1><ul>
+<li><p>뼈대, 즉 아키텍처다</p>
+</li>
+<li><p>Framework를 사용하면 구조를 개발자가 고민하지않지 않는다 개발자가 개발하지않는다</p>
+</li>
+<li><p>개발자는 제공된 뼈대에 살만 붙이면 되는것</p>
+</li>
+<li><p>따라서, 유지보수 과정에서 살만 테스트하면되기 떄문에 유지보수에 유리함</p>
+</li>
+<li><p>정해진 구조를 사용하기 때문에 개발자마다의 역량이 획일화된다</p>
+</li>
+<li><p>개발자가 바뀌더라도 보다 쉽게 접근 가능하다</p>
+</li>
+<li><p>사용자 입력정보 추출, DB연동 이런걸 한줄로 표현할 수 있기 때문에 소스의 양이 대폭 줄어든다</p>
+</li>
+</ul>
+<h1 id="Framework-종류"><a href="#Framework-종류" class="headerlink" title="Framework 종류"></a>Framework 종류</h1><ul>
+<li><p>Presentation (UI) 영역 : Spring(MVC) 모듈</p>
+</li>
+<li><p>Business 영역 : Spring(Ioc, AOP) 모듈</p>
+</li>
+<li><p>Persistence (DB 연동) 영역 :</p>
+<ul>
+<li>JPA : ORM(Object Relation Mapping) 프레임워크. SQL을 자체 생성하여 DB연동처리함. 어렵다</li>
+<li>MyBatis : 개발자가 SQL을 직접 작성해야한다.</li>
+<li>둘 다 DB연동을 자바코드 한줄로 표현 가능하다</li>
+</ul>
+</li>
+</ul>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<li><p>여러 Framework 모듈을 집합해놓은것</p>
+</li>
+<li><p>가볍다 : 모듈들 다 합쳐봐야 용량 얼마 안되고 POJO 기반이기 때문에 메모리를 적게사용한다. 따라서 속도빠름</p>
+</li>
+<li><p>POJO(Plain Old Java Object) 기반이다 : 내맘대로 만드는 클래스다. Servlet&amp;JSP 이런건 POJO 이전 기술이다.</p>
+</li>
+<li><p>컨테이너다. 애플리케이션 운용에 필요한 객체를 생성하고 관리한다. 내부적으로 객체들의 저장공간으로 컬렉션(MAP같은)을 사용한다</p>
+</li>
+</ul>
+<h2 id="MVN-REPOSTITORY-사이트"><a href="#MVN-REPOSTITORY-사이트" class="headerlink" title="MVN REPOSTITORY 사이트"></a>MVN REPOSTITORY 사이트</h2><ul>
+<li>오만가지 Framework 를 검색해서 모듈(jar파일) 다운하는곳</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/25/220525-6th-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/25/220525-6th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (6) [MVC, EL, JSTL]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-25 19:51:05 / Modified: 19:52:14" itemprop="dateCreated datePublished" datetime="2022-05-25T19:51:05+09:00">2022-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="MVC-Model-View-Controller"><a href="#MVC-Model-View-Controller" class="headerlink" title="MVC (Model View Controller)"></a>MVC (Model View Controller)</h1><ul>
+<li><p>Controller : Scriptlet안에 있는 자바코드</p>
+</li>
+<li><p>View : HTML 로 구성된 디자인코드</p>
+</li>
+<li><p>Model : Service 클래스(내부 비즈니스 관련 로직처리), DAO 클래스(DB 관련 코드)</p>
+</li>
+</ul>
+<h2 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h2><ul>
+<li><p>(MC) + V 로 구성</p>
+</li>
+<li><p>MC가 같은 파일에 있어 수정이 어렵다</p>
+</li>
+</ul>
+<h2 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h2><ul>
+<li>M + V + C 로 구성</li>
+</ul>
+<h2 id="EL"><a href="#EL" class="headerlink" title="EL (${ })"></a>EL (${ })</h2><ul>
+<li><p>JSP가 제공해줌</p>
+</li>
+<li><p>Scriptlet 과 Expression 자바코드 대체 할 수 있음</p>
+</li>
+<li><p>request, session, application 내장객체에 등록된 데이터를 접근하기 위한 표현식</p>
+</li>
+</ul>
+<h2 id="JSTP-lt-c-if-gt-lt-c-forEach-gt"><a href="#JSTP-lt-c-if-gt-lt-c-forEach-gt" class="headerlink" title="JSTP (&lt;c:if&gt;) (&lt;c:forEach&gt;)"></a>JSTP (&lt;c:if&gt;</c:if>) (&lt;c:forEach&gt;</c:forEach>)</h2><ul>
+<li>JSP 파일에서 if, for, switch 같은 자바 코드를 대체하기위한 표준 태그</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/25/220525-5th-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/25/220525-5th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (5) [JSP]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-25 19:49:21 / Modified: 19:50:34" itemprop="dateCreated datePublished" datetime="2022-05-25T19:49:21+09:00">2022-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JSP-JavaServer-Pages"><a href="#JSP-JavaServer-Pages" class="headerlink" title="JSP(JavaServer Pages)"></a>JSP(JavaServer Pages)</h1><ul>
+<li><p>Servlet과 같게 동적 컨텐츠를 처리하기 위함</p>
+</li>
+<li><p>서브릿으로 변환되어 실행됨</p>
+</li>
+</ul>
+<h2 id="Servlet의-장점"><a href="#Servlet의-장점" class="headerlink" title="Servlet의 장점"></a>Servlet의 장점</h2><ul>
+<li><p>Servlet은 Java로 구현된 클래스이기 때문에 플랫폼에 독립적(컴파일까지 해놓으면 바이너리(즉0.1의조합)이 아니라 바이트 파일이기때문에<br>OS에 상관없이 실행가능)</p>
+</li>
+<li><p>멀티 스레드를 제공. 아무리많은 브라우저가 요청을 해도 서블릿객체는 메모리에 하나만 생성된다 예를들어 서비스를 처리하려면 스레드풀에서<br>스레드가 튀어나와 처리한다( 스레드는 서버엔진이 만든다). 즉, 메모리를 적게 사용</p>
+</li>
+</ul>
+<h2 id="JSP를-사용하는-이유"><a href="#JSP를-사용하는-이유" class="headerlink" title="JSP를 사용하는 이유"></a>JSP를 사용하는 이유</h2><ul>
+<li>Servlet의 단점을 보완하기 위함</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Servlet 단점&gt;</span><br><span class="line"></span><br><span class="line">1. 규칙을 외워야된다. (뭔가를 import를 해야되고, 반드시 HttpServlet을 상속해야되고, public 클래스로 작성해야되고, 반드시 디폴트 생성자가 </span><br><span class="line">있어야되고, 서비스라든지 do나 post메소드를 오버라이딩해야된다. 매겨변수 리턴타입 등등 어느거 하나 내맘대로 할 수가없다.)</span><br><span class="line"></span><br><span class="line">2. 서브릿이 실행하려면 어노테이션이라든지 web.xml에 등록해서 실행되게 하여야만한다</span><br><span class="line"></span><br><span class="line">3. 소스를 수정하면 리로딩될때 까지 기다려야됨</span><br><span class="line"></span><br><span class="line">4. 자바코드안에 디자인코드(HTML)를 가지고있음(디자인코드를 짤때 자바문법을 고려하면서 짜야됨). 유지보수가 어렵다 아니 불가능한 수준이다.</span><br><span class="line">JSP는 필요정도만 자바 코드가 추가된다.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="주석문-lt-–-–-gt"><a href="#주석문-lt-–-–-gt" class="headerlink" title="주석문(&lt;%– –%&gt;)"></a>주석문(&lt;%– –%&gt;)</h2><ul>
+<li>HTML 주석 : &lt;!– –!&gt;</li>
+<li>JSP 주석 : &lt;%– –%&gt;</li>
+<li>HTML 주석은 JSP가 Servlet 클래스로 변환될때 포함된다(유관으로 보여진다) JSP주석은 변환될때 포함안됨</li>
+</ul>
+<h2 id="page-지시자-lt-gt"><a href="#page-지시자-lt-gt" class="headerlink" title="page 지시자(&lt;%@  %&gt;)"></a>page 지시자(&lt;%@  %&gt;)</h2><ul>
+<li>JSP에서 Servlet 클래쓰로 변환할때 반영할 내용을 작성(인코딩, import 같은것)(&lt;%@page  %&gt;)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. isErrorPage : 해당 JSP 파일이 에러 페이지다</span><br><span class="line"></span><br><span class="line">2. errorPage : 에러뜨면 이동할 페이지</span><br><span class="line"></span><br><span class="line">3. import :변환될때 import할 것들</span><br><span class="line"></span><br><span class="line">4. session : session 객체를 사용하려면 request.getsession해서 setattribut 하고 getattribute해서 써야되는데 </span><br><span class="line">jsp에서는 막 쓸 수 있다. 왜냐하면 변환될때 자동으로 session 객체가 생성되므로(내장객체).(session = &quot;true&quot; 생략가능)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="include-지시자"><a href="#include-지시자" class="headerlink" title="include 지시자"></a>include 지시자</h2><ul>
+<li>웹 화면에서 Header와 Footer를 독립된 JSP로 만들고 include하면 공통된 웹화면을 만들 수 있다.</li>
+</ul>
+<h2 id="Scriptlet-lt-gt"><a href="#Scriptlet-lt-gt" class="headerlink" title="Scriptlet (&lt;% %&gt;)"></a>Scriptlet (&lt;% %&gt;)</h2><ul>
+<li>정상적인 자바 코드가 작성되는 영역</li>
+</ul>
+<h2 id="Expression-lt-x3D-gt"><a href="#Expression-lt-x3D-gt" class="headerlink" title="Expression (&lt;%&#x3D; %&gt;)"></a>Expression (&lt;%&#x3D; %&gt;)</h2><ul>
+<li>메소드 호출할 때</li>
+</ul>
+<h2 id="내장-객체"><a href="#내장-객체" class="headerlink" title="내장 객체"></a>내장 객체</h2><ul>
+<li><p>서버가 JSP를 Servlet으로 변환할 때 지정된 이름으로 변수가 선언되고 변수이름을 바꿀수도없다. 변수에 객체를 자동으로 할당해준다(초기화).</p>
+</li>
+<li><p>내장 객체로는 request, response, pageContext, session, application, config, out이 있다.</p>
+</li>
+<li><p>따라서, Scriptlet과 Expression 안에서 객체를 막 쓸 수 있다.따로 선언하지않고.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/20/220520-4th-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/20/220520-4th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (4) [Servlet(3)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-20 21:05:06 / Modified: 21:10:22" itemprop="dateCreated datePublished" datetime="2022-05-20T21:05:06+09:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="상태-정보-유지"><a href="#상태-정보-유지" class="headerlink" title="상태 정보 유지"></a>상태 정보 유지</h1><ul>
+<li>요청한 브라우저가 로그인을 한 상태인지 아닌지 Servlet이 식별할 수 있게하는것</li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><ul>
+<li><p>상태 정보 를 브라우저쪽 pc에 저장</p>
+</li>
+<li><p>텍스트 형태만 저장가능</p>
+</li>
+<li><p>저장에 대한 제한이 있음</p>
+</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><ul>
+<li><p>상태 정보를 서버에 저장</p>
+</li>
+<li><p>모든 타입 저장가능</p>
+</li>
+<li><p>메모리범위를 넘지않는 한 저장가능</p>
+</li>
+<li><p>브라우저 하나당 세션객체가 생성되고 세션 ID는 유니크하게 가진다</p>
+</li>
+</ul>
+<h1 id="정보-공유"><a href="#정보-공유" class="headerlink" title="정보 공유"></a>정보 공유</h1><ul>
+<li><p>HttpServletRequest :포워딩 관계에 있는 서브릿간에서 getAttribute로 가져다 쓸수있다. Request 객체는 서버가 브라우저에 응답하는 순간 삭제</p>
+</li>
+<li><p>HttpSession : 다른 서브릿에서 getAttribute로 가져다 쓸수있다(브라우저가 살아있는 동안 유지)</p>
+</li>
+<li><p>ServletContext : 다른 서브릿에서 getAttribute로 가져다 쓸수있다(브라우저가 죽어도 유지)</p>
+</li>
+</ul>
+<h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><ul>
+<li><p>특정 Servlet 실행 전과후에 작업을 할 수있다(대표적으로 encoding,currentTimeMills() 메소드를 통해 Servlet 실행 시간을 알때도 쓴다)</p>
+</li>
+<li><p>필터는 web.xml에 적용되고 pre-loading 방식이기에 서버구동되면 생성된다.</p>
+</li>
+<li><p>annotation 가능</p>
+</li>
+</ul>
+<h1 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h1><ul>
+<li><p>이벤트 처리용(request, session, context)</p>
+</li>
+<li><p>필터보다 먼저 생성됨</p>
+</li>
+<li><p>annotation 가능</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/17/220517-3rd-Servlet-and-JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/17/220517-3rd-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (3) [Servlet(2)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-17 22:28:51 / Modified: 22:31:03" itemprop="dateCreated datePublished" datetime="2022-05-17T22:28:51+09:00">2022-05-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="쿼리-문자열"><a href="#쿼리-문자열" class="headerlink" title="쿼리 문자열"></a>쿼리 문자열</h1><ul>
+<li><p>브라우저가 서버에 정보를 넘기면 name과value 쌍으로 전달이된다</p>
+</li>
+<li><p>요청방식에따라(doGet, doPost) start-line or message-body 내용이 포함된다</p>
+</li>
+</ul>
+<h1 id="HttpServletRequest-객체-HttpServletResponse-객체도-비슷"><a href="#HttpServletRequest-객체-HttpServletResponse-객체도-비슷" class="headerlink" title="HttpServletRequest 객체 (HttpServletResponse 객체도 비슷)"></a>HttpServletRequest 객체 (HttpServletResponse 객체도 비슷)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 브라우저가 서버에 HTTP 요청을 한다</span><br><span class="line">2. Servlet 이 실행되기전에 서버 엔진은 HttpServletRequest 객체를 생성한다</span><br><span class="line">3. HttpServletRequest 객체에는 HTTP 요청 프로토콜로 전달된 수많은 정보들이 세팅된다</span><br><span class="line">4. Servlet이 실행될 때 HttpServletRequest 객체를 매개변수로 받는다</span><br><span class="line">5. 따라서, Servlet에서 request.get~를 통해 그 수많은 정보를 불러올수 있다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="HttpServletRequest-메서드"><a href="#HttpServletRequest-메서드" class="headerlink" title="HttpServletRequest 메서드"></a>HttpServletRequest 메서드</h1><ul>
+<li><p>getParameter(“string”); : 입력받은 내용을 파라미터값을 가져올때</p>
+</li>
+<li><p>getParameterValues(“string”) : 입력받은 내용을 파라미터값을 가져올때(checkbox일때)</p>
+</li>
+<li><p>getQueryString(); &#x3D; URL에서 ? 뒤에 내용을 가져오고싶을때</p>
+</li>
+<li><p>request.setCharacterEncoding(“UTF-8); : 한글 깨짐 방지</p>
+</li>
+</ul>
+<h1 id="HttpServletResponse-메서드"><a href="#HttpServletResponse-메서드" class="headerlink" title="HttpServletResponse 메서드"></a>HttpServletResponse 메서드</h1><ul>
+<li><p>void setContentType(“string”) : 응답 메시지의 데이터형식을 설정(인코딩 설정)</p>
+</li>
+<li><p>PrintWriter getWriter() : HTTP 응답 프로토콜 message-body와 연결된 출력 스트림을 획득</p>
+</li>
+<li><p>void sendRedirect(“string”) : 해당경로를 다시 요청(sendRedirect를 만나는 순간 서버가 브라우저에게 응답을 하고 브라우저가 다시 sendRedirect에 해당경로를 재요청한다. 그리고 서버가 해당경로를 다시 브라우저에게 응답한다. 따라서, 총 두번의 요청응답을 오고간다.URL 또한 변경된다. 단점 : 속도가 느려 장점 : URL이 바뀌니까 어디서 요청이 들어왔는지 유관으로 볼수 있다)</p>
+</li>
+</ul>
+<h1 id="Servlet-Config-객체-로컬-파라미터"><a href="#Servlet-Config-객체-로컬-파라미터" class="headerlink" title="Servlet Config 객체 (로컬 파라미터)"></a>Servlet Config 객체 (로컬 파라미터)</h1><ul>
+<li><p>복잡한 Servlet 소스를 수정하지않고 web.xml에서 수정하기 위함</p>
+</li>
+<li><p>다른 Servlet에서는 접근불가 (로컬 파라미터)</p>
+</li>
+<li><p>오버라이딩된 init() 메서드를 통해 web.xml에서 &lt;init - param&gt;에서 설정된 ServletConfig 객체를 인자로 받아 맴버변수를 초기화한다</p>
+</li>
+<li><p>이 또한 annotation으로 설정가능</p>
+</li>
+</ul>
+<h1 id="Servlet-Context-객체-글로벌-파라미터"><a href="#Servlet-Context-객체-글로벌-파라미터" class="headerlink" title="Servlet Context 객체 (글로벌 파라미터)"></a>Servlet Context 객체 (글로벌 파라미터)</h1><ul>
+<li>모든 Servlet에서 공유할수 있는 파라미터(Servlet 뿐만 아니라 서버엔진이 만든 모든 객체에 접근가능하다)</li>
+</ul>
+<h1 id="포워딩"><a href="#포워딩" class="headerlink" title="포워딩"></a>포워딩</h1><ul>
+<li><p>Redirect의 단점인 2번의 요청과 응답이 가기에 느린 속도를 개선(서버 -&gt; 브라우저 -&gt; 서버 -&gt; 브라우저 가 아닌 서버 -&gt;서버로 점프해버린다)</p>
+</li>
+<li><p>URL이 바뀌지않음(어디서 응답이 들어왔는지 유관으로 확인이 힘듬)</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">RequestDispatcher dispatcher = request.getRequestDispatcher(&quot;경로&quot;);</span><br><span class="line">dispatcher.forward(request, response);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -764,463 +1363,6 @@
 <ul>
 <li>힙 데이터 삭제는 복잡하므로 생략</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-7th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/29/220429-7th-CS/" class="post-title-link" itemprop="url">CS (7) [트리]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-29 16:42:09" itemprop="dateCreated datePublished" datetime="2022-04-29T16:42:09+09:00">2022-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-30 23:57:10" itemprop="dateModified" datetime="2022-04-30T23:57:10+09:00">2022-04-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="트리"><a href="#트리" class="headerlink" title="트리"></a>트리</h1><ul>
-<li>Node와 Branch를 이용해서 사이클을 이루지 않도록 구성한 데이터 구조</li>
-<li>이진 트리가 주로 쓰인다.. 탐색 알고리즘 구현에서 많이 쓰인다</li>
-</ul>
-<h2 id="이진-트리"><a href="#이진-트리" class="headerlink" title="이진 트리"></a>이진 트리</h2><ul>
-<li>이진 트리 : 노드의 최대 Branch가 2인 트리</li>
-<li>이진 탐색 트리 : 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰값</li>
-</ul>
-<h2 id="트리-구현"><a href="#트리-구현" class="headerlink" title="트리 구현"></a>트리 구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">package practice24;</span><br><span class="line"></span><br><span class="line"> class NodeMgmt &#123;</span><br><span class="line">    Node head = null;</span><br><span class="line"></span><br><span class="line">     class Node &#123;</span><br><span class="line">        Node left;</span><br><span class="line">        Node right;</span><br><span class="line">        int value;</span><br><span class="line">         Node (int data) &#123;</span><br><span class="line">            this.value = data;</span><br><span class="line">            this.left = null;</span><br><span class="line">            this.right = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void insertNode(int data) &#123;</span><br><span class="line">        // Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            this.head = new Node(data);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // Node 가 하나 이상 들어가 있을 때</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (true) &#123;</span><br><span class="line">                // 현재 Node 의 왼쪽에 Node 가 들어가야할 때</span><br><span class="line">                if (data &lt; findNode.value) &#123;</span><br><span class="line">                    if (findNode.left != null) &#123;</span><br><span class="line">                        findNode = findNode.left;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.left = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                // 현재 Node 의 오른쪽에 Node 가 들어가야할 때</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (findNode.right != null) &#123;</span><br><span class="line">                        findNode = findNode.right;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.right = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node search(int data) &#123;</span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        //Node 가 하나 이상 있을 때</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (findNode != null) &#123;</span><br><span class="line">                if (findNode.value == data) &#123;</span><br><span class="line">                    return findNode;</span><br><span class="line">                &#125; else if (data &lt; findNode.value) &#123;</span><br><span class="line">                    findNode = findNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    findNode = findNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean delete(int value) &#123;</span><br><span class="line">        boolean searched = false;</span><br><span class="line"></span><br><span class="line">        Node currParentNode = this.head;</span><br><span class="line">        Node currNode = this.head;</span><br><span class="line"></span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //Node 가 단지 하나만 있고, 해당 Node 가 삭제할 Node 일 때</span><br><span class="line">            if (this.head.value == value &amp;&amp; this.head.left == null &amp;&amp; this.head.right == null) &#123;</span><br><span class="line">                this.head = null;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while (currNode != null) &#123;</span><br><span class="line">                if (currNode.value == value) &#123;</span><br><span class="line">                    searched = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else if (value &lt; currNode.value) &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (searched == false) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //삭제할 Node 가 Leaf Node 인 경우</span><br><span class="line">        if (currNode.left == null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">            //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (왼쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left != null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (오른쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left == null &amp;&amp; currNode.right != null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TreeTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		NodeMgmt myTree = new NodeMgmt();</span><br><span class="line">		myTree.insertNode(3);</span><br><span class="line">		myTree.insertNode(2);</span><br><span class="line">		myTree.insertNode(8);</span><br><span class="line">		myTree.insertNode(12);</span><br><span class="line"></span><br><span class="line">		myTree.delete(8);</span><br><span class="line">	//	System.out.println(myTree.search(8).value);</span><br><span class="line">		System.out.println(myTree.search(3).right.value);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="노드-삭제"><a href="#노드-삭제" class="headerlink" title="노드 삭제"></a>노드 삭제</h2><ul>
-<li><ol>
-<li>LeafNode 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node를 가리키지 않도록 한다.</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>ChildNode가 하나인 Node 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node의 Child Node를 가리키도록 한다.</li>
-</ol>
-</li>
-<li><p>(참고만)3. ChildNode가 두개인 Node 삭제 : 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 한다.</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-6th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/29/220429-6th-CS/" class="post-title-link" itemprop="url">CS (6) [해쉬테이블]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-29 16:00:11 / Modified: 16:02:01" itemprop="dateCreated datePublished" datetime="2022-04-29T16:00:11+09:00">2022-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="해쉬-구조"><a href="#해쉬-구조" class="headerlink" title="해쉬 구조"></a>해쉬 구조</h1><ul>
-<li>키에 데이터를 저장하는 구조</li>
-<li>키를 통해 바로 데이터를 받아올수 있으므로 속도가 획기적으로 빨라짐</li>
-</ul>
-<h2 id="HashTable-구현"><a href="#HashTable-구현" class="headerlink" title="HashTable 구현"></a>HashTable 구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package practice23;</span><br><span class="line"></span><br><span class="line">class Slot&#123;</span><br><span class="line"></span><br><span class="line">	String value;</span><br><span class="line">	Slot(String value)&#123;</span><br><span class="line"></span><br><span class="line">		this.value = value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyHash&#123;</span><br><span class="line"></span><br><span class="line">	Slot[] hashTable;</span><br><span class="line"></span><br><span class="line">	MyHash(int size)&#123;</span><br><span class="line">		this.hashTable = new Slot[size];</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 int hashFunc(String key) &#123;</span><br><span class="line">      return (int)(key.charAt(0)) % this.hashTable.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	 void saveDate(String key, String value)&#123;</span><br><span class="line">		 int address = this.hashFunc(key);</span><br><span class="line">		 if(this.hashTable[address] != null) &#123;</span><br><span class="line">			 this.hashTable[address].value = value;</span><br><span class="line">		 &#125;</span><br><span class="line">		 else &#123;</span><br><span class="line">			 this.hashTable[address] = new Slot(value);</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 String getData(String key) &#123;</span><br><span class="line">		int address = this.hashFunc(key);</span><br><span class="line">		if(this.hashTable[address] != null) &#123;</span><br><span class="line">			return this.hashTable[address].value;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class HashTableTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	//	String name = &quot;jinwoorim&quot;;</span><br><span class="line">	//	name.charAt(0); // jinwoorim의 맨앞 알파벳 따오는</span><br><span class="line">	//	System.out.println((int)name.charAt(0));</span><br><span class="line"></span><br><span class="line">//		Slot[] hashtable = new Slot[20];</span><br><span class="line">//		hashtable[0] = new Slot(&quot;jinwoorim&quot;);</span><br><span class="line">//		System.out.println(hashtable[0].value);</span><br><span class="line"></span><br><span class="line">		MyHash myhash = new MyHash(20);</span><br><span class="line">		myhash.saveDate(&quot;jinwoorim&quot;, &quot;01093684988&quot;);</span><br><span class="line">		System.out.println(myhash.getData(&quot;jinwoorim&quot;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
-<li>해쉬 테이블 구조를 활용하여 구현한 클래스 (java collection framework에 속한 클래스). java.util에 있음</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/29/220429-5th-CS/" class="post-title-link" itemprop="url">CS (5) [시간복잡도]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-29 15:57:10 / Modified: 15:59:36" itemprop="dateCreated datePublished" datetime="2022-04-29T15:57:10+09:00">2022-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="알고리즘-복잡도-표현-방법"><a href="#알고리즘-복잡도-표현-방법" class="headerlink" title="알고리즘 복잡도 표현 방법"></a>알고리즘 복잡도 표현 방법</h1><ul>
-<li>시간복잡도 : 알고리즘 실행 속도</li>
-<li>공간복잡도 : 알고리즘이 사용하는 메모리 사이즈</li>
-</ul>
-<h1 id="알고리즘-성능-표기법"><a href="#알고리즘-성능-표기법" class="headerlink" title="알고리즘 성능 표기법"></a>알고리즘 성능 표기법</h1><ul>
-<li>Big 0(빅-오) 표기법 O(N) : 알고리즘 최악의 실행 시간을 표기. 아무리 최악의 상황이라도 이정도의 성능은 보장한다의 의미.</li>
-<li>오메가 표기법 : 최상의 실행 시간을 표기</li>
-<li>세타 표기법 : 평균 실행 시간을 표기</li>
-</ul>
-<h2 id="Big-0-O-N"><a href="#Big-0-O-N" class="headerlink" title="Big 0 O(N)"></a>Big 0 O(N)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 int total = 0;</span><br><span class="line">		 for(int i = 1; i &lt;= number; i++) &#123;</span><br><span class="line"></span><br><span class="line">		 total += i;</span><br><span class="line">		 &#125;</span><br><span class="line"></span><br><span class="line">		 return total;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Big-0-O-1"><a href="#Big-0-O-1" class="headerlink" title="Big 0 O(1)"></a>Big 0 O(1)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 return number*(number+1)/2;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/25/220425-4th-CS/" class="post-title-link" itemprop="url">CS (4) [링크드 리스트(LinkedList)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-25 00:18:08 / Modified: 01:12:20" itemprop="dateCreated datePublished" datetime="2022-04-25T00:18:08+09:00">2022-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="링크드-리스트-Linked-List"><a href="#링크드-리스트-Linked-List" class="headerlink" title="링크드 리스트(Linked List)"></a>링크드 리스트(Linked List)</h1><ul>
-<li><p>배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.</p>
-</li>
-<li><p>링크드 리스트는 데이터와 주소를 동반함</p>
-</li>
-<li><p>노드 : 데이터값과 포인터(데이터 주소)로 구성</p>
-</li>
-<li><p>단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이 필요하므로 저장공간 효율이 좋지 못하다. 접근 속도가 느림.</p>
-</li>
-</ul>
-<h2 id="Node-클래스-구현-및-링크드리스트에-여러-기능구현"><a href="#Node-클래스-구현-및-링크드리스트에-여러-기능구현" class="headerlink" title="Node 클래스 구현 및 링크드리스트에 여러 기능구현"></a>Node 클래스 구현 및 링크드리스트에 여러 기능구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class SingleLinkedList &#123;</span><br><span class="line"></span><br><span class="line">	Node head = null;</span><br><span class="line"></span><br><span class="line">	  public class Node&#123; //Node 클래스 구현</span><br><span class="line"></span><br><span class="line">		  Object data;</span><br><span class="line">		  Node next = null;</span><br><span class="line"></span><br><span class="line">		Node(Object data)&#123;</span><br><span class="line"></span><br><span class="line">			this.data = data;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNode(Object data) &#123;// 링크드리스트에 데이터 추가하기</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			head = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = this.head;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line"></span><br><span class="line">				node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			node.next = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void printAll() &#123; // 링크드 리스트 데이터 출력하기</span><br><span class="line"></span><br><span class="line">		Node node = head;</span><br><span class="line">		System.out.println(node.data);</span><br><span class="line">		while(node.next != null) &#123;</span><br><span class="line">			node = node.next;</span><br><span class="line">			System.out.println(node.data);</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	public Node search(Object data) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			while(node != null) &#123;</span><br><span class="line"></span><br><span class="line">				if(node.data == data) &#123;</span><br><span class="line"></span><br><span class="line">					return node;</span><br><span class="line">				&#125;</span><br><span class="line">				else node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNodeInside(Object data, Object isdata) &#123;</span><br><span class="line"></span><br><span class="line">		Node searchedNode = search(isdata);</span><br><span class="line"></span><br><span class="line">		if(searchedNode == null) &#123;</span><br><span class="line"></span><br><span class="line">			addNode(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line"></span><br><span class="line">			Node nextNode = searchedNode.next;</span><br><span class="line">			searchedNode.next = new Node(data);</span><br><span class="line">			searchedNode.next.next = nextNode;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public boolean delNode(Object deldata) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			if(node.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">				head = head.next;</span><br><span class="line">				return true;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line">				if(node.next.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">					node.next = node.next.next;</span><br><span class="line">					return true;</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;</span><br><span class="line">					node = node.next;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class LinkedListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		SingleLinkedList linkedlist = new SingleLinkedList();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNode(1);</span><br><span class="line">		linkedlist.addNode(2);</span><br><span class="line">		linkedlist.addNode(3);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(linkedlist.head.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.next.data);</span><br><span class="line">		</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNodeInside(4, 1);// 1의 데이터를 가진 node 옆에 4를 넣겠다.</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.delNode(1);</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/23/220423-3rd-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/23/220423-3rd-CS/" class="post-title-link" itemprop="url">CS (3) [스택(Stack)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-23 21:35:31 / Modified: 21:37:08" itemprop="dateCreated datePublished" datetime="2022-04-23T21:35:31+09:00">2022-04-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="스택-Stack"><a href="#스택-Stack" class="headerlink" title="스택 (Stack)"></a>스택 (Stack)</h1><ul>
-<li>가장 나중에 쌓은 데이터를 가장 먼저 빼낼 수 있는 데이터 구조 (LIFO)</li>
-<li>push() : 데이터를 스택에 넣기</li>
-<li>pop() : 데이터를 스택에서 꺼내기</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice09;</span><br><span class="line"></span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class StackTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Stack stack = new Stack();</span><br><span class="line"></span><br><span class="line">		stack.push(1);</span><br><span class="line">		stack.push(2);</span><br><span class="line">		stack.push(3);</span><br><span class="line"></span><br><span class="line">		System.out.println(stack);</span><br><span class="line"></span><br><span class="line">		stack.pop();</span><br><span class="line">		System.out.println(stack);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="ArrayList를-활용하여-Stack의-push-pop-기능-구현하기"><a href="#ArrayList를-활용하여-Stack의-push-pop-기능-구현하기" class="headerlink" title="ArrayList를 활용하여 Stack의 push, pop 기능 구현하기"></a>ArrayList를 활용하여 Stack의 push, pop 기능 구현하기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice09;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">//import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class StackTest&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">	ArrayList&lt;T&gt;list = new ArrayList&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">	public void push(T item) &#123;</span><br><span class="line"></span><br><span class="line">		list.add(item);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public T pop() &#123;</span><br><span class="line"></span><br><span class="line">		if(list.isEmpty()) &#123;</span><br><span class="line">		return null;</span><br><span class="line">		&#125;</span><br><span class="line">		else return list.remove(list.size()-1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;&quot; + list + &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		StackTest stacktest = new StackTest();</span><br><span class="line"></span><br><span class="line">		stacktest.push(1);</span><br><span class="line">		stacktest.push(2);</span><br><span class="line">		stacktest.push(3);</span><br><span class="line"></span><br><span class="line">		System.out.println(stacktest.toString());</span><br><span class="line"></span><br><span class="line">		stacktest.pop();</span><br><span class="line"></span><br><span class="line">		System.out.println(stacktest.toString());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

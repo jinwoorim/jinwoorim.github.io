@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,493 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/07/220423-1st-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/07/220423-1st-CS/" class="post-title-link" itemprop="url">CS (1) [배열 Array]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-07 23:16:02" itemprop="dateCreated datePublished" datetime="2022-04-07T23:16:02+09:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-23 18:05:35" itemprop="dateModified" datetime="2022-04-23T18:05:35+09:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="배열-Array"><a href="#배열-Array" class="headerlink" title="배열(Array)"></a>배열(Array)</h1><ul>
+<li>같은 종류의 데이터를 효율적으로 관리하게 하기위해 사용</li>
+<li>같은 종류의 데이터를 순차적으로 저장</li>
+<li>배열의 장점:<ul>
+<li>빠른 접근 가능</li>
+</ul>
+</li>
+<li>배열의 단점:<ul>
+<li>추가&#x2F;삭제가 쉽지않음</li>
+<li>미리 최대 길이를 지정해야함</li>
+</ul>
+</li>
+</ul>
+<h2 id="Integer라는-wrapper클래스를-활용하여-배열만들기"><a href="#Integer라는-wrapper클래스를-활용하여-배열만들기" class="headerlink" title="Integer라는 wrapper클래스를 활용하여 배열만들기"></a>Integer라는 wrapper클래스를 활용하여 배열만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice06;</span><br><span class="line"></span><br><span class="line">public class Array &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		Integer[]array = new Integer[3];</span><br><span class="line">		array[0] = 1;</span><br><span class="line">		array[1] = 2;</span><br><span class="line">		array[2] = 3;</span><br><span class="line">		</span><br><span class="line">		System.out.println(array[0]);</span><br><span class="line">		</span><br><span class="line">		for(int i = 0; i &lt; array.length; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(array[i]);</span><br><span class="line">			</span><br><span class="line">		&#125;		</span><br><span class="line">		</span><br><span class="line">		for (int num  : array) &#123;</span><br><span class="line">			System.out.println(array[num-1]);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">		</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package practice06;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Array &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		Integer[]array = &#123;1,2,3&#125;;</span><br><span class="line">		</span><br><span class="line">		System.out.println(Arrays.toString(array));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">		</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<h2 id="ArrayList-클래스를-활용하여-배열-만들기"><a href="#ArrayList-클래스를-활용하여-배열-만들기" class="headerlink" title="ArrayList 클래스를 활용하여 배열 만들기"></a>ArrayList 클래스를 활용하여 배열 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class ArrayListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		ArrayList list = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list.add(1); // add는 배열에 데이터 추가</span><br><span class="line">		list.add(2);</span><br><span class="line">		list.add(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.size()); //size는 배열의 길이 확인</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.get(0)); // get은 특정 인덱스에 해당하는 데이터 읽기</span><br><span class="line">		System.out.println(list.get(1));</span><br><span class="line">		System.out.println(list.get(2));</span><br><span class="line">		</span><br><span class="line">		list.set(0, 4); // set(해당인덱스번호, 변경사항)</span><br><span class="line">		list.set(1, 5);</span><br><span class="line">		list.set(2, 6);</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		list.remove(0); // 해당인덱스번호 데이터 삭제</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Integer라는-wrapper클래스를-활용하여-2차원배열만들기"><a href="#Integer라는-wrapper클래스를-활용하여-2차원배열만들기" class="headerlink" title="Integer라는 wrapper클래스를 활용하여 2차원배열만들기"></a>Integer라는 wrapper클래스를 활용하여 2차원배열만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">public class TwoArrayTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Integer[][] array = new Integer[2][2];</span><br><span class="line">		</span><br><span class="line">		array[0][0] = 1;</span><br><span class="line">		array[0][1] = 2;</span><br><span class="line">		array[1][0] = 3;</span><br><span class="line">		array[1][1] = 4;</span><br><span class="line">		</span><br><span class="line">		for(int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			</span><br><span class="line">			for(int j = 0; j &lt; array[i].length; j++) &#123;</span><br><span class="line">				</span><br><span class="line">				System.out.println(array[i][j]);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="ArrayList-클래스를-활용하여-2차원배열-만들기"><a href="#ArrayList-클래스를-활용하여-2차원배열-만들기" class="headerlink" title="ArrayList 클래스를 활용하여 2차원배열 만들기"></a>ArrayList 클래스를 활용하여 2차원배열 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class ArrayListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		ArrayList&lt;ArrayList&gt;list = new ArrayList&lt;ArrayList&gt;();</span><br><span class="line">		</span><br><span class="line">		ArrayList list1 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list1.add(1);</span><br><span class="line">		list1.add(2);</span><br><span class="line">		list1.add(3);</span><br><span class="line">		</span><br><span class="line">		ArrayList list2 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list2.add(11);</span><br><span class="line">		list2.add(22);</span><br><span class="line">		list2.add(33);</span><br><span class="line">		</span><br><span class="line">		ArrayList list3 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list3.add(111);</span><br><span class="line">		list3.add(222);</span><br><span class="line">		list3.add(333);</span><br><span class="line">		</span><br><span class="line">		list.add(list1);</span><br><span class="line">		list.add(list2);</span><br><span class="line">		list.add(list3);</span><br><span class="line">		</span><br><span class="line">		for(int i =0; i &lt; list.size(); i++) &#123;</span><br><span class="line">			</span><br><span class="line">		System.out.println(list.get(i));</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/06/My-5th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/06/My-5th-post/" class="post-title-link" itemprop="url">About git (5) [git flow]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-06 14:10:11" itemprop="dateCreated datePublished" datetime="2022-04-06T14:10:11+09:00">2022-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-18 00:02:11" itemprop="dateModified" datetime="2022-04-18T00:02:11+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>git flow ( Master &#x2F; Develop &#x2F; Feature &#x2F; Hotfix)</p>
+<h1 id="How-to-use-git-flow"><a href="#How-to-use-git-flow" class="headerlink" title="How to use git flow"></a>How to use git flow</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git flow init</span><br><span class="line">2. ENTER ENTER ENTER ...</span><br><span class="line">3. Then you can see the develop branch ( $ git branch )</span><br><span class="line">4. $ git flow feature start ( feature branch name )</span><br><span class="line">5. Then you can see the feature branch ( $ git branch )</span><br><span class="line">6. Then make file and work</span><br><span class="line">7. add / commit</span><br><span class="line">8. If you finish the work, $ git flow feature finish (file name)</span><br><span class="line">9. If you want release, git flow release start ( version name ex:v0.0.0 )</span><br><span class="line">10. git flow release finish ( version name )</span><br><span class="line">11. Then you can see 3 vim ( main / tag / develop )</span><br><span class="line">12. $ git push -u origin develop</span><br><span class="line">13. $ git checkout main</span><br><span class="line">14. $ git push origin main</span><br><span class="line">15. $ git tag</span><br><span class="line">16. $ git push --tag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/03/My-4th-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/03/My-4th-post/" class="post-title-link" itemprop="url">About git (4) [What is a branch / How to use branch and merge]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-03 22:20:49" itemprop="dateCreated datePublished" datetime="2022-04-03T22:20:49+09:00">2022-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-18 00:00:46" itemprop="dateModified" datetime="2022-04-18T00:00:46+09:00">2022-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>About branch</p>
+<p>branch : Instead of working in the original branch, create a new branch and work there. This is similar to the test mode.</p>
+<h1 id="Make-a-branch"><a href="#Make-a-branch" class="headerlink" title="Make a branch"></a>Make a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>If you make a new branch, it is same with main branch</p>
+<h1 id="Delete-a-branch"><a href="#Delete-a-branch" class="headerlink" title="Delete a branch"></a>Delete a branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -d (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Change-the-branch"><a href="#Change-the-branch" class="headerlink" title="Change the branch"></a>Change the branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout (branch name)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Working-on-the-new-branch"><a href="#Working-on-the-new-branch" class="headerlink" title="Working on the new branch"></a>Working on the new branch</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ git checkout (new branch)</span><br><span class="line">2. work something on the new branch</span><br><span class="line">3. $ git add (filename)</span><br><span class="line">4. $ git commit</span><br><span class="line">5. $ git push origin (new branch)</span><br><span class="line">6. $ git checkout (original branch)</span><br><span class="line">7. $ git merge (new branch)</span><br><span class="line">8. $ git add (filename)</span><br><span class="line">9. $ git commit</span><br><span class="line">10. $ git push origin (original branch)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Merge-branch"><a href="#Merge-branch" class="headerlink" title="Merge branch"></a>Merge branch</h1><pre><code class="shell"> $ git merge (new branch) &lt;-- on the original branch
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/02/My-3rd-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/02/My-3rd-post/" class="post-title-link" itemprop="url">About git (3) [git clone/ git init]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-02 19:10:00" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:58:38" itemprop="dateModified" datetime="2022-04-17T23:58:38+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><h2 id="Make-repo-first-on-the-github-after-local-top-down"><a href="#Make-repo-first-on-the-github-after-local-top-down" class="headerlink" title="Make repo first on the github, after local (top down)"></a>Make repo first on the github, after local (top down)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0. We make repo onthe github. And we write git clone (repo address) on the dev</span><br><span class="line"></span><br><span class="line">1. We fix file or something on git</span><br><span class="line">2. Write $git status, then you can show comment like changes not staged for commit</span><br><span class="line">3. $ git add (file name)</span><br><span class="line">4. Write $git status, you can show comment like changes to be committed with green</span><br><span class="line">5. $ git status, then show nothing to commit working tree clean</span><br><span class="line">6. $ git push origin main.</span><br><span class="line">7. The End. you can show final project in the git hub</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><h2 id="Make-dir-first-on-the-git-bottom-up"><a href="#Make-dir-first-on-the-git-bottom-up" class="headerlink" title="Make dir first on the git (bottom up)"></a>Make dir first on the git (bottom up)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ mkdir second-repo</span><br><span class="line">2. $ cd second-repo</span><br><span class="line">3. $ git init</span><br><span class="line"> //after creating remote repo on github,</span><br><span class="line">4. $ git remote add mask&#123;repo_url&#125;</span><br><span class="line"></span><br><span class="line"> // After doing some work,</span><br><span class="line"></span><br><span class="line">5. $ git add&#123;filename&#125;</span><br><span class="line">6. $ git commit</span><br><span class="line">7. $ git branch -M main</span><br><span class="line">8. $ git push -u mask main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/03/30/My-2nd-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/30/My-2nd-post/" class="post-title-link" itemprop="url">About git (2) [How to make github blog]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-30 21:14:14" itemprop="dateCreated datePublished" datetime="2022-03-30T21:14:14+09:00">2022-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:44:16" itemprop="dateModified" datetime="2022-04-17T23:44:16+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="How-to-start-github-blog"><a href="#How-to-start-github-blog" class="headerlink" title="How to start github blog"></a>How to start github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. In github, make a new repo.(repo name = Owner(like jinwoorim.github.io)).</span><br><span class="line">2. $ git clone (address)</span><br><span class="line">3. $ touch index.html</span><br><span class="line">4. node.js install</span><br><span class="line">5. write $ node- v </span><br><span class="line">6. write $ npm - v </span><br><span class="line">7. $ npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="How-to-restart-github-blog"><a href="#How-to-restart-github-blog" class="headerlink" title="How to restart github blog"></a>How to restart github blog</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo init ghblog(on dev)</span><br><span class="line">2. $ cd ghblog</span><br><span class="line">3. $ hexo new post (&quot;title&quot;)</span><br><span class="line">4. $ vi (source/_posts/My-first-post.md)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="How-to-open-server"><a href="#How-to-open-server" class="headerlink" title="How to open server"></a>How to open server</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo server</span><br><span class="line">2. localhost:4000 on browser</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="How-to-close-server"><a href="#How-to-close-server" class="headerlink" title="How to close server"></a>How to close server</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. Press Ctrl+C to stop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Make-a-themes"><a href="#Make-a-themes" class="headerlink" title="Make a themes"></a>Make a themes</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. $ npm install hexo-theme-(theme name)</span><br><span class="line">2. $ vi _config.yml</span><br><span class="line">3. theme: (theme name)</span><br><span class="line">4. $ hexo clean &amp;&amp; hexo deploy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>THE END..</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

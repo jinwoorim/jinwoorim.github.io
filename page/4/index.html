@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,463 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-7th-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/29/220429-7th-CS/" class="post-title-link" itemprop="url">CS (7) [트리]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-29 16:42:09" itemprop="dateCreated datePublished" datetime="2022-04-29T16:42:09+09:00">2022-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-30 23:57:10" itemprop="dateModified" datetime="2022-04-30T23:57:10+09:00">2022-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="트리"><a href="#트리" class="headerlink" title="트리"></a>트리</h1><ul>
+<li>Node와 Branch를 이용해서 사이클을 이루지 않도록 구성한 데이터 구조</li>
+<li>이진 트리가 주로 쓰인다.. 탐색 알고리즘 구현에서 많이 쓰인다</li>
+</ul>
+<h2 id="이진-트리"><a href="#이진-트리" class="headerlink" title="이진 트리"></a>이진 트리</h2><ul>
+<li>이진 트리 : 노드의 최대 Branch가 2인 트리</li>
+<li>이진 탐색 트리 : 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰값</li>
+</ul>
+<h2 id="트리-구현"><a href="#트리-구현" class="headerlink" title="트리 구현"></a>트리 구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">package practice24;</span><br><span class="line"></span><br><span class="line"> class NodeMgmt &#123;</span><br><span class="line">    Node head = null;</span><br><span class="line"></span><br><span class="line">     class Node &#123;</span><br><span class="line">        Node left;</span><br><span class="line">        Node right;</span><br><span class="line">        int value;</span><br><span class="line">         Node (int data) &#123;</span><br><span class="line">            this.value = data;</span><br><span class="line">            this.left = null;</span><br><span class="line">            this.right = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void insertNode(int data) &#123;</span><br><span class="line">        // Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            this.head = new Node(data);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // Node 가 하나 이상 들어가 있을 때</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (true) &#123;</span><br><span class="line">                // 현재 Node 의 왼쪽에 Node 가 들어가야할 때</span><br><span class="line">                if (data &lt; findNode.value) &#123;</span><br><span class="line">                    if (findNode.left != null) &#123;</span><br><span class="line">                        findNode = findNode.left;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.left = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                // 현재 Node 의 오른쪽에 Node 가 들어가야할 때</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (findNode.right != null) &#123;</span><br><span class="line">                        findNode = findNode.right;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.right = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node search(int data) &#123;</span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        //Node 가 하나 이상 있을 때</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (findNode != null) &#123;</span><br><span class="line">                if (findNode.value == data) &#123;</span><br><span class="line">                    return findNode;</span><br><span class="line">                &#125; else if (data &lt; findNode.value) &#123;</span><br><span class="line">                    findNode = findNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    findNode = findNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean delete(int value) &#123;</span><br><span class="line">        boolean searched = false;</span><br><span class="line"></span><br><span class="line">        Node currParentNode = this.head;</span><br><span class="line">        Node currNode = this.head;</span><br><span class="line"></span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //Node 가 단지 하나만 있고, 해당 Node 가 삭제할 Node 일 때</span><br><span class="line">            if (this.head.value == value &amp;&amp; this.head.left == null &amp;&amp; this.head.right == null) &#123;</span><br><span class="line">                this.head = null;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while (currNode != null) &#123;</span><br><span class="line">                if (currNode.value == value) &#123;</span><br><span class="line">                    searched = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else if (value &lt; currNode.value) &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (searched == false) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //삭제할 Node 가 Leaf Node 인 경우</span><br><span class="line">        if (currNode.left == null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">            //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (왼쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left != null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (오른쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left == null &amp;&amp; currNode.right != null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TreeTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		NodeMgmt myTree = new NodeMgmt();</span><br><span class="line">		myTree.insertNode(3);</span><br><span class="line">		myTree.insertNode(2);</span><br><span class="line">		myTree.insertNode(8);</span><br><span class="line">		myTree.insertNode(12);</span><br><span class="line"></span><br><span class="line">		myTree.delete(8);</span><br><span class="line">	//	System.out.println(myTree.search(8).value);</span><br><span class="line">		System.out.println(myTree.search(3).right.value);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="노드-삭제"><a href="#노드-삭제" class="headerlink" title="노드 삭제"></a>노드 삭제</h2><ul>
+<li><ol>
+<li>LeafNode 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node를 가리키지 않도록 한다.</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>ChildNode가 하나인 Node 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node의 Child Node를 가리키도록 한다.</li>
+</ol>
+</li>
+<li><p>(참고만)3. ChildNode가 두개인 Node 삭제 : 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 한다.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-6th-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/29/220429-6th-CS/" class="post-title-link" itemprop="url">CS (6) [해쉬테이블]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-29 16:00:11 / Modified: 16:02:01" itemprop="dateCreated datePublished" datetime="2022-04-29T16:00:11+09:00">2022-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="해쉬-구조"><a href="#해쉬-구조" class="headerlink" title="해쉬 구조"></a>해쉬 구조</h1><ul>
+<li>키에 데이터를 저장하는 구조</li>
+<li>키를 통해 바로 데이터를 받아올수 있으므로 속도가 획기적으로 빨라짐</li>
+</ul>
+<h2 id="HashTable-구현"><a href="#HashTable-구현" class="headerlink" title="HashTable 구현"></a>HashTable 구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package practice23;</span><br><span class="line"></span><br><span class="line">class Slot&#123;</span><br><span class="line"></span><br><span class="line">	String value;</span><br><span class="line">	Slot(String value)&#123;</span><br><span class="line"></span><br><span class="line">		this.value = value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyHash&#123;</span><br><span class="line"></span><br><span class="line">	Slot[] hashTable;</span><br><span class="line"></span><br><span class="line">	MyHash(int size)&#123;</span><br><span class="line">		this.hashTable = new Slot[size];</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 int hashFunc(String key) &#123;</span><br><span class="line">      return (int)(key.charAt(0)) % this.hashTable.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	 void saveDate(String key, String value)&#123;</span><br><span class="line">		 int address = this.hashFunc(key);</span><br><span class="line">		 if(this.hashTable[address] != null) &#123;</span><br><span class="line">			 this.hashTable[address].value = value;</span><br><span class="line">		 &#125;</span><br><span class="line">		 else &#123;</span><br><span class="line">			 this.hashTable[address] = new Slot(value);</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 String getData(String key) &#123;</span><br><span class="line">		int address = this.hashFunc(key);</span><br><span class="line">		if(this.hashTable[address] != null) &#123;</span><br><span class="line">			return this.hashTable[address].value;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class HashTableTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	//	String name = &quot;jinwoorim&quot;;</span><br><span class="line">	//	name.charAt(0); // jinwoorim의 맨앞 알파벳 따오는</span><br><span class="line">	//	System.out.println((int)name.charAt(0));</span><br><span class="line"></span><br><span class="line">//		Slot[] hashtable = new Slot[20];</span><br><span class="line">//		hashtable[0] = new Slot(&quot;jinwoorim&quot;);</span><br><span class="line">//		System.out.println(hashtable[0].value);</span><br><span class="line"></span><br><span class="line">		MyHash myhash = new MyHash(20);</span><br><span class="line">		myhash.saveDate(&quot;jinwoorim&quot;, &quot;01093684988&quot;);</span><br><span class="line">		System.out.println(myhash.getData(&quot;jinwoorim&quot;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
+<li>해쉬 테이블 구조를 활용하여 구현한 클래스 (java collection framework에 속한 클래스). java.util에 있음</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-5th-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/29/220429-5th-CS/" class="post-title-link" itemprop="url">CS (5) [시간복잡도]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-29 15:57:10 / Modified: 15:59:36" itemprop="dateCreated datePublished" datetime="2022-04-29T15:57:10+09:00">2022-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="알고리즘-복잡도-표현-방법"><a href="#알고리즘-복잡도-표현-방법" class="headerlink" title="알고리즘 복잡도 표현 방법"></a>알고리즘 복잡도 표현 방법</h1><ul>
+<li>시간복잡도 : 알고리즘 실행 속도</li>
+<li>공간복잡도 : 알고리즘이 사용하는 메모리 사이즈</li>
+</ul>
+<h1 id="알고리즘-성능-표기법"><a href="#알고리즘-성능-표기법" class="headerlink" title="알고리즘 성능 표기법"></a>알고리즘 성능 표기법</h1><ul>
+<li>Big 0(빅-오) 표기법 O(N) : 알고리즘 최악의 실행 시간을 표기. 아무리 최악의 상황이라도 이정도의 성능은 보장한다의 의미.</li>
+<li>오메가 표기법 : 최상의 실행 시간을 표기</li>
+<li>세타 표기법 : 평균 실행 시간을 표기</li>
+</ul>
+<h2 id="Big-0-O-N"><a href="#Big-0-O-N" class="headerlink" title="Big 0 O(N)"></a>Big 0 O(N)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 int total = 0;</span><br><span class="line">		 for(int i = 1; i &lt;= number; i++) &#123;</span><br><span class="line"></span><br><span class="line">		 total += i;</span><br><span class="line">		 &#125;</span><br><span class="line"></span><br><span class="line">		 return total;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Big-0-O-1"><a href="#Big-0-O-1" class="headerlink" title="Big 0 O(1)"></a>Big 0 O(1)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice22;</span><br><span class="line"></span><br><span class="line"> class Main &#123;</span><br><span class="line">	 int sum(int number) &#123;</span><br><span class="line"></span><br><span class="line">		 return number*(number+1)/2;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">public class BigOTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Main main = new Main();</span><br><span class="line">		System.out.println(main.sum(10));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/25/220425-4th-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/25/220425-4th-CS/" class="post-title-link" itemprop="url">CS (4) [링크드 리스트(LinkedList)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-25 00:18:08 / Modified: 01:12:20" itemprop="dateCreated datePublished" datetime="2022-04-25T00:18:08+09:00">2022-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="링크드-리스트-Linked-List"><a href="#링크드-리스트-Linked-List" class="headerlink" title="링크드 리스트(Linked List)"></a>링크드 리스트(Linked List)</h1><ul>
+<li><p>배열은 미리 공간을 만들어놓고 데이터를 읽고 쓰는 구조지만 링크드 리스트는 미리 예약하지않고 필요할 때마다 데이터를 추가하는 방식.</p>
+</li>
+<li><p>링크드 리스트는 데이터와 주소를 동반함</p>
+</li>
+<li><p>노드 : 데이터값과 포인터(데이터 주소)로 구성</p>
+</li>
+<li><p>단점 : 배열은 인덱스번호로 바로 데이터를 찾아갈수 있지만, 포인터 때문에 별도 데이터 공간이 필요하므로 저장공간 효율이 좋지 못하다. 접근 속도가 느림.</p>
+</li>
+</ul>
+<h2 id="Node-클래스-구현-및-링크드리스트에-여러-기능구현"><a href="#Node-클래스-구현-및-링크드리스트에-여러-기능구현" class="headerlink" title="Node 클래스 구현 및 링크드리스트에 여러 기능구현"></a>Node 클래스 구현 및 링크드리스트에 여러 기능구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class SingleLinkedList &#123;</span><br><span class="line"></span><br><span class="line">	Node head = null;</span><br><span class="line"></span><br><span class="line">	  public class Node&#123; //Node 클래스 구현</span><br><span class="line"></span><br><span class="line">		  Object data;</span><br><span class="line">		  Node next = null;</span><br><span class="line"></span><br><span class="line">		Node(Object data)&#123;</span><br><span class="line"></span><br><span class="line">			this.data = data;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNode(Object data) &#123;// 링크드리스트에 데이터 추가하기</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			head = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = this.head;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line"></span><br><span class="line">				node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			node.next = new Node(data);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void printAll() &#123; // 링크드 리스트 데이터 출력하기</span><br><span class="line"></span><br><span class="line">		Node node = head;</span><br><span class="line">		System.out.println(node.data);</span><br><span class="line">		while(node.next != null) &#123;</span><br><span class="line">			node = node.next;</span><br><span class="line">			System.out.println(node.data);</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	public Node search(Object data) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			while(node != null) &#123;</span><br><span class="line"></span><br><span class="line">				if(node.data == data) &#123;</span><br><span class="line"></span><br><span class="line">					return node;</span><br><span class="line">				&#125;</span><br><span class="line">				else node = node.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void addNodeInside(Object data, Object isdata) &#123;</span><br><span class="line"></span><br><span class="line">		Node searchedNode = search(isdata);</span><br><span class="line"></span><br><span class="line">		if(searchedNode == null) &#123;</span><br><span class="line"></span><br><span class="line">			addNode(data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line"></span><br><span class="line">			Node nextNode = searchedNode.next;</span><br><span class="line">			searchedNode.next = new Node(data);</span><br><span class="line">			searchedNode.next.next = nextNode;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public boolean delNode(Object deldata) &#123;</span><br><span class="line"></span><br><span class="line">		if(head == null) &#123;</span><br><span class="line"></span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			Node node = head;</span><br><span class="line">			if(node.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">				head = head.next;</span><br><span class="line">				return true;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">			while(node.next != null) &#123;</span><br><span class="line">				if(node.next.data == deldata) &#123;</span><br><span class="line"></span><br><span class="line">					node.next = node.next.next;</span><br><span class="line">					return true;</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;</span><br><span class="line">					node = node.next;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package practice10;</span><br><span class="line"></span><br><span class="line">public class LinkedListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		SingleLinkedList linkedlist = new SingleLinkedList();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNode(1);</span><br><span class="line">		linkedlist.addNode(2);</span><br><span class="line">		linkedlist.addNode(3);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(linkedlist.head.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.data);</span><br><span class="line">		System.out.println(linkedlist.head.next.next.data);</span><br><span class="line">		</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.addNodeInside(4, 1);// 1의 데이터를 가진 node 옆에 4를 넣겠다.</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">		</span><br><span class="line">		linkedlist.delNode(1);</span><br><span class="line">		linkedlist.printAll();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/23/220423-3rd-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/23/220423-3rd-CS/" class="post-title-link" itemprop="url">CS (3) [스택(Stack)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-23 21:35:31 / Modified: 21:37:08" itemprop="dateCreated datePublished" datetime="2022-04-23T21:35:31+09:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="스택-Stack"><a href="#스택-Stack" class="headerlink" title="스택 (Stack)"></a>스택 (Stack)</h1><ul>
+<li>가장 나중에 쌓은 데이터를 가장 먼저 빼낼 수 있는 데이터 구조 (LIFO)</li>
+<li>push() : 데이터를 스택에 넣기</li>
+<li>pop() : 데이터를 스택에서 꺼내기</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice09;</span><br><span class="line"></span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class StackTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Stack stack = new Stack();</span><br><span class="line"></span><br><span class="line">		stack.push(1);</span><br><span class="line">		stack.push(2);</span><br><span class="line">		stack.push(3);</span><br><span class="line"></span><br><span class="line">		System.out.println(stack);</span><br><span class="line"></span><br><span class="line">		stack.pop();</span><br><span class="line">		System.out.println(stack);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ArrayList를-활용하여-Stack의-push-pop-기능-구현하기"><a href="#ArrayList를-활용하여-Stack의-push-pop-기능-구현하기" class="headerlink" title="ArrayList를 활용하여 Stack의 push, pop 기능 구현하기"></a>ArrayList를 활용하여 Stack의 push, pop 기능 구현하기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice09;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">//import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class StackTest&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">	ArrayList&lt;T&gt;list = new ArrayList&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">	public void push(T item) &#123;</span><br><span class="line"></span><br><span class="line">		list.add(item);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public T pop() &#123;</span><br><span class="line"></span><br><span class="line">		if(list.isEmpty()) &#123;</span><br><span class="line">		return null;</span><br><span class="line">		&#125;</span><br><span class="line">		else return list.remove(list.size()-1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;&quot; + list + &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		StackTest stacktest = new StackTest();</span><br><span class="line"></span><br><span class="line">		stacktest.push(1);</span><br><span class="line">		stacktest.push(2);</span><br><span class="line">		stacktest.push(3);</span><br><span class="line"></span><br><span class="line">		System.out.println(stacktest.toString());</span><br><span class="line"></span><br><span class="line">		stacktest.pop();</span><br><span class="line"></span><br><span class="line">		System.out.println(stacktest.toString());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -670,443 +1127,6 @@
 <li>key를 통해 내가 외우기 편한 그 문자열을 키로사용해서 불러오기때문에 검색이 빠름</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class MapTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		HashMap&lt;String, Student&gt; studentList = new HashMap&lt;String, Student&gt;();</span><br><span class="line"></span><br><span class="line">		studentList.put(&quot;1&quot;, new Student(&quot;우림&quot;, 10));</span><br><span class="line">		studentList.put(&quot;2&quot;, new Student(&quot;예림&quot;, 20));</span><br><span class="line">		studentList.put(&quot;3&quot;, new Student(&quot;용구&quot;, 30));</span><br><span class="line">		studentList.put(&quot;4&quot;, new Student(&quot;지영&quot;, 40));</span><br><span class="line">		// 똑같은 key값에 데이터를 넣게되면 덮어써버린다</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		// studentList.remove(&quot;1&quot;) 하게되면 key랑 value가 세트로 삭제된다</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;학생 목록&quot;);</span><br><span class="line">		Set&lt;String&gt; keyList = studentList.keySet();// keySet메소드를 사용하여 key값만 불러오기</span><br><span class="line">		for(String key : keyList) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(key.toString());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;학생 목록&quot;);</span><br><span class="line">		Collection&lt;Student&gt; valueList = studentList.values();// values메소드를 사용하여 value값만 불러오기</span><br><span class="line">		for(Student student : valueList) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(student.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220416-17th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220416-17th-java/" class="post-title-link" itemprop="url">java (17) [ java.lang 패키지]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 01:33:10 / Modified: 01:35:27" itemprop="dateCreated datePublished" datetime="2022-04-18T01:33:10+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="java-lang-패키지"><a href="#java-lang-패키지" class="headerlink" title="java.lang 패키지"></a>java.lang 패키지</h1><ul>
-<li>java.lang 패키지 : 모든 자바 프로그램에서 기본적으로 사용하는 필수 클래스들 ( Object 와 래퍼클래스들 ) , 너무 자주사용하기 때문에 import 선언 없이 사용. 래퍼클래스란 기본타입인 int, double 같은것들을 객체로 만든것들.</li>
-<li>java.lang 패키지에서는 Object클래스와 String클래스가 가장 중요</li>
-<li>모든 클래스의 부모클래스는 Object클래스.</li>
-<li>equals메소드, toString메소드를 기억하자.</li>
-</ul>
-<h2 id="Object-클래스"><a href="#Object-클래스" class="headerlink" title="Object 클래스"></a>Object 클래스</h2><h3 id="equals-메소드"><a href="#equals-메소드" class="headerlink" title="equals 메소드"></a>equals 메소드</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">public class EqualsTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Student std1 = new Student(&quot;우림&quot;, 100);</span><br><span class="line">		Student std2 = new Student(&quot;우림&quot;, 100);</span><br><span class="line"></span><br><span class="line">		if(std1 == std2) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;std1 객체와 std2 객체의 주소가 같다.&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			System.out.println(&quot;std1 객체와 std2 객체의 주소가 다르다.&quot;);</span><br><span class="line">		&#125;	//ok</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		if(std1.equals(std2)) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;std1 객체와 std2 객체의 내용이 같다.&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			System.out.println(&quot;std1 객체와 std2 객체의 내용이 다르다.&quot;);</span><br><span class="line">		&#125;	//equals 메소드를 오버라이딩하지않으면 둘의 내용이 다르다고 나오지만 오바라이딩해주게되면 같다고나온다.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">import java.util.Objects;</span><br><span class="line"></span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">	String studentName;</span><br><span class="line">	int studentNumber;</span><br><span class="line"></span><br><span class="line">	Student(String studentName, int studentNumber)&#123;</span><br><span class="line">		this.studentName = studentName;</span><br><span class="line">		this.studentNumber = studentNumber;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line">		return Objects.equals(studentName, other.studentName) &amp;&amp; studentNumber == other.studentNumber;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="toString메소드"><a href="#toString메소드" class="headerlink" title="toString메소드"></a>toString메소드</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">public class ToStringTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Student std3 = new Student(&quot;우림&quot;, 100);</span><br><span class="line"></span><br><span class="line">		System.out.println(std3.toString());</span><br><span class="line">		// toString 메소드를 오버라이딩 하지않으면 std3의 주소값만 찍히지만 오버라이딩 해주게되면 객체의 내용이 나온다.</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">import java.util.Objects;</span><br><span class="line"></span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">	String studentName;</span><br><span class="line">	int studentNumber;</span><br><span class="line"></span><br><span class="line">	Student(String studentName, int studentNumber)&#123;</span><br><span class="line">		this.studentName = studentName;</span><br><span class="line">		this.studentNumber = studentNumber;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line">		return Objects.equals(studentName, other.studentName) &amp;&amp; studentNumber == other.studentNumber;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Student [studentName=&quot; + studentName + &quot;, studentNumber=&quot; + studentNumber + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>결론은 클래스 만들때 습관적으로 항상 equal이랑 toString메소드를 상속되지않도록 오버라이딩해라. 그래야 주소비교하지않고 내용을 비교할거고 주소를 리턴하지않고 문자열을 리턴할거야</p>
-<h2 id="String-클래스"><a href="#String-클래스" class="headerlink" title="String 클래스"></a>String 클래스</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String studentName = &quot;진우림&quot;;</span><br><span class="line"></span><br><span class="line">//  String studentName = new String(&quot;진우림&quot;);랑 똑같다.</span><br></pre></td></tr></table></figure>
-
-<h3 id="String-메소드"><a href="#String-메소드" class="headerlink" title="String 메소드"></a>String 메소드</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">public class StringTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		String student = &quot;Jin Woo Rim&quot;;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;student 문자열의 내용 :&quot;);</span><br><span class="line">		for(int i = 0; i &lt; student.length(); i++) &#123;</span><br><span class="line">			System.out.print(student.charAt(i) + &quot;&quot;);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;student 문자열이 im으로 끝나나요? : &quot;);</span><br><span class="line">		System.out.println(student.endsWith(&quot;im&quot;));</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;student 문자열이 Jin Woo Rim과 동일한 문자열인가요? : &quot;);</span><br><span class="line">		System.out.println(student.equals(&quot;Jin Woo Rim&quot;));</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;student가 대소문자를 무시하면 Jin Woo Rim과 동일한가요? : &quot;);</span><br><span class="line">		System.out.println(student.equalsIgnoreCase(&quot;Jin Woo Rim&quot;));</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;student 문자열과 (Electronic Engineering)의 결합 : &quot;);</span><br><span class="line">		String studentMajor = student.concat(&quot;(Electronic Engineering)&quot;) ;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열 내용 :&quot;);</span><br><span class="line">		System.out.println(studentMajor.toString());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열 길이 : &quot;);</span><br><span class="line">		System.out.println(studentMajor.length());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열에서 첫번째 &#x27;e&#x27;의 위치 : &quot;);</span><br><span class="line">		System.out.println(studentMajor.indexOf(&#x27;e&#x27;)); // 자주씀</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열이 Jin으로 시작하는가? : &quot;);</span><br><span class="line">		System.out.println(studentMajor.startsWith(&quot;Jin&quot;)); // 자주씀</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열에서 5번 인덱스 이후의 문자열 : &quot;);</span><br><span class="line">		System.out.println(studentMajor.substring(5)); // 자주씀</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열의 5에서 10 인덱스 사이의 문자열&quot;);</span><br><span class="line">		System.out.println(studentMajor.substring(5, 10)); // 자주씀</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열을 모두 소문자로 변환 : &quot;);</span><br><span class="line">		System.out.println(student.toLowerCase());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열을 모두 대문자로 변환 : &quot;);</span><br><span class="line">		System.out.println(student.toUpperCase());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;studentMajor 문자열을 공백을 기준으로 분리한 단어 : &quot;);</span><br><span class="line">		String[] words = studentMajor.split(&quot; &quot;); // 자주씀</span><br><span class="line">		for (String word : words) &#123;</span><br><span class="line">			System.out.println(&quot;-&gt;&quot; + word.toString());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="StringBuffer-클래스"><a href="#StringBuffer-클래스" class="headerlink" title="StringBuffer 클래스"></a>StringBuffer 클래스</h3><ul>
-<li><p>그냥 String에 문자열에 문자열을 더해버리면 각각 다른 주소에 저장된다</p>
-</li>
-<li><p>문자열들을 붙어나갈수있게하는것. 메모리낭비줄인다.</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter09;</span><br><span class="line"></span><br><span class="line">public class StringBufferTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		StringBuffer student = new StringBuffer(&quot;진우림&quot;);</span><br><span class="line">		System.out.println(student.hashCode());</span><br><span class="line">		student = student.append(&quot;(전자공학)&quot;);</span><br><span class="line">		System.out.println(student.hashCode());</span><br><span class="line"></span><br><span class="line">		// 출력하면 둘다 같은 주소값이 출력된다.</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220412-16th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220412-16th-java/" class="post-title-link" itemprop="url">java (16) [Exception(throws and throw)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 01:32:50 / Modified: 01:34:21" itemprop="dateCreated datePublished" datetime="2022-04-18T01:32:50+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package Chapter08;</span><br><span class="line"></span><br><span class="line">public class ExceptionTest5 &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                public static void main(String[] args) &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                                testMethod(9, 0);</span><br><span class="line">                        &#125; catch (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">                                System.out.println(&quot;0으로 나눌 수는 없어요.&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                private static void testMethod(int i, int j) throws ArithmeticException &#123;</span><br><span class="line">                        //testMehod의 로직을 짜기도 바빠죽겠는데 예외처리까지 신경써줘야 하는 경우 throws를 통해 나를 호출한 쪽으로 부담을 넘긴다.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                        System.out.println(&quot;두 수의 나누기 결과 : &quot; + (i/j));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter08;</span><br><span class="line"></span><br><span class="line">public class ExceptionTest6 &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                        int javaScore = Integer.parseInt(args[0]);</span><br><span class="line"></span><br><span class="line">                        if(javaScore &lt; 0) &#123;</span><br><span class="line">                                throw new IllegalArgumentException();</span><br><span class="line">                                // 하나의 예외객체를 강제로 발생시킬때 사용</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        System.out.println(&quot;계좌 이체 실행&quot;);</span><br><span class="line">                &#125; catch (IllegalArgumentException e) &#123;</span><br><span class="line">                        System.out.println(&quot;음수는 처리 할 수가 없습니다.&quot;);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220412-15th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220412-15th-java/" class="post-title-link" itemprop="url">java (15) [Exception(try catch, finally)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 01:23:07 / Modified: 01:28:10" itemprop="dateCreated datePublished" datetime="2022-04-18T01:23:07+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package Chapter08;</span><br><span class="line"></span><br><span class="line">public class ExceptionTest4 &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">                        try &#123;</span><br><span class="line">                                int number1 = Integer.parseInt(args[0]);</span><br><span class="line">                                int number2 = Integer.parseInt(args[1]);</span><br><span class="line"></span><br><span class="line">                                System.out.println(&quot;나누기 결과 : &quot; + (number1 / number2));</span><br><span class="line"></span><br><span class="line">                        &#125; catch (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line"></span><br><span class="line">                                System.out.println(&quot;반드시 두 개의 정수를 입력하셔야 합니다.&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line">                         catch (NumberFormatException e) &#123;</span><br><span class="line"></span><br><span class="line">                                        System.out.println(&quot;두 개의 정수를 숫자 형식이어야 합니다.&quot;);</span><br><span class="line">                                &#125;</span><br><span class="line">                        catch (Exception e) &#123;</span><br><span class="line">                                        //예외처리해줄것이 너무 많을 때 퉁치기용.하지만 사용자 입장을 생각해서 친절한 안내를 위해 안쓰는것을  원칙으로함</span><br><span class="line">                                System.out.println(&quot;원인 미상의 문제 발생.&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        finally &#123;</span><br><span class="line">                                System.out.println(&quot;예외 발생 여부와 무관하게 무조건 실행되는 영역&quot;);</span><br><span class="line"></span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220412-14th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220412-14th-java/" class="post-title-link" itemprop="url">java (14) [인터페이스(Interface)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 01:22:54 / Modified: 01:27:00" itemprop="dateCreated datePublished" datetime="2022-04-18T01:22:54+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="인터페이스-Interface"><a href="#인터페이스-Interface" class="headerlink" title="인터페이스(Interface)"></a>인터페이스(Interface)</h1><ul>
-<li>추상메소드의 강화형</li>
-<li>상수와 추상메소드만 포함한다.</li>
-<li>다중상속이 가능하다. 왜냐하면 일반적이라면 다중 부모클래스를 상속받으면 변수가 같아 충돌나는 일이 발생할 수 있지만 인터페이스는 변수가 존재할 수 없으니 가능.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">public class TVClient &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	// 다형성 = 상속 +(메소드)오버라이딩 + 형변환</span><br><span class="line"></span><br><span class="line">		TVFactory factory = new TVFactory();</span><br><span class="line">		// TVFactory로부터 TV 타입의 객체 하나를 생산한다.</span><br><span class="line"></span><br><span class="line">		System.out.println(TV.TVNAME);</span><br><span class="line"></span><br><span class="line">		TV tv = (TV) factory.makeTV(args[0]);</span><br><span class="line">		tv.powerOn();</span><br><span class="line">		tv.volumeUp();</span><br><span class="line">		tv.volumeDown();</span><br><span class="line">		tv.powerOff();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">public class TVFactory &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	TV makeTV(String tvId) &#123;</span><br><span class="line"></span><br><span class="line">		if(tvId.equals(&quot;lg&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			return new LgTV();</span><br><span class="line">		&#125;</span><br><span class="line">		else if(tvId.equals(&quot;samsung&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			return new SamsungTV();</span><br><span class="line">		&#125;</span><br><span class="line">		else if(tvId.equals(&quot;google&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			return new GoogleTV();</span><br><span class="line">	&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">//모든 TV(삼성,엘지)의 최상위 부모클래스</span><br><span class="line">public interface  TV &#123;</span><br><span class="line">//인터페이스는 생성자 조차도 올수없음. 추상메소드랑 상수 밖에 못온다.</span><br><span class="line"></span><br><span class="line">	final static String TVNAME = &quot;티비&quot;;// final static 은 붙어도되고 안붙어도되</span><br><span class="line"></span><br><span class="line">	 abstract void powerOn(); //abstract키워드는 있어도되고 없어도됨. 인터페이스이기때문에 컴파일러가 자동으로 abstract를 만들어줌</span><br><span class="line">	 abstract void powerOff();</span><br><span class="line">	 abstract void volumeUp();</span><br><span class="line">	 abstract void volumeDown();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">public class GoogleTV implements TV&#123;</span><br><span class="line"></span><br><span class="line">	 GoogleTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; GoogleTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 public void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;GoogleTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	 public void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;GoogleTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	 public void volumeUp() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;GoogleTV---소리 올린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line">	 public void volumeDown() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;GoogleTV---소리 내린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">public class LgTV implements TV&#123;</span><br><span class="line">//파워 온오프는 오버라이딩되었고 볼륨업다운은 상속받음 따라서 추상클래스</span><br><span class="line">	 LgTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; LgTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 public void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	 public void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	 public void volumeUp() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---소리 올린다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 public void volumeDown() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---소리 내린다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim3;</span><br><span class="line"></span><br><span class="line">public class SamsungTV implements TV&#123;</span><br><span class="line"></span><br><span class="line">	 SamsungTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; SamsungTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> public void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;SamsungTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> public void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;SamsungTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> public void volumeUp() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;SamsungTV---소리 올린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> public void volumeDown() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;SamsungTV---소리 내린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/18/220412-13th-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/18/220412-13th-java/" class="post-title-link" itemprop="url">java (13) [추상클래스(Abstract Class)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-04-18 01:22:35 / Modified: 01:25:40" itemprop="dateCreated datePublished" datetime="2022-04-18T01:22:35+09:00">2022-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="추상클래스-Abstract-Class"><a href="#추상클래스-Abstract-Class" class="headerlink" title="추상클래스(Abstract Class)"></a>추상클래스(Abstract Class)</h1><ul>
-<li>바디가 없는 메소드 + 추상메서드를 하나 이상 가지면 무조건 abstract를 붙여서 클래스를 선언해야한다.</li>
-<li>추상클래스는 인스턴스(객체)를 생성할수가 없다. 왜냐하면 바디가 없는 메서드가 있다는건 아무 수행도 안하니 의미가없음.</li>
-<li>추상클래스를 쓰는 목적 : 최상위 부모클래스가 추상메서드를 제공했을 때, 부모클래스를 오버라이딩하지않았다면 오버라이딩하지않은 추상메서드를 상속받게되어 그 클래스 또한 abstract가 되기 때문에 사용하지 못하게하는 목적.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim1;</span><br><span class="line"></span><br><span class="line">public class GoogleTV extends TV&#123;</span><br><span class="line"></span><br><span class="line">	 GoogleTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; GoogleTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;GoogleTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;GoogleTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> void volumeUp() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;GoogleTV---소리 올린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> void volumeDown() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;GoogleTV---소리 내린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim1;</span><br><span class="line"></span><br><span class="line">public abstract class LgTV extends TV&#123;</span><br><span class="line">//파워 온오프는 오버라이딩되었고 볼륨업다운은 상속받음 따라서 추상클래스</span><br><span class="line">	 LgTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; LgTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;LgTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim1;</span><br><span class="line"></span><br><span class="line">public class SamsungTV extends TV&#123;</span><br><span class="line"></span><br><span class="line">	 SamsungTV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; SamsungTV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> void powerOn() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;SamsungTV---전원 켠다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> void powerOff() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;SamsungTV---전원 끈다.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> void volumeUp() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;SamsungTV---소리 올린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> void volumeDown() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;SamsungTV---소리 내린다.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim1;</span><br><span class="line"></span><br><span class="line">//모든 TV(삼성,엘지)의 최상위 부모클래스</span><br><span class="line">public abstract class TV &#123;</span><br><span class="line"></span><br><span class="line">	 TV() &#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(&quot;===&gt; TV 생성&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 abstract void powerOn();</span><br><span class="line">	 abstract void powerOff();</span><br><span class="line">	 abstract void volumeUp();</span><br><span class="line">	 abstract void volumeDown();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package Chapter07.polymorphsim1;</span><br><span class="line"></span><br><span class="line">public class TVClient &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	// 다형성 = 상속 +(메소드)오버라이딩 + 형변환</span><br><span class="line">		TV tv = new SamsungTV();</span><br><span class="line">		tv.powerOn();</span><br><span class="line">		tv.volumeUp();</span><br><span class="line">		tv.volumeDown();</span><br><span class="line">		tv.powerOff();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
