@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,432 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/12/220712-4th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/12/220712-4th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(4) [스레드]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-12 03:58:01 / Modified: 04:03:47" itemprop="dateCreated datePublished" datetime="2022-07-12T03:58:01+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="스레드"><a href="#스레드" class="headerlink" title="스레드"></a>스레드</h2><ul>
+<li><p>스레드는 CPU 이용의 기본단위</p>
+</li>
+<li><p>하나의 프로세스에 여러개의 스레드 생성 가능</p>
+</li>
+<li><p>스레드들은 동시에 실행이 가능</p>
+</li>
+<li><p>프로세스 안에 있으며, 프로세스의 데이터를 모두 접근 가능(stack영역빼고)</p>
+</li>
+<li><p>스레드의 구조는 프로세스와 같다(text(code)영역, data영역, heap영역, stack영역)</p>
+</li>
+</ul>
+<h2 id="멀티-프로세스"><a href="#멀티-프로세스" class="headerlink" title="멀티 프로세스"></a>멀티 프로세스</h2><ul>
+<li><p>멀티 프로세싱이란 하나의 응용프로그램을 여러개의 프로세스로 구성. 각 프로세스가 하나의 작업을 처리함</p>
+</li>
+<li><p>장점 :</p>
+<ul>
+<li>여러개의 프로세스 중 하나에 문제가 생기면 그 프로세스만 죽고 다른 프로세스에는 영향X (안정성)</li>
+</ul>
+</li>
+<li><p>단점 :</p>
+<ul>
+<li><p>여러 프로세스가 돌아가면서 작업할 때 발생하는 컨택스트 스위칭은 사실 무거운 작업이고 시간 소요도 크다(오버헤드)</p>
+</li>
+<li><p>프로세스 간의 통신을위해 어렵고 복잡한 IPC 기술을 적용해야됨</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="멀티-스레드"><a href="#멀티-스레드" class="headerlink" title="멀티 스레드"></a>멀티 스레드</h2><ul>
+<li><p>멀티 스레딩이란 하나의 응용프로그램을 여러개의 스레드로 구성. 각 스레드로 하여금 하나의 작업을 처리함</p>
+</li>
+<li><p>웹 서버가 대표적 멀티 스레드 응용프로그램. 클라이언트 요청을 서버에서 처리할때 멀티프로세스로하면 수만건의 요청을 처리할떄 컨택스트 스위칭 때문에 너무 느림. 다른 요청자들 오래 대기하게됨</p>
+</li>
+<li><p>장점 :</p>
+<ul>
+<li><p>스레드 간 데이터를 주고 받는 것이 간단</p>
+</li>
+<li><p>스레드 사이의 작업량이 작아 컨택스트 스위칭이 빠르다(스레드는 stack 영역만 처리하기 때문. 나머진 공유)</p>
+</li>
+<li><p>통신방법이 간단하다</p>
+</li>
+</ul>
+</li>
+<li><p>단점 :</p>
+<ul>
+<li><p>스레드 중 한 스레드만 문제가 있어도 프로세스 전체가 영향을 받음 (안정성X)</p>
+</li>
+<li><p>스레드는 컨택스트 스위칭이 빠르나 스레드를 너무 많이 생성하면 컨택스트 스위칭이 너무 빈번하게 일어난다(기아현상이 일어나 나중에 실행될 스레드는 너무 나중으로 미뤄질수있다)</p>
+</li>
+<li><p>동기화 : 동기화처리를 해주지않으면 CPU가 스레드를 컨택스트 스위칭할때 스레드 작업이 다 종료되지 않은채 일어날 수 있다. 잘못된 결과값이 나올 수 있다(읽는 작업은 문제가 안되지만 쓰는 작업에서 컨택스트 스위칭이 일어나버리면 결과값이 달라질수있다)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="동기화-이슈-해결방안"><a href="#동기화-이슈-해결방안" class="headerlink" title="동기화 이슈 해결방안"></a>동기화 이슈 해결방안</h2><ul>
+<li><p>Mutual exclusion(상호배제,뮤텍스라 불림) :</p>
+<ul>
+<li><p>임계 영역을 정해서 하나의 스레드만 접근 가능하도록 lock을 거는것</p>
+</li>
+<li><p>하지만 이렇게되면 실행시간이 오래 걸린다(성능 저하)</p>
+</li>
+</ul>
+</li>
+<li><p>세마포어 :</p>
+<ul>
+<li><p>Mutual exclusion 방식은 실행시간이 너무 오래걸리니까 만약에 동기화 이슈 발생 확률이 매우 적다면 임계영역에 하나의 스레드만 들어가는건 너무 아쉽다. 그래서 세마포어 등장</p>
+</li>
+<li><p>임계영역에 여러 스레드가 들어갈 수 있음</p>
+</li>
+</ul>
+</li>
+<li><p>동기화 해결방안을 잘못쓰면 데드락 현상이 날 수 있다</p>
+</li>
+<li><p>데드락 : 두개 이상의 스레드가 서로 lock되어 서로 종료되기를 기다리는 대기 상태가 되버리는것</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/12/220712-3rd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/12/220712-3rd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(3) [프로세스와스케쥴러(2)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-12 03:57:26 / Modified: 04:02:17" itemprop="dateCreated datePublished" datetime="2022-07-12T03:57:26+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="프로세스-구조"><a href="#프로세스-구조" class="headerlink" title="프로세스 구조"></a>프로세스 구조</h2><ul>
+<li><p>프로세스는 보통 4GB의 가상메모리를 할당받는다(1GB는 커널, 3GB는 사용자 프로그램)</p>
+</li>
+<li><p>stack 영역 :함수(if,for같은), 메소드와 관련된것들이 저장(지역변수, 매개변수)</p>
+</li>
+<li><p>heap 영역 : 동적할당 시키는것들(java에서는 new해서 객체만드는것, c에선 malloc)</p>
+</li>
+<li><p>data 영역 : 전역변수, static</p>
+</li>
+<li><p>text(code) 영역 : 컴파일된 소스코드</p>
+</li>
+<li><p>stack과heap은 사실 같은 공간을 공유. stack은 높은주소부터 할당. heap은 낮은주소부터 할당. 만약 각 영역이 상대 공간을 침범하면 stackoverflow, heapoverflow</p>
+</li>
+<li><p>GC(가비지컬렉터) : 불필요한 객체가 차지하는 힙 공간을 삭제</p>
+</li>
+</ul>
+<h2 id="PC-Program-Counter-SP-Stack-Pointer"><a href="#PC-Program-Counter-SP-Stack-Pointer" class="headerlink" title="PC(Program Counter), SP(Stack Pointer)"></a>PC(Program Counter), SP(Stack Pointer)</h2><ul>
+<li><p>CPU에는 PC,SP레지스터가 있다</p>
+</li>
+<li><p>PC : 다음 실행할 코드 주소</p>
+</li>
+<li><p>SP : 마지막으로 데이터가 채워진 스택 주소</p>
+</li>
+</ul>
+<h2 id="PCB-Process-Control-Block"><a href="#PCB-Process-Control-Block" class="headerlink" title="PCB(Process Control Block)"></a>PCB(Process Control Block)</h2><ul>
+<li>프로세스마다 프로세스 안에 메타정보가 저장되있다(PID, PC, SP, State 상태등)</li>
+</ul>
+<h2 id="컨텍스트-스위칭"><a href="#컨텍스트-스위칭" class="headerlink" title="컨텍스트 스위칭"></a>컨텍스트 스위칭</h2><ul>
+<li><p>CPU에 실행할 프로세스를 교체하는 기술</p>
+</li>
+<li><p>방금까지 실행된 프로세스의 PCB에 CPU의 PC와SP 정보를 저장하고 다음 실행될 프로세스 PCB에 PC와SP정보를 덮어씀. 이것이 컨텍스트 스위칭</p>
+</li>
+</ul>
+<h2 id="프로세스간-커뮤니케이션-IPC"><a href="#프로세스간-커뮤니케이션-IPC" class="headerlink" title="프로세스간 커뮤니케이션(IPC)"></a>프로세스간 커뮤니케이션(IPC)</h2><ul>
+<li><p>기본적으로 프로세스는 다른 프로세스의 공간을 접근할 수 없다(1GB의커널공간빼고)(프로세스 데이터&#x2F;코드 가 바뀔수있어 위험)</p>
+</li>
+<li><p>성능을 높이기 위해 멀티 프로세스를 사용할 경우 프로세스간 상태확인이나 데이터 송수신이 필요한데 이를 가능케하는게 IPC</p>
+</li>
+<li><p>IPC 기법으로는 Message Queue, Shared Memory, Pipe등이 있다</p>
+</li>
+<li><p>IPC 기법은 대부분 프로세스의 커널공간안에 메모리공간을 이용해서 공유하는것.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(2) [프로세스와스케쥴러(1)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-12 03:57:07 / Modified: 04:02:39" itemprop="dateCreated datePublished" datetime="2022-07-12T03:57:07+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="프로세스란"><a href="#프로세스란" class="headerlink" title="프로세스란"></a>프로세스란</h2><ul>
+<li><p>메모리에 올려져서 실행중인 프로그램</p>
+</li>
+<li><p>프로그램 !&#x3D; 프로세스</p>
+</li>
+<li><p>프로그램이 실행돼서 돌아가고있는 상태가 프로세스</p>
+</li>
+</ul>
+<h2 id="프로세스-스케쥴링"><a href="#프로세스-스케쥴링" class="headerlink" title="프로세스 스케쥴링"></a>프로세스 스케쥴링</h2><h4 id="배치-처리-시스템"><a href="#배치-처리-시스템" class="headerlink" title="배치 처리 시스템"></a>배치 처리 시스템</h4><ul>
+<li><p>FIFO방식이며, 한번에 등록된 여러프로그램들을 컴퓨터 프로그램의 실행 요청 순서에 따라 순차적으로 실행하는 방식</p>
+</li>
+<li><p>단점:</p>
+<ul>
+<li>하나의 프로그램이 끝날때 까지 다른 프로그램은 계속 대기해야됨</li>
+<li>따라서 동시에 여러 프로그램 실행X</li>
+<li>여러 사용자가 동시에 하나의 컴퓨터를 사용못한다. 응답시간에 영향을 받는다</li>
+</ul>
+</li>
+<li><p>그래서 시분할 시스템&#x2F;멀티 프로그래밍이 나왔다</p>
+</li>
+</ul>
+<h4 id="시분할-시스템"><a href="#시분할-시스템" class="headerlink" title="시분할 시스템"></a>시분할 시스템</h4><ul>
+<li>여러 사용자(다중 사용자 지원)가 동시에 하나의 컴퓨터를 사용할 수 있다. 응답시간 최소화</li>
+</ul>
+<h4 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h4><ul>
+<li>단일CPU(코어) 에서 여러 프로그램들이 돌아가면서 조금씩 실행되는것. 마치 동시에 실행되는 것 처럼 보임</li>
+</ul>
+<h4 id="멀티-프로세싱"><a href="#멀티-프로세싱" class="headerlink" title="멀티 프로세싱"></a>멀티 프로세싱</h4><ul>
+<li>여러CPU(다중코어) 에서 각각 하나의 프로그램을 병렬로 동시에 실행하는것</li>
+</ul>
+<h4 id="멀티-프로그래밍"><a href="#멀티-프로그래밍" class="headerlink" title="멀티 프로그래밍"></a>멀티 프로그래밍</h4><ul>
+<li><p>CPU 활용도를 극대화 하는 스케쥴링 알고리즘</p>
+</li>
+<li><p>여러 개의 프로그램을 메모리에 올려놓고 동시에 실행. IO 작업이나 저장매체 갔다오는 작업을 하는 동안(wait) CPU가 노니까 그때 다른 프로세스 실행</p>
+</li>
+</ul>
+<h2 id="스케쥴러"><a href="#스케쥴러" class="headerlink" title="스케쥴러"></a>스케쥴러</h2><ul>
+<li><p>프로세스 실행을 관리하는 것</p>
+</li>
+<li><p>다양한 스케쥴링 알고리즘 들이 존재</p>
+</li>
+</ul>
+<h4 id="FIFO-스케쥴러"><a href="#FIFO-스케쥴러" class="headerlink" title="FIFO 스케쥴러"></a>FIFO 스케쥴러</h4><pre><code>- 가장 간단한 스케쥴러(배치 처리 시스템)
+- 정해진 순서대로 프로세스가 실행된다
+- 수행시간(Run Time)이 긴 프로세스가 있을 경우, 나머지 프로세스들의 Waiting Time이 증가
+- 따라서, CPU 효율성이 낮아진다
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P1 : RunTime = 30ms,</span><br><span class="line">P2 : RunTime = 10ms,</span><br><span class="line">P3 : RunTime = 10ms 이라면</span><br><span class="line"></span><br><span class="line">P1 : WaitingTime = 0ms</span><br><span class="line">P2 : WaitingTime = 30ms</span><br><span class="line">P3 : WaitingTime = 40ms 이고</span><br><span class="line"></span><br><span class="line">평균 WaitingTime은 70/3 = 23.4ms</span><br></pre></td></tr></table></figure>
+
+<h4 id="최단-작업-우선-SJF-스케쥴러"><a href="#최단-작업-우선-SJF-스케쥴러" class="headerlink" title="최단 작업 우선(SJF) 스케쥴러"></a>최단 작업 우선(SJF) 스케쥴러</h4><pre><code>- 가장 프로세스 수행시간(Run Time)이 짧은 프로세스부터 먼저 실행하는 알고리즘
+- 평균 Waiting Time이 줄어든다
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P1 : RunTime = 30ms,</span><br><span class="line">P2 : RunTime = 10ms,</span><br><span class="line">P3 : RunTime = 10ms 이라면</span><br><span class="line"></span><br><span class="line">P2 : WaitingTime = 0ms</span><br><span class="line">P3 : WaitingTime = 10ms</span><br><span class="line">P1 : WaitingTime = 20ms 이고</span><br><span class="line"></span><br><span class="line">평균 WaitingTime은 30/3 = 10ms</span><br></pre></td></tr></table></figure>
+<pre><code>- 수행시간이 긴 프로세스는 계속 뒤로 물러나는 기아현상(Starvation)이 발생 할 수 있다
+- 근데 현실적으로 각 프로세스의 수행시간이 얼마나 걸릴지는 해봐야 아는거지 미리 알 수 없기에 이상적인 알고리즘이긴하다
+- 선점형 : 하나의 프로세스가 수행중인 도중에 갑자기 다른 프로세스 요청(짧은 수행시간의)이 들어오면중간에 끊고 다음 프로세스가 수행되고 나중에 나머지가 수행되는것(SJF니까 수행시간 짧은거부터 해야되자나)
+- 비선점형 : 하나의 프로세스가 다 수행된후에 다음 프로세스 수행가능
+</code></pre>
+<h4 id="Round-Robin-스케쥴러"><a href="#Round-Robin-스케쥴러" class="headerlink" title="Round Robin 스케쥴러"></a>Round Robin 스케쥴러</h4><pre><code>- 기아현상을 해결하기 위한 알고리즘
+- FIFO구조
+- 프로세스마다 균등하게 시간을 배분해서 돌아가면서 수행되는것
+- 즉 시분할 시스템이다
+</code></pre>
+<h4 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h4><pre><code>- 기아현상을 해결하면서 우선순위가 높은거에 높은 비율을 배분해주는것(Round Robin의 업그레이드)
+- 프로세스마다 우선순위를 미리 지정. 스케쥴러가 상황에 따라 우선순위를 동적으로 변경
+- 우선순위가 낮은 프로세스가 계속 수행이 지연되는 기아현상이 발생하지만 에이징기법을 사용해 오래 대기한 프로세스의 동적 우선순위를 높여서 기아현상을 줄인다
+</code></pre>
+<h4 id="프로세스-상태-기반-스케쥴러"><a href="#프로세스-상태-기반-스케쥴러" class="headerlink" title="프로세스 상태 기반 스케쥴러"></a>프로세스 상태 기반 스케쥴러</h4><pre><code>- 멀티 프로그래밍같은것
+- 큐(FIFO)구조
+- 3가지 상태가 존재(Ready State Queue, Running State Queue, Block State Queue(Wait 상태))
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 프로세스 순서대로 Ready State Queue에 배정되고 CPU에서 순서대로 실행</span><br><span class="line">2. 만약 프로세스가 메모리에 파일을 가져오는 waiting 시간 동안 이 프로세스는 Block State Queue에 배정됨</span><br><span class="line">3. waiting 이 끝나면 다시  Ready State Queue에 배정</span><br><span class="line">4. 만약 Ready State Queue에 배정된 프로세스가 없다면 CPU는 idle 상태가 됨</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -575,7 +1001,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(1)</a>
+          <a href="/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(1) [운영체제란]</a>
         </h2>
 
         <div class="post-meta-container">
@@ -585,9 +1011,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-04 16:05:28 / Modified: 16:06:16" itemprop="dateCreated datePublished" datetime="2022-07-04T16:05:28+09:00">2022-07-04</time>
+      <time title="Created: 2022-07-04 16:05:28" itemprop="dateCreated datePublished" datetime="2022-07-04T16:05:28+09:00">2022-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-12 04:03:01" itemprop="dateModified" datetime="2022-07-12T04:03:01+09:00">2022-07-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -640,12 +1072,6 @@
 </ul>
 <h2 id="커널모드"><a href="#커널모드" class="headerlink" title="커널모드"></a>커널모드</h2><ul>
 <li>사용자가 커널에 시스템콜을 통해서 커널이 기능을 하도록 하는 것(예를들어 파일을 읽어라 이런거)</li>
-</ul>
-<h2 id="프로세스란"><a href="#프로세스란" class="headerlink" title="프로세스란"></a>프로세스란</h2><ul>
-<li><p>메모리에 올려져서 실행중인 프로그램</p>
-</li>
-<li><p>프로그램 !&#x3D; 프로세스</p>
-</li>
 </ul>
 
       
@@ -883,336 +1309,6 @@
 <li>사용자 정의 스타터 생성 방법</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 일반 프로젝트 생성</span><br><span class="line">2. maven -&gt; maven project</span><br><span class="line">3. filter에 maven-archetye-qu 검색해서 org.apache.maven.archetypes 템플릿선택</span><br><span class="line">4. next -&gt; next</span><br><span class="line">5. Artifact id에 &quot;내가원하는 모듈명-spring-boot-starter&quot;</span><br><span class="line">6. 해당 프로젝트 pom.xml에서   &lt;groupId&gt;com.rubypaper&lt;/groupId&gt;</span><br><span class="line"> 				       &lt;artifactId&gt;내가원하는 모듈명-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line"> 				       &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt; 복사</span><br><span class="line">7. 해당 프로젝트 오른쪽클릭 run as 하고 maven install 클릭</span><br><span class="line">8. 내가 만든 스타터가 .m2 디렉토리안에 SNAPSHOT 폴더안에 JAR파일로 추가되어있다.</span><br><span class="line">9. 6.에서 복사한 것을 넣고 싶은 프로젝트 파일 pom.xml에 붙여넣기해서 dependency추가하기</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/28/220628-4th-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/28/220628-4th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (4) [SpringBoot 기초(1)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-28 17:17:05" itemprop="dateCreated datePublished" datetime="2022-06-28T17:17:05+09:00">2022-06-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-29 16:45:51" itemprop="dateModified" datetime="2022-06-29T16:45:51+09:00">2022-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="SpringBootApplication-Main클래스-위에-어노테이션"><a href="#SpringBootApplication-Main클래스-위에-어노테이션" class="headerlink" title="@SpringBootApplication(Main클래스 위에 어노테이션)"></a>@SpringBootApplication(Main클래스 위에 어노테이션)</h2><ul>
-<li><p>이 어노테이션은 componentscan을 포함하고있다</p>
-</li>
-<li><p>기본적으로 Main 클래스에 설정된 패키지를 기본 scan 범위로한다</p>
-</li>
-<li><p>따라서, 이 패키지 밑에 클래스들도 메모리에 같이 뜬다</p>
-</li>
-</ul>
-<h2 id="Controller-클래스"><a href="#Controller-클래스" class="headerlink" title="Controller 클래스"></a>Controller 클래스</h2><ul>
-<li><p>@Controller 어노테이션으로 객체를 메모리에 띄운다</p>
-</li>
-<li><p>브라우저의 요청에 따라 메소드 실행</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">해당 메소드 위에 @RequestMapping(value = &quot;요청 uri&quot;, method = RequestMethod.GET)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>@ResponseBody : @ResponseBody는 리턴 값을 JSON으로 변환하여 응답 프로토콜 Body에 출력한다(콘솔말고 브라우저에 메세지 띄우기)</p>
-</li>
-<li><p>@RestController : 메소드 마다 @ResponseBody를 붙여야하는걸 controller클래스 위에 @RestController 붙여 퉁친다</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/28/220628-3rd-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/28/220628-3rd-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (3) [SpringBoot 시작하기(2)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-28 17:16:48 / Modified: 17:20:10" itemprop="dateCreated datePublished" datetime="2022-06-28T17:16:48+09:00">2022-06-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Main-클래스"><a href="#Main-클래스" class="headerlink" title="Main 클래스"></a>Main 클래스</h2><ul>
-<li>웹애플리케이션으로 실행시 :</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication application = new SpringApplication(Main클래스이름.class);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>일반 자바 애플리케이션으로 실행시 :</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication application = new SpringApplication(Main클래스이름.class);</span><br><span class="line">application.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">application.run(args);</span><br></pre></td></tr></table></figure>
-
-<h2 id="pom-xml에-라이브러리-추가-방법"><a href="#pom-xml에-라이브러리-추가-방법" class="headerlink" title="pom.xml에 라이브러리 추가 방법"></a>pom.xml에 라이브러리 추가 방법</h2><ul>
-<li><p>종료 dependencies 위에서 ctrl+spacebar로 Add Starters</p>
-</li>
-<li><p>추가할 라이브러리들 추가</p>
-</li>
-<li><p>next해서 pom.xml 체크</p>
-</li>
-</ul>
-<h2 id="application-properties-설정"><a href="#application-properties-설정" class="headerlink" title="application.properties 설정"></a>application.properties 설정</h2><ul>
-<li><p>Main클래스보다 우선순위가 더 높다. 따라서, Main클래스 설정과 다르더라도 application.properties 설정에 따라 동작한다</p>
-</li>
-<li><p>WebApplication Setting</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;웹애플리케이션으로 실행&gt;</span><br><span class="line">spring.main.web-application-type=servlet</span><br><span class="line"></span><br><span class="line">&lt;일반 자바 애플리케이션으로 실행&gt;</span><br><span class="line">spring.main.web-application-type=none</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Banner Setting</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Main 클래스 설정(배너 OFF)&gt;</span><br><span class="line">application.setBannerMode(Banner.Mode.OFF);</span><br><span class="line"></span><br><span class="line">&lt;application.properties 설정(배너 ON)&gt;</span><br><span class="line">spring.main.banner-mode=console</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Server Setting</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;application.properties 설정(포트설정)&gt;</span><br><span class="line">server.port=8080</span><br><span class="line"></span><br><span class="line">&lt;application.properties 설정(랜덤 포트설정)&gt;</span><br><span class="line">server.port=0</span><br></pre></td></tr></table></figure>
-<h2 id="배너-제작"><a href="#배너-제작" class="headerlink" title="배너 제작"></a>배너 제작</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20">배너 제작 홈페이지</a></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;application.properties 설정&gt;</span><br><span class="line">spring.banner.location=배너디렉토리/배너파일.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>만약, 배너.txt 파일이 src&#x2F;main&#x2F;resources 바로 밑에 있다면 application.properties 설정 필요없음</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/28/220628-2nd-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/28/220628-2nd-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (2) [SpringBoot 시작하기(1)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-28 17:16:19 / Modified: 17:19:11" itemprop="dateCreated datePublished" datetime="2022-06-28T17:16:19+09:00">2022-06-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="프로젝트-생성"><a href="#프로젝트-생성" class="headerlink" title="프로젝트 생성"></a>프로젝트 생성</h2><ul>
-<li><p>Type : Maven Project(표준). Maven이 라이브러리를 관리해준다</p>
-</li>
-<li><p>Packaging : jar(빠르고 구조도 쉽다)</p>
-</li>
-<li><p>Name, Arifact : 프로젝트 이름</p>
-</li>
-<li><p>Group : 이 프로젝트를 어떤 기관이나 단체가 만들었고 유지보수하느냐(전세계에서 유니크해야됨. 보통 도메인이름을 따온다)</p>
-</li>
-<li><p>Package : Group과 이름같게</p>
-</li>
-</ul>
-<h2 id="프로젝트-생성-라이브러리-추가"><a href="#프로젝트-생성-라이브러리-추가" class="headerlink" title="프로젝트 생성(라이브러리 추가)"></a>프로젝트 생성(라이브러리 추가)</h2><ul>
-<li><p>Lombok(필수)</p>
-</li>
-<li><p>Spring Boot DevTools(소스 수정시 자동 리로딩되게 하는)(필수)</p>
-</li>
-<li><p>Spring Web</p>
-</li>
-</ul>
-<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><ul>
-<li><p>maven 설정파일</p>
-</li>
-<li><p>dependencies 안쪽에 뭔가를 설정하면 dependencies하나당 jar파일(라이브러리)하나가 다운로드되는게 원칙이다</p>
-</li>
-<li><p>starter에 의해 dependencies하나당 여러 jar파일 다운로드 가능</p>
-</li>
-</ul>
 
       
     </div>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="프로세스란 메모리에 올려져서 실행중인 프로그램  프로그램 !&#x3D; 프로세스  프로그램이 실행돼서 돌아가고있는 상태가 프로세스   프로세스 스케쥴링배치 처리 시스템 FIFO방식이며, 한번에 등록된 여러프로그램들을 컴퓨터 프로그램의 실행 요청 순서에 따라 순차적으로 실행하는 방식  단점:  하나의 프로그램이 끝날때 까지 다른 프로그램은 계속 대기해야됨 따">
+<meta property="og:type" content="article">
+<meta property="og:title" content="운영체제(2) [프로세스와스케쥴러(1)]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="프로세스란 메모리에 올려져서 실행중인 프로그램  프로그램 !&#x3D; 프로세스  프로그램이 실행돼서 돌아가고있는 상태가 프로세스   프로세스 스케쥴링배치 처리 시스템 FIFO방식이며, 한번에 등록된 여러프로그램들을 컴퓨터 프로그램의 실행 요청 순서에 따라 순차적으로 실행하는 방식  단점:  하나의 프로그램이 끝날때 까지 다른 프로그램은 계속 대기해야됨 따">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-11T18:57:07.000Z">
+<meta property="article:modified_time" content="2022-07-11T19:02:39.994Z">
+<meta property="article:author" content="jinwoorim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/","path":"2022/07/12/220712-2nd-운영체제/","title":"운영체제(2) [프로세스와스케쥴러(1)]"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>운영체제(2) [프로세스와스케쥴러(1)] | My blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My github blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EB%9E%80"><span class="nav-number">1.</span> <span class="nav-text">프로세스란</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81"><span class="nav-number">2.</span> <span class="nav-text">프로세스 스케쥴링</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%B0%B0%EC%B9%98-%EC%B2%98%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="nav-number">2.0.1.</span> <span class="nav-text">배치 처리 시스템</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%8B%9C%EB%B6%84%ED%95%A0-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="nav-number">2.0.2.</span> <span class="nav-text">시분할 시스템</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%83%9C%EC%8A%A4%ED%82%B9"><span class="nav-number">2.0.3.</span> <span class="nav-text">멀티 태스킹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8B%B1"><span class="nav-number">2.0.4.</span> <span class="nav-text">멀티 프로세싱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">2.0.5.</span> <span class="nav-text">멀티 프로그래밍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.</span> <span class="nav-text">스케쥴러</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FIFO-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.0.1.</span> <span class="nav-text">FIFO 스케쥴러</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%B5%9C%EB%8B%A8-%EC%9E%91%EC%97%85-%EC%9A%B0%EC%84%A0-SJF-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.0.2.</span> <span class="nav-text">최단 작업 우선(SJF) 스케쥴러</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Round-Robin-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.0.3.</span> <span class="nav-text">Round Robin 스케쥴러</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EA%B8%B0%EB%B0%98-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.0.4.</span> <span class="nav-text">우선순위 기반 스케쥴러</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-%EA%B8%B0%EB%B0%98-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">3.0.5.</span> <span class="nav-text">프로세스 상태 기반 스케쥴러</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinwoorim</p>
+  <div class="site-description" itemprop="description">All stories about my develop</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/12/220712-2nd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="운영체제(2) [프로세스와스케쥴러(1)] | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          운영체제(2) [프로세스와스케쥴러(1)]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-12 03:57:07 / Modified: 04:02:39" itemprop="dateCreated datePublished" datetime="2022-07-12T03:57:07+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="프로세스란"><a href="#프로세스란" class="headerlink" title="프로세스란"></a>프로세스란</h2><ul>
+<li><p>메모리에 올려져서 실행중인 프로그램</p>
+</li>
+<li><p>프로그램 !&#x3D; 프로세스</p>
+</li>
+<li><p>프로그램이 실행돼서 돌아가고있는 상태가 프로세스</p>
+</li>
+</ul>
+<h2 id="프로세스-스케쥴링"><a href="#프로세스-스케쥴링" class="headerlink" title="프로세스 스케쥴링"></a>프로세스 스케쥴링</h2><h4 id="배치-처리-시스템"><a href="#배치-처리-시스템" class="headerlink" title="배치 처리 시스템"></a>배치 처리 시스템</h4><ul>
+<li><p>FIFO방식이며, 한번에 등록된 여러프로그램들을 컴퓨터 프로그램의 실행 요청 순서에 따라 순차적으로 실행하는 방식</p>
+</li>
+<li><p>단점:</p>
+<ul>
+<li>하나의 프로그램이 끝날때 까지 다른 프로그램은 계속 대기해야됨</li>
+<li>따라서 동시에 여러 프로그램 실행X</li>
+<li>여러 사용자가 동시에 하나의 컴퓨터를 사용못한다. 응답시간에 영향을 받는다</li>
+</ul>
+</li>
+<li><p>그래서 시분할 시스템&#x2F;멀티 프로그래밍이 나왔다</p>
+</li>
+</ul>
+<h4 id="시분할-시스템"><a href="#시분할-시스템" class="headerlink" title="시분할 시스템"></a>시분할 시스템</h4><ul>
+<li>여러 사용자(다중 사용자 지원)가 동시에 하나의 컴퓨터를 사용할 수 있다. 응답시간 최소화</li>
+</ul>
+<h4 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h4><ul>
+<li>단일CPU(코어) 에서 여러 프로그램들이 돌아가면서 조금씩 실행되는것. 마치 동시에 실행되는 것 처럼 보임</li>
+</ul>
+<h4 id="멀티-프로세싱"><a href="#멀티-프로세싱" class="headerlink" title="멀티 프로세싱"></a>멀티 프로세싱</h4><ul>
+<li>여러CPU(다중코어) 에서 각각 하나의 프로그램을 병렬로 동시에 실행하는것</li>
+</ul>
+<h4 id="멀티-프로그래밍"><a href="#멀티-프로그래밍" class="headerlink" title="멀티 프로그래밍"></a>멀티 프로그래밍</h4><ul>
+<li><p>CPU 활용도를 극대화 하는 스케쥴링 알고리즘</p>
+</li>
+<li><p>여러 개의 프로그램을 메모리에 올려놓고 동시에 실행. IO 작업이나 저장매체 갔다오는 작업을 하는 동안(wait) CPU가 노니까 그때 다른 프로세스 실행</p>
+</li>
+</ul>
+<h2 id="스케쥴러"><a href="#스케쥴러" class="headerlink" title="스케쥴러"></a>스케쥴러</h2><ul>
+<li><p>프로세스 실행을 관리하는 것</p>
+</li>
+<li><p>다양한 스케쥴링 알고리즘 들이 존재</p>
+</li>
+</ul>
+<h4 id="FIFO-스케쥴러"><a href="#FIFO-스케쥴러" class="headerlink" title="FIFO 스케쥴러"></a>FIFO 스케쥴러</h4><pre><code>- 가장 간단한 스케쥴러(배치 처리 시스템)
+- 정해진 순서대로 프로세스가 실행된다
+- 수행시간(Run Time)이 긴 프로세스가 있을 경우, 나머지 프로세스들의 Waiting Time이 증가
+- 따라서, CPU 효율성이 낮아진다
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P1 : RunTime = 30ms,</span><br><span class="line">P2 : RunTime = 10ms,</span><br><span class="line">P3 : RunTime = 10ms 이라면</span><br><span class="line"></span><br><span class="line">P1 : WaitingTime = 0ms</span><br><span class="line">P2 : WaitingTime = 30ms</span><br><span class="line">P3 : WaitingTime = 40ms 이고</span><br><span class="line"></span><br><span class="line">평균 WaitingTime은 70/3 = 23.4ms</span><br></pre></td></tr></table></figure>
+
+<h4 id="최단-작업-우선-SJF-스케쥴러"><a href="#최단-작업-우선-SJF-스케쥴러" class="headerlink" title="최단 작업 우선(SJF) 스케쥴러"></a>최단 작업 우선(SJF) 스케쥴러</h4><pre><code>- 가장 프로세스 수행시간(Run Time)이 짧은 프로세스부터 먼저 실행하는 알고리즘
+- 평균 Waiting Time이 줄어든다
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P1 : RunTime = 30ms,</span><br><span class="line">P2 : RunTime = 10ms,</span><br><span class="line">P3 : RunTime = 10ms 이라면</span><br><span class="line"></span><br><span class="line">P2 : WaitingTime = 0ms</span><br><span class="line">P3 : WaitingTime = 10ms</span><br><span class="line">P1 : WaitingTime = 20ms 이고</span><br><span class="line"></span><br><span class="line">평균 WaitingTime은 30/3 = 10ms</span><br></pre></td></tr></table></figure>
+<pre><code>- 수행시간이 긴 프로세스는 계속 뒤로 물러나는 기아현상(Starvation)이 발생 할 수 있다
+- 근데 현실적으로 각 프로세스의 수행시간이 얼마나 걸릴지는 해봐야 아는거지 미리 알 수 없기에 이상적인 알고리즘이긴하다
+- 선점형 : 하나의 프로세스가 수행중인 도중에 갑자기 다른 프로세스 요청(짧은 수행시간의)이 들어오면중간에 끊고 다음 프로세스가 수행되고 나중에 나머지가 수행되는것(SJF니까 수행시간 짧은거부터 해야되자나)
+- 비선점형 : 하나의 프로세스가 다 수행된후에 다음 프로세스 수행가능
+</code></pre>
+<h4 id="Round-Robin-스케쥴러"><a href="#Round-Robin-스케쥴러" class="headerlink" title="Round Robin 스케쥴러"></a>Round Robin 스케쥴러</h4><pre><code>- 기아현상을 해결하기 위한 알고리즘
+- FIFO구조
+- 프로세스마다 균등하게 시간을 배분해서 돌아가면서 수행되는것
+- 즉 시분할 시스템이다
+</code></pre>
+<h4 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h4><pre><code>- 기아현상을 해결하면서 우선순위가 높은거에 높은 비율을 배분해주는것(Round Robin의 업그레이드)
+- 프로세스마다 우선순위를 미리 지정. 스케쥴러가 상황에 따라 우선순위를 동적으로 변경
+- 우선순위가 낮은 프로세스가 계속 수행이 지연되는 기아현상이 발생하지만 에이징기법을 사용해 오래 대기한 프로세스의 동적 우선순위를 높여서 기아현상을 줄인다
+</code></pre>
+<h4 id="프로세스-상태-기반-스케쥴러"><a href="#프로세스-상태-기반-스케쥴러" class="headerlink" title="프로세스 상태 기반 스케쥴러"></a>프로세스 상태 기반 스케쥴러</h4><pre><code>- 멀티 프로그래밍같은것
+- 큐(FIFO)구조
+- 3가지 상태가 존재(Ready State Queue, Running State Queue, Block State Queue(Wait 상태))
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 프로세스 순서대로 Ready State Queue에 배정되고 CPU에서 순서대로 실행</span><br><span class="line">2. 만약 프로세스가 메모리에 파일을 가져오는 waiting 시간 동안 이 프로세스는 Block State Queue에 배정됨</span><br><span class="line">3. waiting 이 끝나면 다시  Ready State Queue에 배정</span><br><span class="line">4. 만약 Ready State Queue에 배정된 프로세스가 없다면 CPU는 idle 상태가 됨</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/05/220706-10th-SpringBoot/" rel="prev" title="SpringBoot (10) [JPA(2)]">
+                  <i class="fa fa-chevron-left"></i> SpringBoot (10) [JPA(2)]
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/12/220712-3rd-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" rel="next" title="운영체제(3) [프로세스와스케쥴러(2)]">
+                  운영체제(3) [프로세스와스케쥴러(2)] <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jinwoorim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
