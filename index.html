@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/12/220712-11th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/12/220712-11th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot(11) [JPA(3)[JOIN]]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-12 16:37:56 / Modified: 16:39:14" itemprop="dateCreated datePublished" datetime="2022-07-12T16:37:56+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h1><ul>
+<li>여러 테이블간에 관계를 select할때</li>
+</ul>
+<h2 id="Member-class"><a href="#Member-class" class="headerlink" title="Member class"></a>Member class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Entity</span><br><span class="line">@Data</span><br><span class="line">public class Member &#123;</span><br><span class="line"></span><br><span class="line">	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)</span><br><span class="line">	@Column(name = &quot;MEMBER_ID&quot;)</span><br><span class="line">	private int id;</span><br><span class="line"></span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	private String city;</span><br><span class="line"></span><br><span class="line">	@OneToMany(mappedBy = &quot;member&quot;, cascade = CascadeType.REMOVE) // &quot;member&quot; = Order Entity의 Member타입 참조변수이름</span><br><span class="line">	private List&lt;Order&gt; orders = new ArrayList&lt;Order&gt;();		  // @OneToMany는 fetch = FetchType.LAZY가 디폴트. 반대는 EAGER</span><br><span class="line">																  // cascade = CascadeType.REMOVE는 member 한명을 삭제하려면 member가 조인되어있는 order 테이블의 모든 로우를 다 삭제해야 그제서야 삭제가가능한데 그걸 한방에 삭제해주는것</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Order-class"><a href="#Order-class" class="headerlink" title="Order class"></a>Order class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Entity</span><br><span class="line">@Table(name = &quot;ORDERS&quot;) // ORDER는 예약어</span><br><span class="line">@Data</span><br><span class="line">public class Order &#123;</span><br><span class="line"></span><br><span class="line">	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)</span><br><span class="line">	@Column(name = &quot;ORDER_ID&quot;)</span><br><span class="line">	private int id;	//주문번호</span><br><span class="line"></span><br><span class="line">	private String status; //주문상태</span><br><span class="line"></span><br><span class="line">	@ManyToOne(fetch = FetchType.LAZY) // 주문(Many) : 회원(One) // fetch = FetchType.LAZY : member가 써먹을때 join하고 안써먹으면 join하지마(디폴트는 EAGER)</span><br><span class="line">	@JoinColumn(name = &quot;MEMBER_ID&quot;) //Foreign Key</span><br><span class="line">	private Member member; //주문자 정보</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="MemberRepository-interface-class"><a href="#MemberRepository-interface-class" class="headerlink" title="MemberRepository interface class"></a>MemberRepository interface class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// @Repository 자동 설정해주기때문에 안붙여도되</span><br><span class="line">public interface MemberRepository extends JpaRepository&lt;Member, Integer&gt;&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="OrderRepository-interface-class"><a href="#OrderRepository-interface-class" class="headerlink" title="OrderRepository interface class"></a>OrderRepository interface class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public interface OrderRepository extends JpaRepository&lt;Order, Integer&gt;&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="ManyToOneTest-Junit-test-class"><a href="#ManyToOneTest-Junit-test-class" class="headerlink" title="ManyToOneTest(Junit test) class"></a>ManyToOneTest(Junit test) class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootTest</span><br><span class="line">@Transactional // 테스트 시작전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다. 이렇게하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지않는다</span><br><span class="line">class ManyToOneTest &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private MemberRepository memberRepository;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private OrderRepository orderRepository;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	void dataSelect() &#123;</span><br><span class="line">		Optional&lt;Order&gt; findOrder = orderRepository.findById(1);</span><br><span class="line">		if(findOrder.isPresent()) &#123;</span><br><span class="line">			Order order = findOrder.get();</span><br><span class="line">			System.out.println(order.getId() + &quot;번 주문 상세 정보&quot;);</span><br><span class="line">			System.out.println(&quot;주문 상태 : &quot; + order.getStatus());</span><br><span class="line">			System.out.println(&quot;주문자 이름 : &quot; + order.getMember().getName());</span><br><span class="line">			System.out.println(&quot;주문자 도시 : &quot; + order.getMember().getCity());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">//	@Test</span><br><span class="line">	void dataInsert() &#123;</span><br><span class="line">		// Member 등록</span><br><span class="line">		Member member1 = new Member();</span><br><span class="line">		member1.setName(&quot;둘리&quot;);</span><br><span class="line">		member1.setCity(&quot;서울&quot;);</span><br><span class="line">		memberRepository.save(member1);</span><br><span class="line"></span><br><span class="line">		Member member2 = new Member();</span><br><span class="line">		member2.setName(&quot;또치&quot;);</span><br><span class="line">		member2.setCity(&quot;대전&quot;);</span><br><span class="line">		memberRepository.save(member2);</span><br><span class="line"></span><br><span class="line">		for (int i = 1; i &lt;= 5 ; i++) &#123;</span><br><span class="line">			Order order = new Order();</span><br><span class="line">			order.setStatus(&quot;배송완료&quot;);</span><br><span class="line">			order.setMember(member1); // 실제로는 ORDERS 테이블의 MEMBER_ID 컬럼(FK)에 회원의 아이디가 설정된다.</span><br><span class="line">			orderRepository.save(order);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="OneToManyTest-Junit-test-class"><a href="#OneToManyTest-Junit-test-class" class="headerlink" title="OneToManyTest(Junit test) class"></a>OneToManyTest(Junit test) class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootTest</span><br><span class="line">@Transactional</span><br><span class="line">class OneToManyTest &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private MemberRepository memberRepository;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	void dataSelect() &#123;</span><br><span class="line">		Optional&lt;Member&gt; findMember = memberRepository.findById(1);</span><br><span class="line">		if(findMember.isPresent()) &#123;</span><br><span class="line">			Member member = findMember.get();</span><br><span class="line">			System.out.println(member.getId() + &quot;번 회원 상세 정보&quot;);</span><br><span class="line">			System.out.println(&quot;회원 이름 : &quot; + member.getName());</span><br><span class="line">			System.out.println(&quot;거주 도시 : &quot; + member.getCity());</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;[주문 목록]&quot;);</span><br><span class="line">			for (Order order : member.getOrders()) &#123;</span><br><span class="line">				System.out.println(&quot;---&gt;&quot; + order.getId() + &quot;, &quot; + order.getStatus());</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="CascadeTest-Junit-test-class"><a href="#CascadeTest-Junit-test-class" class="headerlink" title="CascadeTest(Junit test) class"></a>CascadeTest(Junit test) class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootTest</span><br><span class="line">//@Transactional // 입력, 수정, 삭제 같이 DB 데이터가 변경되는 것들은 자동으로 Transactional이 적용되는데 select만 별도로 해줘야함</span><br><span class="line">class CascadeTest &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private MemberRepository memberRepository;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	void dataDelete() &#123;</span><br><span class="line">		memberRepository.deleteById(1);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1221,114 +1315,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/29/220629-5th-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/29/220629-5th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (5) [의존성관리(스타터)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-29 16:46:24" itemprop="dateCreated datePublished" datetime="2022-06-29T16:46:24+09:00">2022-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-01 16:51:04" itemprop="dateModified" datetime="2022-07-01T16:51:04+09:00">2022-07-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공"><a href="#스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공" class="headerlink" title="스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)"></a>스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)</h2><ul>
-<li><p>관련된 라이브러리들의 묶음</p>
-</li>
-<li><p>스타터와 기존방식의 차이</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">					&lt;기존 방식&gt;</span><br><span class="line"></span><br><span class="line">* MVNrepository 홈페이지에서 라이브러리를 찾아 pom.xml에 dependency로 의존성 설정을 해야한다</span><br><span class="line"></span><br><span class="line">* 라이브러리를 하나만 다운받는다고 되는것도 아니고 관련된걸 일일히 다 찾아서 dependency해야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>스타터 사용방법</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. pom.xml에서 ctrl+spacebar 하고 Add starters</span><br><span class="line">2. 라이브러리 추가하고 next</span><br><span class="line">3. pom.xml 체크하고 finish</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>만약 다운 받은 스타터에서 특정 JAR파일 버전을 바꾸고싶을 때</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. pom.xml에 parent가 있다(pom.xml은 상속이 가능)</span><br><span class="line">2. parent의 parent를 따라 들어가면 수많은 property들이 있다</span><br><span class="line">3. 그 안에서 해당 사항을 복사해서 pom.xml에 &lt;properties&gt; 안에 붙여넣기</span><br><span class="line">4. 버전을 변경한다(오버라이팅)</span><br></pre></td></tr></table></figure>
-
-<h2 id="사용자-정의-스타터-내가-만든-스타터"><a href="#사용자-정의-스타터-내가-만든-스타터" class="headerlink" title="사용자 정의 스타터 (내가 만든 스타터)"></a>사용자 정의 스타터 (내가 만든 스타터)</h2><ul>
-<li>사용자 정의 스타터 생성 방법</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 일반 프로젝트 생성</span><br><span class="line">2. maven -&gt; maven project</span><br><span class="line">3. filter에 maven-archetye-qu 검색해서 org.apache.maven.archetypes 템플릿선택</span><br><span class="line">4. next -&gt; next</span><br><span class="line">5. Artifact id에 &quot;내가원하는 모듈명-spring-boot-starter&quot;</span><br><span class="line">6. 해당 프로젝트 pom.xml에서   &lt;groupId&gt;com.rubypaper&lt;/groupId&gt;</span><br><span class="line"> 				       &lt;artifactId&gt;내가원하는 모듈명-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line"> 				       &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt; 복사</span><br><span class="line">7. 해당 프로젝트 오른쪽클릭 run as 하고 maven install 클릭</span><br><span class="line">8. 내가 만든 스타터가 .m2 디렉토리안에 SNAPSHOT 폴더안에 JAR파일로 추가되어있다.</span><br><span class="line">9. 6.에서 복사한 것을 넣고 싶은 프로젝트 파일 pom.xml에 붙여넣기해서 dependency추가하기</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

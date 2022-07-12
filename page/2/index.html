@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,112 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/29/220629-5th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/29/220629-5th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (5) [의존성관리(스타터)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-29 16:46:24" itemprop="dateCreated datePublished" datetime="2022-06-29T16:46:24+09:00">2022-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-01 16:51:04" itemprop="dateModified" datetime="2022-07-01T16:51:04+09:00">2022-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공"><a href="#스타터-“spring-boot-starter-모듈명”-SpringBoot가-제공" class="headerlink" title="스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)"></a>스타터(“spring-boot-starter-모듈명”)(SpringBoot가 제공)</h2><ul>
+<li><p>관련된 라이브러리들의 묶음</p>
+</li>
+<li><p>스타터와 기존방식의 차이</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">					&lt;기존 방식&gt;</span><br><span class="line"></span><br><span class="line">* MVNrepository 홈페이지에서 라이브러리를 찾아 pom.xml에 dependency로 의존성 설정을 해야한다</span><br><span class="line"></span><br><span class="line">* 라이브러리를 하나만 다운받는다고 되는것도 아니고 관련된걸 일일히 다 찾아서 dependency해야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>스타터 사용방법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. pom.xml에서 ctrl+spacebar 하고 Add starters</span><br><span class="line">2. 라이브러리 추가하고 next</span><br><span class="line">3. pom.xml 체크하고 finish</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>만약 다운 받은 스타터에서 특정 JAR파일 버전을 바꾸고싶을 때</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. pom.xml에 parent가 있다(pom.xml은 상속이 가능)</span><br><span class="line">2. parent의 parent를 따라 들어가면 수많은 property들이 있다</span><br><span class="line">3. 그 안에서 해당 사항을 복사해서 pom.xml에 &lt;properties&gt; 안에 붙여넣기</span><br><span class="line">4. 버전을 변경한다(오버라이팅)</span><br></pre></td></tr></table></figure>
+
+<h2 id="사용자-정의-스타터-내가-만든-스타터"><a href="#사용자-정의-스타터-내가-만든-스타터" class="headerlink" title="사용자 정의 스타터 (내가 만든 스타터)"></a>사용자 정의 스타터 (내가 만든 스타터)</h2><ul>
+<li>사용자 정의 스타터 생성 방법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 일반 프로젝트 생성</span><br><span class="line">2. maven -&gt; maven project</span><br><span class="line">3. filter에 maven-archetye-qu 검색해서 org.apache.maven.archetypes 템플릿선택</span><br><span class="line">4. next -&gt; next</span><br><span class="line">5. Artifact id에 &quot;내가원하는 모듈명-spring-boot-starter&quot;</span><br><span class="line">6. 해당 프로젝트 pom.xml에서   &lt;groupId&gt;com.rubypaper&lt;/groupId&gt;</span><br><span class="line"> 				       &lt;artifactId&gt;내가원하는 모듈명-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line"> 				       &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt; 복사</span><br><span class="line">7. 해당 프로젝트 오른쪽클릭 run as 하고 maven install 클릭</span><br><span class="line">8. 내가 만든 스타터가 .m2 디렉토리안에 SNAPSHOT 폴더안에 JAR파일로 추가되어있다.</span><br><span class="line">9. 6.에서 복사한 것을 넣고 싶은 프로젝트 파일 pom.xml에 붙여넣기해서 dependency추가하기</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1102,112 +1208,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/10/220610-5th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (5) [AOP (2)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-10 16:36:56 / Modified: 16:37:57" itemprop="dateCreated datePublished" datetime="2022-06-10T16:36:56+09:00">2022-06-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="JoinPoint-메소드"><a href="#JoinPoint-메소드" class="headerlink" title="JoinPoint 메소드"></a>JoinPoint 메소드</h2><ul>
-<li><p>JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환</p>
-</li>
-<li><p>JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)</p>
-</li>
-</ul>
-<h2 id="ProceedingJoinPoint-메소드"><a href="#ProceedingJoinPoint-메소드" class="headerlink" title="ProceedingJoinPoint 메소드"></a>ProceedingJoinPoint 메소드</h2><ul>
-<li><p>JoinPoint 상속받음</p>
-</li>
-<li><p>Around 어드바이스는 매개변수로 ProceedingJoinPoint 로 받아야한다</p>
-</li>
-<li><p>나머지 어드바이스는 매개변수로 JoinPoint 로 받아야한다</p>
-</li>
-</ul>
-<h2 id="AOP에-Annotation을-적용하기-위한-설정"><a href="#AOP에-Annotation을-적용하기-위한-설정" class="headerlink" title="AOP에 Annotation을 적용하기 위한 설정"></a>AOP에 Annotation을 적용하기 위한 설정</h2><ul>
-<li><p>XML에 aop:aspectj-autoproxy 태그 설정</p>
-</li>
-<li><p>각각 Advice 클래스위에 @Service 와 @Aspect 추가</p>
-</li>
-<li><p>클래스 안에 참조용 메소드 추가</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.*(..))&quot;)</span><br><span class="line">public void allPointcut() &#123;&#125;</span><br><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.get*(..))&quot;)</span><br><span class="line">public void getPointcut() &#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>메소드 위에 @Before(“allPointcut()”) 추가 (AfterReturning 과 AfterThrowing 은 뒤에 returning 과 throwing 추가)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,110 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/10/220610-5th-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/10/220610-5th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (5) [AOP (2)]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-10 16:36:56 / Modified: 16:37:57" itemprop="dateCreated datePublished" datetime="2022-06-10T16:36:56+09:00">2022-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="JoinPoint-메소드"><a href="#JoinPoint-메소드" class="headerlink" title="JoinPoint 메소드"></a>JoinPoint 메소드</h2><ul>
+<li><p>JoinPoint 참조변수.getSignature().getName(); : 클라이언트가 호출한 메소드의 정보를 반환</p>
+</li>
+<li><p>JoinPoint 참조변수.getArgs(); : 클라이언트가 메소드를 호출할때 넘겨준 인자를 배열로 반환(Object 타입)</p>
+</li>
+</ul>
+<h2 id="ProceedingJoinPoint-메소드"><a href="#ProceedingJoinPoint-메소드" class="headerlink" title="ProceedingJoinPoint 메소드"></a>ProceedingJoinPoint 메소드</h2><ul>
+<li><p>JoinPoint 상속받음</p>
+</li>
+<li><p>Around 어드바이스는 매개변수로 ProceedingJoinPoint 로 받아야한다</p>
+</li>
+<li><p>나머지 어드바이스는 매개변수로 JoinPoint 로 받아야한다</p>
+</li>
+</ul>
+<h2 id="AOP에-Annotation을-적용하기-위한-설정"><a href="#AOP에-Annotation을-적용하기-위한-설정" class="headerlink" title="AOP에 Annotation을 적용하기 위한 설정"></a>AOP에 Annotation을 적용하기 위한 설정</h2><ul>
+<li><p>XML에 aop:aspectj-autoproxy 태그 설정</p>
+</li>
+<li><p>각각 Advice 클래스위에 @Service 와 @Aspect 추가</p>
+</li>
+<li><p>클래스 안에 참조용 메소드 추가</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.*(..))&quot;)</span><br><span class="line">public void allPointcut() &#123;&#125;</span><br><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(* com.ssamz.biz..*Impl.get*(..))&quot;)</span><br><span class="line">public void getPointcut() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>메소드 위에 @Before(“allPointcut()”) 추가 (AfterReturning 과 AfterThrowing 은 뒤에 returning 과 throwing 추가)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1286,127 +1390,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/11/220511-2nd-Servlet-and-JSP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/11/220511-2nd-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (2) [Servlet(1)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-11 17:38:05" itemprop="dateCreated datePublished" datetime="2022-05-11T17:38:05+09:00">2022-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-12 16:48:32" itemprop="dateModified" datetime="2022-05-12T16:48:32+09:00">2022-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Servlet-작성"><a href="#Servlet-작성" class="headerlink" title="Servlet 작성"></a>Servlet 작성</h1><ul>
-<li><p>Servlet wizzard를 이용해서 Servlet을 만들게되면 web.xml에도 내용이 자동으로(이클립스가) 추가된다</p>
-</li>
-<li><p>Tomcat 서버가 구동되면 서버엔진(Servlet container)가 생성되고 web.xml 파일을 읽어드린다</p>
-</li>
-<li><p>web.xml이 수정되면 서버를 다시 구동시켜야된다</p>
-</li>
-<li><p>서버엔진(Servlet container)가 Servlet 객체를 생성한다</p>
-</li>
-<li><p>Servlet을 수정하고 저장하면 서버엔진(Servlet container)가 자동으로 리로딩된다(서버를 다시 재구동하지않아도된다)</p>
-</li>
-</ul>
-<h1 id="패키징"><a href="#패키징" class="headerlink" title="패키징"></a>패키징</h1><ul>
-<li>WAR파일 : 배포를 위한 패키징 작업</li>
-</ul>
-<h1 id="WEB-INF-폴더"><a href="#WEB-INF-폴더" class="headerlink" title="WEB-INF 폴더"></a>WEB-INF 폴더</h1><ul>
-<li>웹 어플리케이션의 핵심 자원들이 있기 때문에 브라우저에서 요청이 불가능하다</li>
-</ul>
-<h1 id="Context-path-변경-방법"><a href="#Context-path-변경-방법" class="headerlink" title="Context path 변경 방법"></a>Context path 변경 방법</h1><ul>
-<li>Servers에 server.xml에서 맨밑에 쪽에 path를 수정해준다</li>
-<li>포트만 남기고 다 없애고 싶으면 web.xml에서 welcome 수정</li>
-</ul>
-<h1 id="Servlet-Container-서버-엔진"><a href="#Servlet-Container-서버-엔진" class="headerlink" title="Servlet Container(서버 엔진)"></a>Servlet Container(서버 엔진)</h1><ul>
-<li><p>web.xml을 통해 어떤 객체를 저장하고 관리하는 역할</p>
-</li>
-<li><p>web.xml의 서블릿 클래스에서 하나의 객체만 생성</p>
-</li>
-</ul>
-<h1 id="서버"><a href="#서버" class="headerlink" title="서버"></a>서버</h1><ul>
-<li>브라우저가 서버에 요청을 할때 정적인건 Web Server에서 해결, 동적인건 서버엔진에서 해결</li>
-</ul>
-<h1 id="Servlet-라이프사이클"><a href="#Servlet-라이프사이클" class="headerlink" title="Servlet 라이프사이클"></a>Servlet 라이프사이클</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 브라우저가 서버에 최초요청 -&gt; 메모리에 servlet class 올림 -&gt; 객체생성 -&gt; 오버라이딩된 init 메서드가 있다면 호출</span><br><span class="line"></span><br><span class="line">- 브라우저가 서버에 요청(최초x) -&gt; Tread -&gt; 오버라이딩된 service 메서드가 있다면 service 메서드 호출</span><br><span class="line">- 브라우저가 서버에 요청(최초x) -&gt; Tread -&gt; service메서드 오버라이딩 안되어있으면 -&gt; 요청방식에 따라 doGet or doPost 메서드 호출</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="Annotation-설정"><a href="#Annotation-설정" class="headerlink" title="Annotation 설정"></a>Annotation 설정</h1><ul>
-<li>web.xml의 servlet부분을 없애고 Servlet에 @WebServlet(“URL 요청”)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
