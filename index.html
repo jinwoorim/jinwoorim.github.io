@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,256 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(5) [가상 메모리]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-13 15:58:30 / Modified: 15:59:17" itemprop="dateCreated datePublished" datetime="2022-07-13T15:58:30+09:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="가상-메모리"><a href="#가상-메모리" class="headerlink" title="가상 메모리"></a>가상 메모리</h1><ul>
+<li><p>프로세스는 메모리 영역이 기본으로 4GB인데, 그럼 내 컴퓨터가 8기가짜리면 프로세스 두개 띄우면 끝? 아니다</p>
+</li>
+<li><p>기존에는 프로세스가 실행되는 코드의 전체 4GB가 통채로 메모리(램)에 로드해야 했고 메모리 용량보다 더 큰 프로그램은 실행시킬 수 없었다</p>
+</li>
+<li><p>하지만 가상 메모리를 사용하므로서 프로세스를 실행할 때 실행에 필요한 일부만 메모리(램)에 로드하고 나머지는 디스크에 두는것</p>
+</li>
+<li><p>메모리는 가상메모리(프로세스의) 와 물리메모리(램) 둘로 나뉜다</p>
+</li>
+<li><p>프로세스는 가상 주소를 사용하고, 실제 해당 주소에서 데이터를 읽고 쓸 때만 물리 주소로 바뀐다</p>
+</li>
+</ul>
+<h2 id="페이징-시스템-가상-메모리를-어떻게-만들건데"><a href="#페이징-시스템-가상-메모리를-어떻게-만들건데" class="headerlink" title="페이징 시스템(가상 메모리를 어떻게 만들건데?)"></a>페이징 시스템(가상 메모리를 어떻게 만들건데?)</h2><ul>
+<li><p>요즘에는 페이징 시스템만 사용한다</p>
+</li>
+<li><p>프로세스의 메모리영역(4GB)를 특정 사이즈 단위로 조각내는것</p>
+</li>
+<li><p>그리고 각각에 페이지 번호를 메긴다. 그 단위로 메모리(램)에 적재되었다 해제되었다 하는 것</p>
+</li>
+<li><p>intel의 경우 4KB, 2MB, 1GB 지원</p>
+</li>
+<li><p>리눅스의 경우 4KB 페이징</p>
+</li>
+</ul>
+<h2 id="MMU-Memory-Management-Unit-CPU코어에-들어있는-칩"><a href="#MMU-Memory-Management-Unit-CPU코어에-들어있는-칩" class="headerlink" title="MMU(Memory Management Unit) (CPU코어에 들어있는 칩)"></a>MMU(Memory Management Unit) (CPU코어에 들어있는 칩)</h2><ul>
+<li><p>CPU에 코드 실행시 가상 주소 메모리 접근이 필요할 때 해당 주소를 물리 주소값으로 변환해주는 하드웨어 장치</p>
+</li>
+<li><p>즉, CPU는 가상 메모리를 다루고 실제 해당 주소 접근시 MMU 하드웨어 장치를 통해 물리 메모리 접근</p>
+</li>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>MMU가 메모리(램)의 page table로 접근(page table : 가상주소와 실제 물리 주소 값의 관계를 나타내는 테이블)</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>해당 가상 주소에 해당하는 물리 주소를 MMU에 요청</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>MMU에서 해당 물리 주소에 해당하는 실제 데이터 값을 가지러 메모리(램)에 재접근</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>실제 데이터 값을 CPU에 전달</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>하나의 주소 가져올때 메모리에 왔다갔다하면서 소요되는 시간이 너무 오래걸림. 심지어 두번이나. 그래서 TLB 등장</p>
+</li>
+</ul>
+<h2 id="TLB-CPU코어에-들어있는-칩"><a href="#TLB-CPU코어에-들어있는-칩" class="headerlink" title="TLB(CPU코어에 들어있는 칩)"></a>TLB(CPU코어에 들어있는 칩)</h2><ul>
+<li><p>동작원리는 MMU와 유사하지만 CPU가 동일한 가상주소를 다음번에 요청할때 이점을 가짐</p>
+</li>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>MMU가 메모리(램)의 page table로 접근(page table : 가상주소와 실제 물리 주소 값의 관계를 나타내는 테이블)</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>해당 가상 주소에 해당하는 물리 주소를 MMU에 요청</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>해당 물리 주소를 TLB에 저장</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>MMU에서 해당 물리 주소에 해당하는 실제 데이터 값을 가지러 메모리(램)에 재접근</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>실제 데이터 값을 CPU에 전달</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>CPU가 동일한 가상 주소를 재요청</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>TLB에 재요청한 가상 주소에 해당하는 물리주소 값이 저장되어있으니 해당 물리주소에 해당하는 데이터값을 가지러 메모리로 이동</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>해당 데이터값 CPU에 전달</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>즉, CPU가 이전에 요청했었던 동일한 가상 주소를 재요청할 때 MMU는 메모리에 두번 왔다갔다해야되고, TLB는 한번만 함</p>
+</li>
+</ul>
+<h2 id="요구-페이징"><a href="#요구-페이징" class="headerlink" title="요구 페이징"></a>요구 페이징</h2><ul>
+<li><p>프로세스의 모든 데이터를 메모리에 적재하지않고, 실행 중 필요한 시점에서만 메모리에 적재함</p>
+</li>
+<li><p>프로세스의 모든 데이터를 메모리에 적재하면 프로세스를 실행하는데 걸리는 준비시간이 너무 기니까 당장 급한것들만 적재</p>
+</li>
+</ul>
+<h2 id="페이지-폴트"><a href="#페이지-폴트" class="headerlink" title="페이지 폴트"></a>페이지 폴트</h2><ul>
+<li><p>어떤 페이지가 실제 물리 메모리에 없을 때 일어나는 인터럽트</p>
+</li>
+<li><p>인터럽트 : CPU가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 예외상황이 발생하는 것</p>
+</li>
+</ul>
+<h2 id="페이지-폴트-인터럽트"><a href="#페이지-폴트-인터럽트" class="headerlink" title="페이지 폴트 인터럽트"></a>페이지 폴트 인터럽트</h2><ul>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>TLB에 가상 주소에 해당하는 물리 주소가 있는지 확인</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>없다면 메모리(램)의 page table로 접근</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>가상 주소에 해당하는 물리주소가 메모리의 page table에 없으면 페이지 폴트 인터럽트 발생</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>페이지 폴트 인터럽트에 의해 가상 주소에 해당하는 물리 주소를 가지러 하드디스크(저장매체)에 접근</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>해당 물리 주소를 메모리 page table에 update. 데이터값도 같이 update</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>CPU가 다시 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>TLB 동작원리대로 진행</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>페이지 퐅트가 일어나면 저장매체갔다와야하고 과정 자체가 너무 오래걸린다. 이를 해결하기 위해선 향후 실행될 데이터를 미리 물리 메모리에 올려야 하는데 이건 불가능..</p>
+</li>
+</ul>
+<h2 id="페이지-교체-정책-참고만"><a href="#페이지-교체-정책-참고만" class="headerlink" title="페이지 교체 정책(참고만..)"></a>페이지 교체 정책(참고만..)</h2><ul>
+<li><p>운영체제가 특정 페이지를 물리 메모리에 올리려하는데 물리 메모리가 다 차있을 경우 해결방안 알고리즘</p>
+</li>
+<li><p>종류 :</p>
+<ul>
+<li><p>FIFO : 가장 먼저 들어온 페이지를 먼저 내리자</p>
+</li>
+<li><p>OPT : 앞으로 가장 오랫동안 사용하지 않을 페이지를 내리자(이건 현실적으로 불가능..)</p>
+</li>
+<li><p>LRU : 가장 오래전에 사용된 페이지를 교체</p>
+</li>
+<li><p>LFU : 가장 적게 사용된 페이지를 내리자</p>
+</li>
+<li><p>NUR : LRU와 같이 가장 오래전에 사용된 페이즈를 교체하지만 그 페이지가 읽기만했냐 읽고쓰기도했냐 하는것들 따짐</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1167,136 +1417,6 @@
 <h2 id="커널모드"><a href="#커널모드" class="headerlink" title="커널모드"></a>커널모드</h2><ul>
 <li>사용자가 커널에 시스템콜을 통해서 커널이 기능을 하도록 하는 것(예를들어 파일을 읽어라 이런거)</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/29/220629-6th-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/29/220629-6th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (6) [자동설정]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-29 16:46:38" itemprop="dateCreated datePublished" datetime="2022-06-29T16:46:38+09:00">2022-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-01 16:51:40" itemprop="dateModified" datetime="2022-07-01T16:51:40+09:00">2022-07-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="자동-설정"><a href="#자동-설정" class="headerlink" title="자동 설정"></a>자동 설정</h2><ul>
-<li><p>애플리케이션을 운영하기 위해서는 두종류의 객체가 필요하다</p>
-</li>
-<li><p>예를 들어, 스프링이 제공해주는 HandlerMapping이나 ViewResolver 같은 스프링이 제공해주는 객체와 내가 만든 Controller 객체가 필요하다</p>
-</li>
-<li><p>@ComponentScan : 내가 만든 클래스 객체</p>
-</li>
-<li><p>@EnableAutoConfiguration : 스프링이 제공해주는 클래스 객체(수십가지 클래스 제공 HandlerMapping, ViewResolver 이런거 다있음)</p>
-</li>
-<li><p>@ComponentScan를 먼저 메모리에 띄우고 @EnableAutoConfiguration을 메모리에 띄운다</p>
-</li>
-<li><p>@ComponentScan @EnableAutoConfiguration는 @SpringBootApplication에 포함되어있다.</p>
-</li>
-<li><p>@EnableAutoConfiguration하게되면 spring-boot-autoconfigure.jar 라이브러리 안에 META-INF폴터안에 spring.factories파일안에 수많은 자동 설정 클래스들이 로딩된다</p>
-</li>
-</ul>
-<h2 id="자동설정-어노테이션"><a href="#자동설정-어노테이션" class="headerlink" title="자동설정 어노테이션"></a>자동설정 어노테이션</h2><ul>
-<li><p>@EnableAutoConfiguration에 의해 수많은 라이브러리안에 수많은 클래스들이 다 메모리에 뜨면 낭비</p>
-</li>
-<li><p>따라서 자동설정 어노테이션에 의해 필요한 클래스들만 메모리에 뜨게할 수 있다</p>
-</li>
-<li><p>라이브러리들안에 수많은 클래스들을 보면 자동설정 어노테이션들이 설정되어있다</p>
-</li>
-<li><p>이 어노테이션들의 설정 조건에 따라 해당되는 클래스들만 메모리에 띄운다</p>
-</li>
-<li><p>@ConditionalOnWebApplication</p>
-<ul>
-<li>Main 클래스의 WebApplicationType 설정확인. 일반자바애플리케이션(none)인지 웹애플리케이션인지(디폴트: servlet)</li>
-</ul>
-</li>
-<li><p>@ConditionalOnClass</p>
-<ul>
-<li>특정 클래스가 클래스 패스 상에 존재할때 적용</li>
-</ul>
-</li>
-<li><p>@ConditionalOnMissingBean</p>
-<ul>
-<li>특정 객체가 메모리에 없을때 작동시켜라</li>
-</ul>
-</li>
-<li><p>@AutoConfigureOrder</p>
-</li>
-<li><p>@AutoConfigureAfter</p>
-</li>
-</ul>
-<h2 id="사용자-정의-자동-설정-내가-만든-자동-설정"><a href="#사용자-정의-자동-설정-내가-만든-자동-설정" class="headerlink" title="사용자 정의 자동 설정 (내가 만든 자동 설정)"></a>사용자 정의 자동 설정 (내가 만든 자동 설정)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 사용자 정의 스타터 프로젝트 파일에서 pom.xml에 autoconfigure dependency 적용(MVNrepository 사이트에서 autoconfigure 검색해서 가져와서)</span><br><span class="line">2. 이 autoconfigure를 dependency 적용하면 jar파일이 Maven Dependencies 폴더안에 생긴다</span><br><span class="line">3. 이 jar파일안에 EnableAutoConfiguration 클래스가 들어있다</span><br><span class="line">4. 이 클래스는 하는일이 모든 META-INF 폴더 밑에 spring.factories를 로딩한다</span><br><span class="line">5. 따라서, spring.factories에 org.springframework.boot.autoconfigure.EnableAutoConfiguration = \을 등록</span><br><span class="line">6. 내가 만든 자동설정 클래스도 같이 등록</span><br><span class="line">7. 프로젝트 run as maven install 하고 close project</span><br></pre></td></tr></table></figure>
 
       
     </div>

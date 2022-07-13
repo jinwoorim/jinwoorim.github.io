@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinwoorim.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="가상 메모리 프로세스는 메모리 영역이 기본으로 4GB인데, 그럼 내 컴퓨터가 8기가짜리면 프로세스 두개 띄우면 끝? 아니다  기존에는 프로세스가 실행되는 코드의 전체 4GB가 통채로 메모리(램)에 로드해야 했고 메모리 용량보다 더 큰 프로그램은 실행시킬 수 없었다  하지만 가상 메모리를 사용하므로서 프로세스를 실행할 때 실행에 필요한 일부만 메모리(램)에">
+<meta property="og:type" content="article">
+<meta property="og:title" content="운영체제(5) [가상 메모리]">
+<meta property="og:url" content="http://jinwoorim.gihub.io/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="가상 메모리 프로세스는 메모리 영역이 기본으로 4GB인데, 그럼 내 컴퓨터가 8기가짜리면 프로세스 두개 띄우면 끝? 아니다  기존에는 프로세스가 실행되는 코드의 전체 4GB가 통채로 메모리(램)에 로드해야 했고 메모리 용량보다 더 큰 프로그램은 실행시킬 수 없었다  하지만 가상 메모리를 사용하므로서 프로세스를 실행할 때 실행에 필요한 일부만 메모리(램)에">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-13T06:58:30.000Z">
+<meta property="article:modified_time" content="2022-07-13T06:59:17.388Z">
+<meta property="article:author" content="jinwoorim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jinwoorim.gihub.io/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://jinwoorim.gihub.io/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/","path":"2022/07/13/220713-5th-운영체제/","title":"운영체제(5) [가상 메모리]"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>운영체제(5) [가상 메모리] | My blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My github blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC"><span class="nav-number">1.</span> <span class="nav-text">가상 메모리</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%95-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B1%B4%EB%8D%B0"><span class="nav-number">1.1.</span> <span class="nav-text">페이징 시스템(가상 메모리를 어떻게 만들건데?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMU-Memory-Management-Unit-CPU%EC%BD%94%EC%96%B4%EC%97%90-%EB%93%A4%EC%96%B4%EC%9E%88%EB%8A%94-%EC%B9%A9"><span class="nav-number">1.2.</span> <span class="nav-text">MMU(Memory Management Unit) (CPU코어에 들어있는 칩)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLB-CPU%EC%BD%94%EC%96%B4%EC%97%90-%EB%93%A4%EC%96%B4%EC%9E%88%EB%8A%94-%EC%B9%A9"><span class="nav-number">1.3.</span> <span class="nav-text">TLB(CPU코어에 들어있는 칩)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9A%94%EA%B5%AC-%ED%8E%98%EC%9D%B4%EC%A7%95"><span class="nav-number">1.4.</span> <span class="nav-text">요구 페이징</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%8F%B4%ED%8A%B8"><span class="nav-number">1.5.</span> <span class="nav-text">페이지 폴트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%8F%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8"><span class="nav-number">1.6.</span> <span class="nav-text">페이지 폴트 인터럽트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B5%90%EC%B2%B4-%EC%A0%95%EC%B1%85-%EC%B0%B8%EA%B3%A0%EB%A7%8C"><span class="nav-number">1.7.</span> <span class="nav-text">페이지 교체 정책(참고만..)</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinwoorim</p>
+  <div class="site-description" itemprop="description">All stories about my develop</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/13/220713-5th-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="운영체제(5) [가상 메모리] | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          운영체제(5) [가상 메모리]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-13 15:58:30 / Modified: 15:59:17" itemprop="dateCreated datePublished" datetime="2022-07-13T15:58:30+09:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="가상-메모리"><a href="#가상-메모리" class="headerlink" title="가상 메모리"></a>가상 메모리</h1><ul>
+<li><p>프로세스는 메모리 영역이 기본으로 4GB인데, 그럼 내 컴퓨터가 8기가짜리면 프로세스 두개 띄우면 끝? 아니다</p>
+</li>
+<li><p>기존에는 프로세스가 실행되는 코드의 전체 4GB가 통채로 메모리(램)에 로드해야 했고 메모리 용량보다 더 큰 프로그램은 실행시킬 수 없었다</p>
+</li>
+<li><p>하지만 가상 메모리를 사용하므로서 프로세스를 실행할 때 실행에 필요한 일부만 메모리(램)에 로드하고 나머지는 디스크에 두는것</p>
+</li>
+<li><p>메모리는 가상메모리(프로세스의) 와 물리메모리(램) 둘로 나뉜다</p>
+</li>
+<li><p>프로세스는 가상 주소를 사용하고, 실제 해당 주소에서 데이터를 읽고 쓸 때만 물리 주소로 바뀐다</p>
+</li>
+</ul>
+<h2 id="페이징-시스템-가상-메모리를-어떻게-만들건데"><a href="#페이징-시스템-가상-메모리를-어떻게-만들건데" class="headerlink" title="페이징 시스템(가상 메모리를 어떻게 만들건데?)"></a>페이징 시스템(가상 메모리를 어떻게 만들건데?)</h2><ul>
+<li><p>요즘에는 페이징 시스템만 사용한다</p>
+</li>
+<li><p>프로세스의 메모리영역(4GB)를 특정 사이즈 단위로 조각내는것</p>
+</li>
+<li><p>그리고 각각에 페이지 번호를 메긴다. 그 단위로 메모리(램)에 적재되었다 해제되었다 하는 것</p>
+</li>
+<li><p>intel의 경우 4KB, 2MB, 1GB 지원</p>
+</li>
+<li><p>리눅스의 경우 4KB 페이징</p>
+</li>
+</ul>
+<h2 id="MMU-Memory-Management-Unit-CPU코어에-들어있는-칩"><a href="#MMU-Memory-Management-Unit-CPU코어에-들어있는-칩" class="headerlink" title="MMU(Memory Management Unit) (CPU코어에 들어있는 칩)"></a>MMU(Memory Management Unit) (CPU코어에 들어있는 칩)</h2><ul>
+<li><p>CPU에 코드 실행시 가상 주소 메모리 접근이 필요할 때 해당 주소를 물리 주소값으로 변환해주는 하드웨어 장치</p>
+</li>
+<li><p>즉, CPU는 가상 메모리를 다루고 실제 해당 주소 접근시 MMU 하드웨어 장치를 통해 물리 메모리 접근</p>
+</li>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>MMU가 메모리(램)의 page table로 접근(page table : 가상주소와 실제 물리 주소 값의 관계를 나타내는 테이블)</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>해당 가상 주소에 해당하는 물리 주소를 MMU에 요청</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>MMU에서 해당 물리 주소에 해당하는 실제 데이터 값을 가지러 메모리(램)에 재접근</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>실제 데이터 값을 CPU에 전달</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>하나의 주소 가져올때 메모리에 왔다갔다하면서 소요되는 시간이 너무 오래걸림. 심지어 두번이나. 그래서 TLB 등장</p>
+</li>
+</ul>
+<h2 id="TLB-CPU코어에-들어있는-칩"><a href="#TLB-CPU코어에-들어있는-칩" class="headerlink" title="TLB(CPU코어에 들어있는 칩)"></a>TLB(CPU코어에 들어있는 칩)</h2><ul>
+<li><p>동작원리는 MMU와 유사하지만 CPU가 동일한 가상주소를 다음번에 요청할때 이점을 가짐</p>
+</li>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>MMU가 메모리(램)의 page table로 접근(page table : 가상주소와 실제 물리 주소 값의 관계를 나타내는 테이블)</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>해당 가상 주소에 해당하는 물리 주소를 MMU에 요청</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>해당 물리 주소를 TLB에 저장</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>MMU에서 해당 물리 주소에 해당하는 실제 데이터 값을 가지러 메모리(램)에 재접근</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>실제 데이터 값을 CPU에 전달</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>CPU가 동일한 가상 주소를 재요청</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>TLB에 재요청한 가상 주소에 해당하는 물리주소 값이 저장되어있으니 해당 물리주소에 해당하는 데이터값을 가지러 메모리로 이동</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>해당 데이터값 CPU에 전달</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>즉, CPU가 이전에 요청했었던 동일한 가상 주소를 재요청할 때 MMU는 메모리에 두번 왔다갔다해야되고, TLB는 한번만 함</p>
+</li>
+</ul>
+<h2 id="요구-페이징"><a href="#요구-페이징" class="headerlink" title="요구 페이징"></a>요구 페이징</h2><ul>
+<li><p>프로세스의 모든 데이터를 메모리에 적재하지않고, 실행 중 필요한 시점에서만 메모리에 적재함</p>
+</li>
+<li><p>프로세스의 모든 데이터를 메모리에 적재하면 프로세스를 실행하는데 걸리는 준비시간이 너무 기니까 당장 급한것들만 적재</p>
+</li>
+</ul>
+<h2 id="페이지-폴트"><a href="#페이지-폴트" class="headerlink" title="페이지 폴트"></a>페이지 폴트</h2><ul>
+<li><p>어떤 페이지가 실제 물리 메모리에 없을 때 일어나는 인터럽트</p>
+</li>
+<li><p>인터럽트 : CPU가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 예외상황이 발생하는 것</p>
+</li>
+</ul>
+<h2 id="페이지-폴트-인터럽트"><a href="#페이지-폴트-인터럽트" class="headerlink" title="페이지 폴트 인터럽트"></a>페이지 폴트 인터럽트</h2><ul>
+<li><p>동작원리 :</p>
+<ul>
+<li><ol>
+<li>CPU가 MMU에게 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>TLB에 가상 주소에 해당하는 물리 주소가 있는지 확인</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>없다면 메모리(램)의 page table로 접근</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>가상 주소에 해당하는 물리주소가 메모리의 page table에 없으면 페이지 폴트 인터럽트 발생</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>페이지 폴트 인터럽트에 의해 가상 주소에 해당하는 물리 주소를 가지러 하드디스크(저장매체)에 접근</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>해당 물리 주소를 메모리 page table에 update. 데이터값도 같이 update</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>CPU가 다시 가상 주소 요청</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>TLB 동작원리대로 진행</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>페이지 퐅트가 일어나면 저장매체갔다와야하고 과정 자체가 너무 오래걸린다. 이를 해결하기 위해선 향후 실행될 데이터를 미리 물리 메모리에 올려야 하는데 이건 불가능..</p>
+</li>
+</ul>
+<h2 id="페이지-교체-정책-참고만"><a href="#페이지-교체-정책-참고만" class="headerlink" title="페이지 교체 정책(참고만..)"></a>페이지 교체 정책(참고만..)</h2><ul>
+<li><p>운영체제가 특정 페이지를 물리 메모리에 올리려하는데 물리 메모리가 다 차있을 경우 해결방안 알고리즘</p>
+</li>
+<li><p>종류 :</p>
+<ul>
+<li><p>FIFO : 가장 먼저 들어온 페이지를 먼저 내리자</p>
+</li>
+<li><p>OPT : 앞으로 가장 오랫동안 사용하지 않을 페이지를 내리자(이건 현실적으로 불가능..)</p>
+</li>
+<li><p>LRU : 가장 오래전에 사용된 페이지를 교체</p>
+</li>
+<li><p>LFU : 가장 적게 사용된 페이지를 내리자</p>
+</li>
+<li><p>NUR : LRU와 같이 가장 오래전에 사용된 페이즈를 교체하지만 그 페이지가 읽기만했냐 읽고쓰기도했냐 하는것들 따짐</p>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/12/220712-11th-SpringBoot/" rel="prev" title="SpringBoot(11) [JPA(3)[JOIN]]">
+                  <i class="fa fa-chevron-left"></i> SpringBoot(11) [JPA(3)[JOIN]]
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jinwoorim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
