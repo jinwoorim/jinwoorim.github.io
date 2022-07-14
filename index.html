@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,139 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/14/220714-12th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/14/220714-12th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot(12) [Security]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-14 15:08:05 / Modified: 15:08:54" itemprop="dateCreated datePublished" datetime="2022-07-14T15:08:05+09:00">2022-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h2><ul>
+<li><p>로그인 인증처리를 도와주는 스타터</p>
+</li>
+<li><p>스타터를 pom.xml에 다운받고 어플리케이션 실행하면 기본적으로 password(랜덤)가 제공된다.</p>
+</li>
+<li><p>로그인화면도 제공된다(그런 jar를 다운받을때 제공받는다)</p>
+</li>
+<li><p>아이디는 user</p>
+</li>
+</ul>
+<h2 id="Customizing하기"><a href="#Customizing하기" class="headerlink" title="Customizing하기"></a>Customizing하기</h2><ul>
+<li><p>Spring이 제공해주는 security를 내맘대로 customizing할 수 있다</p>
+</li>
+<li><p>security 스타터를 다운받으면 security와 관련된 객체들이 있을 것이고 그 객체들이 자동설정 클래스에 의해 메모리에 올라간다 그 자동설정 클래스를 비활성화시켜야 customizing 가능</p>
+</li>
+<li><p>Spring Security는 loginController도 자동제공(컨트롤러 따로 안만들어도됨)</p>
+</li>
+</ul>
+<h2 id="Configuration-class"><a href="#Configuration-class" class="headerlink" title="Configuration class"></a>Configuration class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableWebSecurity // @EnableWebSecurity : security를 customizing하기 위해서 security와 관련된 몇몇 객체들 제거</span><br><span class="line">                   // extends WebSecurityConfigurerAdapter : security를 customizing하기 위해서 security와 관련된 몇몇 객체들 제거</span><br><span class="line">public class BankWebMvcConfiguration extends WebSecurityConfigurerAdapter&#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private UserDetailsServiceImpl userDetailsService;</span><br><span class="line"></span><br><span class="line">	@Override // security가 기본으로 제공해주는 계정 사용하지않겠다</span><br><span class="line">	protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;</span><br><span class="line">		auth.userDetailsService(userDetailsService);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">		// 다음 경로에 대한 요청은 인증 없이 접근을 허용한다. 이미지나 js파일, css관련 webjar도 허용해줘야한다.</span><br><span class="line">		http.authorizeRequests().antMatchers(&quot;/&quot;, &quot;/auth/**&quot;, &quot;/js/**&quot;, &quot;/image/**&quot;, &quot;/webjars/**&quot;).permitAll();</span><br><span class="line"></span><br><span class="line">		// 위에서 언급한 경로 외에는 모두 인증을 거치도록 설정한다</span><br><span class="line">		http.authorizeRequests().anyRequest().authenticated();</span><br><span class="line"></span><br><span class="line">		// 시큐리티가 제공하는 기본 로그인 화면은 CSRF 토큰을 무조건 전달한다</span><br><span class="line">		// 하지만 사용자 정의 로그인 화면에서는 CSRF 토큰을 전달하지 않는다</span><br><span class="line">		http.csrf().disable();</span><br><span class="line"></span><br><span class="line">		// 사용자가 만든 로그인 화면을 띄운다</span><br><span class="line">		http.formLogin().loginPage(&quot;/auth/login&quot;);</span><br><span class="line"></span><br><span class="line">		// 로그아웃 설정</span><br><span class="line">		http.logout().logoutUrl(&quot;/auth/logout&quot;).logoutSuccessUrl(&quot;/&quot;); // 디폴트는 logoutUrl(&quot;/logout&quot;), logoutSuccessUrl(&quot;/&quot;) : 로그아웃 성공시 index 페이지로 이동</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Security가-제공하는-아이디-비번이-DB의-회원정보를-가지고-로그인하는-방법"><a href="#Security가-제공하는-아이디-비번이-DB의-회원정보를-가지고-로그인하는-방법" class="headerlink" title="Security가 제공하는 아이디 비번이 DB의 회원정보를 가지고 로그인하는 방법"></a>Security가 제공하는 아이디 비번이 DB의 회원정보를 가지고 로그인하는 방법</h2><ul>
+<li><p>총 두가지 클래스를 만들어야한다</p>
+<ul>
+<li>UserDetails를 implements 한 클래스</li>
+<li>UserDetailsService 를 implements 한 클래스</li>
+</ul>
+</li>
+<li><p>UserDetails를 implements 한 클래스</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Getter</span><br><span class="line">@Setter</span><br><span class="line">public class UserDetailsImpl implements UserDetails &#123;</span><br><span class="line"></span><br><span class="line">	// User 엔티티 타입의 참조변수 선언</span><br><span class="line">	private User user;</span><br><span class="line"></span><br><span class="line">	public UserDetailsImpl(User user) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.user = user;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// User 엔티티가 가지고 있는 권한 목록을 저장하여 리턴한다</span><br><span class="line">	@Override</span><br><span class="line">	public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() &#123;</span><br><span class="line">		// 권한 목록을 저장할 컬렉션</span><br><span class="line">		Collection&lt;GrantedAuthority&gt; roleList = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		// 권한 설정</span><br><span class="line">		roleList.add(new GrantedAuthority() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public String getAuthority() &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				return &quot;ROLE_&quot; + user.getRole();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		return roleList;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String getPassword() &#123;</span><br><span class="line">		// &quot;&#123;noop&#125;&quot; 은 security가 제공하는 비밀번호를 자동으로 암호화하지않겠다. 실제 DB 회원의 비밀번호로 대체하겠다</span><br><span class="line">		return &quot;&#123;noop&#125;&quot; + user.getPassword();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String getUsername() &#123;</span><br><span class="line"></span><br><span class="line">		return user.getUsername();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 계정이 만료됬는지 여부를 리턴한다</span><br><span class="line">	@Override</span><br><span class="line">	public boolean isAccountNonExpired() &#123;</span><br><span class="line"></span><br><span class="line">		return true; // 계정은 만료되지 않았다</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 계정이 잠겨있는지 여부를 리턴한다</span><br><span class="line">	@Override</span><br><span class="line">	public boolean isAccountNonLocked() &#123;</span><br><span class="line"></span><br><span class="line">		return true; // 안 잠겨있다</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 비밀번호가 만료됬는지 여부를 리턴한다</span><br><span class="line">	@Override</span><br><span class="line">	public boolean isCredentialsNonExpired() &#123;</span><br><span class="line"></span><br><span class="line">		return true; // 비밀번호가 만료되지 않았다</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 계정의 활성화 여부를 리턴한다</span><br><span class="line">	@Override</span><br><span class="line">	public boolean isEnabled() &#123;</span><br><span class="line"></span><br><span class="line">		return true; // 계정이 활성화되있다</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>UserDetailsService 를 implements 한 클래스</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class UserDetailsServiceImpl implements UserDetailsService &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException &#123;</span><br><span class="line">		User principal = userRepository.findByUsername(username).get();</span><br><span class="line">		return new UserDetailsImpl(principal);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="CSRF-토큰이란-CSRF-공격이란"><a href="#CSRF-토큰이란-CSRF-공격이란" class="headerlink" title="CSRF 토큰이란, CSRF 공격이란"></a>CSRF 토큰이란, CSRF 공격이란</h2><ul>
+<li><p>CSRF 토큰</p>
+<ul>
+<li>사용자가 임의로 변하는 특정한 토큰값을 서버에서 체크하는 방식</li>
+<li>서버에서 브라우저에 데이터를 전송할때 CSRF 토큰을 같이 전송</li>
+<li>사용자가 POST 방식 등으로 작업 할 때 브라우저에서 전송된 CSRF 토큰값과 서버가 보관하고 있는 토큰의 값을 비교</li>
+<li>만일 CSRF 토큰값이 다르면 작업X</li>
+</ul>
+</li>
+<li><p>CSRF 공격</p>
+<ul>
+<li>공격자가 CSRF 스크립트가 포함된 게시물을 서버에 등록</li>
+<li>서버 관리자는 공격자가 등록한 CSRF 스크립트가 포함된 게시물을 확인</li>
+<li>관리자가 CSRF 스크립트가 포함된 게시물을 열람하면 관리자의 권한으로 공격자가 원하는 CSRF 스크립트 요청이 발생</li>
+<li>공격자가 원하는 CSRF 스크립트가 실행되어 정보 유출됨</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1300,122 +1433,6 @@
 </li>
 <li><p>assertEqual 자주 씀</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEqual(예상값,실제 테스트 결과 값);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(1) [운영체제란]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-04 16:05:28" itemprop="dateCreated datePublished" datetime="2022-07-04T16:05:28+09:00">2022-07-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-12 04:03:01" itemprop="dateModified" datetime="2022-07-12T04:03:01+09:00">2022-07-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="커널"><a href="#커널" class="headerlink" title="커널"></a>커널</h2><ul>
-<li><p>프로세스, 메모리, 입출력 등등 전반적 직접적 관리. 컴퓨터 자원(리소스)관리.</p>
-</li>
-<li><p>커널을 걸치지않고 다이렉트로 컴퓨터자원에 접근해서 조작하면 위험하다</p>
-</li>
-</ul>
-<h2 id="시스템-콜"><a href="#시스템-콜" class="headerlink" title="시스템 콜"></a>시스템 콜</h2><ul>
-<li>운영체제(커널)의 기능을 사용할 수 있도록 제공해주는 명령</li>
-</ul>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
-<li><p>시스템콜을 호출하기 위해서는 상당히 많은 준비가 필요하다</p>
-</li>
-<li><p>아주 간단한 작업이라도 초당 수천개가 호출되야하고 이를 프로그래밍한다는 것은 끔찍</p>
-</li>
-<li><p>때문에, 직접적으로 시스템콜을 호출하는것은 매우어렵다. 따라서 이를 쉽게 사용하도록 함수화한것이 API</p>
-</li>
-</ul>
-<h2 id="쉘"><a href="#쉘" class="headerlink" title="쉘"></a>쉘</h2><ul>
-<li><p>사용자가 운영체제(커널)의 기능과 서비스를 조작할 수 있도록 둘 사이에서 의사소통 해주는 프로그램(GIT BASH 같은거)</p>
-</li>
-<li><p>CLI와 GUI로 분류됨</p>
-</li>
-</ul>
-<h2 id="운영체제"><a href="#운영체제" class="headerlink" title="운영체제"></a>운영체제</h2><ul>
-<li>쉘 + API + 시스템콜 + 커널을 세트화 한것</li>
-</ul>
-<h2 id="사용자모드"><a href="#사용자모드" class="headerlink" title="사용자모드"></a>사용자모드</h2><ul>
-<li>응용프로그램에서 사용자가 커널에 요청이 필요하지않는 작업(프로그래밍)을 하는 것</li>
-</ul>
-<h2 id="커널모드"><a href="#커널모드" class="headerlink" title="커널모드"></a>커널모드</h2><ul>
-<li>사용자가 커널에 시스템콜을 통해서 커널이 기능을 하도록 하는 것(예를들어 파일을 읽어라 이런거)</li>
 </ul>
 
       

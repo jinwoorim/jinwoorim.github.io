@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,122 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/04/220704-1st-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="post-title-link" itemprop="url">운영체제(1) [운영체제란]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-04 16:05:28" itemprop="dateCreated datePublished" datetime="2022-07-04T16:05:28+09:00">2022-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-12 04:03:01" itemprop="dateModified" datetime="2022-07-12T04:03:01+09:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">운영체제</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="커널"><a href="#커널" class="headerlink" title="커널"></a>커널</h2><ul>
+<li><p>프로세스, 메모리, 입출력 등등 전반적 직접적 관리. 컴퓨터 자원(리소스)관리.</p>
+</li>
+<li><p>커널을 걸치지않고 다이렉트로 컴퓨터자원에 접근해서 조작하면 위험하다</p>
+</li>
+</ul>
+<h2 id="시스템-콜"><a href="#시스템-콜" class="headerlink" title="시스템 콜"></a>시스템 콜</h2><ul>
+<li>운영체제(커널)의 기능을 사용할 수 있도록 제공해주는 명령</li>
+</ul>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li><p>시스템콜을 호출하기 위해서는 상당히 많은 준비가 필요하다</p>
+</li>
+<li><p>아주 간단한 작업이라도 초당 수천개가 호출되야하고 이를 프로그래밍한다는 것은 끔찍</p>
+</li>
+<li><p>때문에, 직접적으로 시스템콜을 호출하는것은 매우어렵다. 따라서 이를 쉽게 사용하도록 함수화한것이 API</p>
+</li>
+</ul>
+<h2 id="쉘"><a href="#쉘" class="headerlink" title="쉘"></a>쉘</h2><ul>
+<li><p>사용자가 운영체제(커널)의 기능과 서비스를 조작할 수 있도록 둘 사이에서 의사소통 해주는 프로그램(GIT BASH 같은거)</p>
+</li>
+<li><p>CLI와 GUI로 분류됨</p>
+</li>
+</ul>
+<h2 id="운영체제"><a href="#운영체제" class="headerlink" title="운영체제"></a>운영체제</h2><ul>
+<li>쉘 + API + 시스템콜 + 커널을 세트화 한것</li>
+</ul>
+<h2 id="사용자모드"><a href="#사용자모드" class="headerlink" title="사용자모드"></a>사용자모드</h2><ul>
+<li>응용프로그램에서 사용자가 커널에 요청이 필요하지않는 작업(프로그래밍)을 하는 것</li>
+</ul>
+<h2 id="커널모드"><a href="#커널모드" class="headerlink" title="커널모드"></a>커널모드</h2><ul>
+<li>사용자가 커널에 시스템콜을 통해서 커널이 기능을 하도록 하는 것(예를들어 파일을 읽어라 이런거)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1124,103 +1240,6 @@
 <li><p>해당 controller 클래스의 메소드위에 @RequestMapping(“어떤 브라우저 요청이 들어왓을때”) 설정</p>
 </li>
 <li><p>해당 controller 클래스의 메소드를 POJO로 만들 수 있다(리턴 타입 내맘대로, 메소드 이름 내맘대로, 매개변수 내맘대로)</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/12/220612-7th-SpringFramework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/12/220612-7th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (7) [Transaction]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-12 20:43:34 / Modified: 20:45:49" itemprop="dateCreated datePublished" datetime="2022-06-12T20:43:34+09:00">2022-06-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><ul>
-<li><p>분리될 수 없는 작업단위</p>
-</li>
-<li><p>모든 작업이 성공하거나 실패해야됨</p>
-</li>
-</ul>
-<h2 id="Transaction-관리"><a href="#Transaction-관리" class="headerlink" title="Transaction 관리"></a>Transaction 관리</h2><ul>
-<li>등록, 수정, 삭제 했을 때 중간에 잘못되면 commit 되지않고 rollback되어야한다</li>
-</ul>
-<h2 id="Transaction-설정-Spring이-제공해준다"><a href="#Transaction-설정-Spring이-제공해준다" class="headerlink" title="Transaction 설정(Spring이 제공해준다)"></a>Transaction 설정(Spring이 제공해준다)</h2><ul>
-<li><p>네임스페이스 추가</p>
-</li>
-<li><p>XML에 bean 등록</p>
-</li>
-<li><p>XML에 tx:advice 설정</p>
-</li>
-<li><p>XML에 Pointcut 과 advisor 설정</p>
 </li>
 </ul>
 
