@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,95 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/14/220714-13th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/14/220714-13th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot(13) [JPA(4)[Query Method]]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-14 16:08:51 / Modified: 16:10:21" itemprop="dateCreated datePublished" datetime="2022-07-14T16:08:51+09:00">2022-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="쿼리-메소드"><a href="#쿼리-메소드" class="headerlink" title="쿼리 메소드"></a>쿼리 메소드</h2><ul>
+<li><p>JPA가 제공하는 기능</p>
+</li>
+<li><p>메소드 이름으로 쿼리 생성</p>
+</li>
+<li><p>내가 만든 메소드로도 가능</p>
+</li>
+</ul>
+<h2 id="Repository-interface-class"><a href="#Repository-interface-class" class="headerlink" title="Repository interface class"></a>Repository interface class</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public interface MemberRepository extends JpaRepository&lt;Member, Integer&gt;&#123;</span><br><span class="line"></span><br><span class="line">	List&lt;Member&gt; findByName(String name);</span><br><span class="line">	List&lt;Member&gt; findByNameContaining(String name); // like같은거.</span><br><span class="line">	List&lt;Member&gt; findByNameContainingOrCityContaining(String name, String city);</span><br><span class="line">	List&lt;Member&gt; findByNameContainingAndCityContaining(String name, String city);</span><br><span class="line">	Page&lt;Member&gt; findByNameContainingOrderByIdDesc(String name, Pageable pageable);</span><br><span class="line"></span><br><span class="line">	// 내가 만든 쿼리 메소드</span><br><span class="line">	@Query(value = &quot;select member_id, city, name from member where city like &#x27;%&#x27;||:keyword||&#x27;%&#x27; order by member_id desc&quot;, nativeQuery = true)</span><br><span class="line">	List&lt;Member&gt; getMemberList(@Param(&quot;keyword&quot;) String keyword);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="QueryMethodTest-Junit-Test"><a href="#QueryMethodTest-Junit-Test" class="headerlink" title="QueryMethodTest(Junit Test)"></a>QueryMethodTest(Junit Test)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootTest</span><br><span class="line">class QueryMethodTest &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private MemberRepository memberRepository;</span><br><span class="line"></span><br><span class="line">	//@BeforeEach</span><br><span class="line">	public void dataInsert() &#123;</span><br><span class="line">		for (int i = 1; i &lt;= 200 ; i++) &#123;</span><br><span class="line">			Member member = new Member();</span><br><span class="line">			member.setName(&quot;테스터 &quot; + i);</span><br><span class="line">			member.setCity(&quot;서울 &quot; + i);</span><br><span class="line">			memberRepository.save(member);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//@Test</span><br><span class="line">	void queryMethodTest1() &#123;</span><br><span class="line">		List&lt;Member&gt; memberList = memberRepository.findByName(&quot;테스터 10&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : memberList) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//@Test</span><br><span class="line">	void queryMethodTest2() &#123;</span><br><span class="line">		List&lt;Member&gt; memberList = memberRepository.findByNameContaining(&quot;스터 10&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : memberList) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//@Test</span><br><span class="line">	void queryMethodTest3() &#123;</span><br><span class="line">		List&lt;Member&gt; memberList = memberRepository.findByNameContainingOrCityContaining(&quot;스터 10&quot;, &quot;울 3&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : memberList) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//@Test</span><br><span class="line">	void queryMethodTest4() &#123;</span><br><span class="line">		List&lt;Member&gt; memberList = memberRepository.findByNameContainingAndCityContaining(&quot;스터 10&quot;, &quot;울 1&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : memberList) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//@Test</span><br><span class="line">	void queryMethodTest5() &#123;</span><br><span class="line">		Pageable pageable = PageRequest.of(0, 5); // (page number ,size)</span><br><span class="line"></span><br><span class="line">		Page&lt;Member&gt; pageInfo = memberRepository.findByNameContainingOrderByIdDesc(&quot;스터 10&quot;, pageable);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : pageInfo.getContent()) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;검색된 데이터의 수 : &quot; + pageInfo.getTotalElements());</span><br><span class="line">		System.out.println(&quot;전체 페이지의 수 : &quot; + pageInfo.getTotalPages());</span><br><span class="line">		System.out.println(&quot;한 페이지에 출력되는 데이터의 수 : &quot; + pageInfo.getSize());</span><br><span class="line">		System.out.println(&quot;현재 페이지가 첫번째 페이지인가? : &quot; + pageInfo.isFirst());</span><br><span class="line">		System.out.println(&quot;현재 페이지가 마지막 페이지인가? : &quot; + pageInfo.isLast());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	void queryMethodTest6() &#123;</span><br><span class="line">		List&lt;Member&gt; memberList = memberRepository.getMemberList(&quot;09&quot;);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;[검색된 회원 목록]&quot;);</span><br><span class="line">		for (Member member : memberList) &#123;</span><br><span class="line">			System.out.println(&quot;---&gt;&quot; + member.getName() + &quot; &quot; + member.getId() + &quot; &quot; + member.getCity());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1336,104 +1425,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">		&lt;POST&gt;</span><br><span class="line">@PostMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody : Java 객체 --&gt; JSON으로 변환</span><br><span class="line">// @RequestBody : JSON --&gt; Java 객체로 변환</span><br><span class="line">public String httpPost(@RequestBody User user) &#123;</span><br><span class="line">	return &quot;POST 요청 시, 입력값 : &quot; + user.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">		&lt;PUT&gt;</span><br><span class="line"></span><br><span class="line">@PutMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String httpPut() &#123;</span><br><span class="line">	return &quot;PUT 요청 처리&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">		&lt;DELETE&gt;</span><br><span class="line">@DeleteMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String httpDelete(@RequestParam int id) &#123;</span><br><span class="line">	return &quot;DELETE 요청 시, 입력한 값 : &quot; + id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/05/220705-7th-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/05/220705-7th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (7) [Junit Test]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-07-05 17:41:53 / Modified: 17:44:05" itemprop="dateCreated datePublished" datetime="2022-07-05T17:41:53+09:00">2022-07-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Junit-Test"><a href="#Junit-Test" class="headerlink" title="Junit Test"></a>Junit Test</h2><ul>
-<li><p>내가 테스트하고자 하는 클래스를 테스트하는 외부 클래스</p>
-</li>
-<li><p>Junit Test 클래스를 사용하면 오랜 시간이 지나고 나서도 같은 입력값으로 재사용해서 테스트할 수 있다는 장점이 있다(시간 지나면 무슨 입력값으로 테스트 했었는지 까먹을 수도 있자나)</p>
-</li>
-<li><p>@BeforeAll : 전체 테스트 시작 전 한번만 실행(글로벌 초기화 메소드)</p>
-</li>
-<li><p>@AfterAll : 전체 테스트 끝난 후 한번만 실행</p>
-</li>
-<li><p>@BeforeEach : @Test 메소드 앞에서 실행</p>
-</li>
-<li><p>@AfterEach : @Test 메소드 뒤에서 실행</p>
-</li>
-<li><p>@Test : 테스트 메소드</p>
-</li>
-<li><p>어노테이션만 주석처리하면 메소드 동작 X</p>
-</li>
-<li><p>assertEqual 자주 씀</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEqual(예상값,실제 테스트 결과 값);</span><br></pre></td></tr></table></figure></li>
-</ul>
 
       
     </div>

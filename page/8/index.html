@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,95 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/02/My-3rd-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/02/My-3rd-post/" class="post-title-link" itemprop="url">About git (3) [git clone/ git init]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-02 19:10:00" itemprop="dateCreated datePublished" datetime="2022-04-02T19:10:00+09:00">2022-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-17 23:58:38" itemprop="dateModified" datetime="2022-04-17T23:58:38+09:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><h2 id="Make-repo-first-on-the-github-after-local-top-down"><a href="#Make-repo-first-on-the-github-after-local-top-down" class="headerlink" title="Make repo first on the github, after local (top down)"></a>Make repo first on the github, after local (top down)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0. We make repo onthe github. And we write git clone (repo address) on the dev</span><br><span class="line"></span><br><span class="line">1. We fix file or something on git</span><br><span class="line">2. Write $git status, then you can show comment like changes not staged for commit</span><br><span class="line">3. $ git add (file name)</span><br><span class="line">4. Write $git status, you can show comment like changes to be committed with green</span><br><span class="line">5. $ git status, then show nothing to commit working tree clean</span><br><span class="line">6. $ git push origin main.</span><br><span class="line">7. The End. you can show final project in the git hub</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><h2 id="Make-dir-first-on-the-git-bottom-up"><a href="#Make-dir-first-on-the-git-bottom-up" class="headerlink" title="Make dir first on the git (bottom up)"></a>Make dir first on the git (bottom up)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. $ mkdir second-repo</span><br><span class="line">2. $ cd second-repo</span><br><span class="line">3. $ git init</span><br><span class="line"> //after creating remote repo on github,</span><br><span class="line">4. $ git remote add mask&#123;repo_url&#125;</span><br><span class="line"></span><br><span class="line"> // After doing some work,</span><br><span class="line"></span><br><span class="line">5. $ git add&#123;filename&#125;</span><br><span class="line">6. $ git commit</span><br><span class="line">7. $ git branch -M main</span><br><span class="line">8. $ git push -u mask main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
