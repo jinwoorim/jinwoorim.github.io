@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,95 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/05/220705-8th-SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/05/220705-8th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (8) [REST API]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-05 17:42:11 / Modified: 17:44:53" itemprop="dateCreated datePublished" datetime="2022-07-05T17:42:11+09:00">2022-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="REST-API"><a href="#REST-API" class="headerlink" title="REST API"></a>REST API</h2><ul>
+<li><p>서버와 클라이언트 사이에 API를 통해 대화할 수 있다</p>
+</li>
+<li><p>브라우저(클라이언트)에서 JSON 형태로 전달된 데이터를 JAVA 객체로 변환</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET : SELECT</span><br><span class="line">POST : INSERT</span><br><span class="line">PUT : UPDATE</span><br><span class="line">DELETE : DELETE</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">		&lt;GET&gt;</span><br><span class="line">@GetMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody // Java 객체 --&gt; JSON으로 변환</span><br><span class="line">public User httpGet() &#123;</span><br><span class="line">	User user = new User();</span><br><span class="line">	user.setId(1);</span><br><span class="line">	user.setUsername(&quot;aaa&quot;);</span><br><span class="line">	user.setPassword(&quot;aaa&quot;);</span><br><span class="line">	user.setEmail(&quot;aaa@gmail.com&quot;);</span><br><span class="line">	return user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">		&lt;POST&gt;</span><br><span class="line">@PostMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody : Java 객체 --&gt; JSON으로 변환</span><br><span class="line">// @RequestBody : JSON --&gt; Java 객체로 변환</span><br><span class="line">public String httpPost(@RequestBody User user) &#123;</span><br><span class="line">	return &quot;POST 요청 시, 입력값 : &quot; + user.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">		&lt;PUT&gt;</span><br><span class="line"></span><br><span class="line">@PutMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String httpPut() &#123;</span><br><span class="line">	return &quot;PUT 요청 처리&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">		&lt;DELETE&gt;</span><br><span class="line">@DeleteMapping(&quot;/bank&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String httpDelete(@RequestParam int id) &#123;</span><br><span class="line">	return &quot;DELETE 요청 시, 입력한 값 : &quot; + id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1151,88 +1240,6 @@
 <li>만약, 여러 sqlmap파일xml이 등록되고 각각의 xml에 선언된 id값이 같을때 DAO클래스에서 access 하는법</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap파일xml에서 namespace를 설정한다</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/21/220621-9th-SpringFramework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/21/220621-9th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (9) [Layer 통합]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-06-21 15:26:28 / Modified: 15:27:49" itemprop="dateCreated datePublished" datetime="2022-06-21T15:26:28+09:00">2022-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Layer-연결"><a href="#Layer-연결" class="headerlink" title="Layer 연결"></a>Layer 연결</h2><ul>
-<li>Presentation Layer(MVC) 와 Business Layer를 연결</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 브라우저 요청 들어온다(.do)</span><br><span class="line">2. .do 요청이 들어오면 DispatcherServlet 객체가 만들어진다(web.xml에 등록되있음)</span><br><span class="line">3. DispatcherServlet은 presentation-layer.xml을 로딩한다</span><br><span class="line">4. presentation-layer.xml에 의해 Controller 객체들이 메모리에 뜬다</span><br><span class="line">5. Controller클래스는 BoardService(인터페이스 즉, 리모컨)를 Autowired하고 있다. 이걸로 ServiceImpl 실행</span><br><span class="line">6. 하지만, BoardService가 메모리에 떠있지 않기 때문에 Autowired가 실패하게된다</span><br><span class="line">7. 따라서, Business Layer를 presentation-layer.xml가 로딩되기 이전에 로딩해야한다</span><br><span class="line">8. 즉, web.xml에 리스너를 통해 Business Layer가 미리 pre-loading되게 만들어야한다</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
