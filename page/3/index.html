@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,118 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/06/25/220625-10th-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/25/220625-10th-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (10) [iBatis 와 MyBatis]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-25 01:17:01 / Modified: 01:18:02" itemprop="dateCreated datePublished" datetime="2022-06-25T01:17:01+09:00">2022-06-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="iBATIS"><a href="#iBATIS" class="headerlink" title="iBATIS"></a>iBATIS</h2><ul>
+<li><p>장점 : sql 명령어를 외부의 xml 파일에 분리시키고 자바코드 한줄로 모든 DB연동을 하려고 사용</p>
+</li>
+<li><p>sqlmap 파일(xml)에 sql 명령어작성</p>
+</li>
+<li><p>DAO 클래스에서 SqlMapClient라는 iBATIS 컨테이너 획득(ibatis &#x3D; SqlMapClientFactoryBean.getSqlMapClientInstance();)</p>
+</li>
+<li><p>획득하는 과정에서 iBATIS 컨테이너가 sql-map-confing.xml 로딩</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  	&lt;insert의 경우&gt;</span><br><span class="line"></span><br><span class="line">1. ibatis.insert(&quot;insertBoard&quot;, vo); 하게되면 sqlmap 파일(xml)에 등록된 id가 insertBoard인 sql 실행</span><br><span class="line"></span><br><span class="line">2. 파라미터로 sqlmap 파일(xml)에 등록된 parameterClass 속성에 해당하는 VO를 넘겨준다</span><br><span class="line"></span><br><span class="line">3. 넘겨 받은 VO에 해당하는 값들을 sql ? 에 해당하는 곳에 세팅해서 DBMS에 전달</span><br><span class="line"></span><br><span class="line">	&lt;상세 조회의 경우&gt;</span><br><span class="line"></span><br><span class="line">1. ibatis.queryForObject(&quot;getBoard&quot;, vo); 하게되면 sqlmap 파일(xml)에 등록된 id가 getBoard인 sql 실행</span><br><span class="line"></span><br><span class="line">2. 파라미터 객체로 sqlmap 파일(xml)에 등록된 parameterClass 속성에 해당하는 VO를 넘겨준다</span><br><span class="line"></span><br><span class="line">3. 넘겨 받은 VO에 해당하는 값들을 sql ? 에 해당하는 곳에 세팅해서 DBMS에 전달</span><br><span class="line"></span><br><span class="line">4. resultset에 들어있는 검색 결과를 sqlmap 파일(xml)에 등록된 resultClass 속성에 등록된 VO에 매핑해서 리턴</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><ul>
+<li><p>MyBatis 홈페이지 들어가보면 xml에 작성할 초기 세팅 정보들이 있음. 가져다 쓰면됨(sqlmap파일xml, sql-map-config.xml(메인설정xml))</p>
+</li>
+<li><p>iBatis와의 차이점 (sqlmap파일xml)</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. parameterMap 이 parameterType으로 바뀜, resultMap 이 resultType으로 바뀜</span><br><span class="line">2. sql 구문에서 변수이름이 #변수이름# 에서 $&#123;변수이름&#125;으로 바뀜</span><br><span class="line">3. Alias 설정을 sqlmap파일xml에서 하지않는다(태그 : typeAlias alias=&quot;board&quot; type=&quot;com.ssamz.biz.board.BoardVO&quot;/)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점 (sql-map-config.xml(메인설정xml))</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. Alias 등록</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점(business-layer.xml)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">business-layer.xml 참고하기</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iBatis와의 차이점(DAO 클래스)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Template이 SqlMapClient에서 SqlMapClientTemplate로 변경</span><br><span class="line">2. 상세조회 : queryForObject 에서 selectOne으로 변경</span><br><span class="line">3. 목록조회 : queryForList 에서 selectList로 변경</span><br></pre></td></tr></table></figure>
+<ul>
+<li>만약, 여러 sqlmap파일xml이 등록되고 각각의 xml에 선언된 id값이 같을때 DAO클래스에서 access 하는법</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap파일xml에서 namespace를 설정한다</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1155,112 +1267,6 @@
 </ul>
 <h2 id="MVN-REPOSTITORY-사이트"><a href="#MVN-REPOSTITORY-사이트" class="headerlink" title="MVN REPOSTITORY 사이트"></a>MVN REPOSTITORY 사이트</h2><ul>
 <li>오만가지 Framework 를 검색해서 모듈(jar파일) 다운하는곳</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/25/220525-6th-Servlet-and-JSP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/25/220525-6th-Servlet-and-JSP/" class="post-title-link" itemprop="url">Servlet&JSP (6) [MVC, EL, JSTL]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-25 19:51:05 / Modified: 19:52:14" itemprop="dateCreated datePublished" datetime="2022-05-25T19:51:05+09:00">2022-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Servlet-JSP/" itemprop="url" rel="index"><span itemprop="name">Servlet&JSP</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="MVC-Model-View-Controller"><a href="#MVC-Model-View-Controller" class="headerlink" title="MVC (Model View Controller)"></a>MVC (Model View Controller)</h1><ul>
-<li><p>Controller : Scriptlet안에 있는 자바코드</p>
-</li>
-<li><p>View : HTML 로 구성된 디자인코드</p>
-</li>
-<li><p>Model : Service 클래스(내부 비즈니스 관련 로직처리), DAO 클래스(DB 관련 코드)</p>
-</li>
-</ul>
-<h2 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h2><ul>
-<li><p>(MC) + V 로 구성</p>
-</li>
-<li><p>MC가 같은 파일에 있어 수정이 어렵다</p>
-</li>
-</ul>
-<h2 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h2><ul>
-<li>M + V + C 로 구성</li>
-</ul>
-<h2 id="EL"><a href="#EL" class="headerlink" title="EL (${ })"></a>EL (${ })</h2><ul>
-<li><p>JSP가 제공해줌</p>
-</li>
-<li><p>Scriptlet 과 Expression 자바코드 대체 할 수 있음</p>
-</li>
-<li><p>request, session, application 내장객체에 등록된 데이터를 접근하기 위한 표현식</p>
-</li>
-</ul>
-<h2 id="JSTP-lt-c-if-gt-lt-c-forEach-gt"><a href="#JSTP-lt-c-if-gt-lt-c-forEach-gt" class="headerlink" title="JSTP (&lt;c:if&gt;) (&lt;c:forEach&gt;)"></a>JSTP (&lt;c:if&gt;</c:if>) (&lt;c:forEach&gt;</c:forEach>)</h2><ul>
-<li>JSP 파일에서 if, for, switch 같은 자바 코드를 대체하기위한 표준 태그</li>
 </ul>
 
       
