@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/08/11/220811-1st-AWS%EB%B0%B0%ED%8F%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/11/220811-1st-AWS%EB%B0%B0%ED%8F%AC/" class="post-title-link" itemprop="url">AWS배포</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-11 17:33:43 / Modified: 17:34:32" itemprop="dateCreated datePublished" datetime="2022-08-11T17:33:43+09:00">2022-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AWS%EB%B0%B0%ED%8F%AC/" itemprop="url" rel="index"><span itemprop="name">AWS배포</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="application-yml-파일-설정"><a href="#application-yml-파일-설정" class="headerlink" title="application.yml 파일 설정"></a>application.yml 파일 설정</h2><ul>
+<li><p>server.port : 5000</p>
+</li>
+<li><p>반드시 5000으로 설정.</p>
+</li>
+<li><p>엔진x라는 웹서버가 Elastic Beanstalk에 있다. 80포트를 통해 브라우저가 서버에 요청을하면 엔진x가 받고 내장 Tomcat쪽으로 전달해주는데 이때 5000포트로 고정되있다</p>
+</li>
+</ul>
+<h2 id="프로젝트파일-압축-packaging"><a href="#프로젝트파일-압축-packaging" class="headerlink" title="프로젝트파일 압축(packaging)"></a>프로젝트파일 압축(packaging)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 프로젝트파일 -&gt; Run As -&gt; Maven build...</span><br><span class="line">2. Goals : clean package (빌드 과정에서 생긴 디렉토리나 파일을 깔끔하게 삭제)</span><br><span class="line">3. Skip Tests 체크</span><br><span class="line">4. Run</span><br><span class="line">5. 프로젝트파일에 target파일 refresh</span><br><span class="line">6. target파일에 jar파일이 생긴다</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>만약, war파일로 packaging하고 싶다면 word파일 참고</li>
+</ul>
+<h2 id="배포-방법"><a href="#배포-방법" class="headerlink" title="배포 방법"></a>배포 방법</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. AWS 홈페이지 접속 -&gt; 서비스 카테고리 -&gt; 컴퓨팅 -&gt; Elastic Beanstalk</span><br><span class="line">2. Create Application</span><br><span class="line">3. 애플리케이션 이름은 프로젝트명</span><br><span class="line">4. 플랫폼은 java, 플랫폼 브랜치는 프로젝트 버전에 맞게!(중요!)(Corretto = 오픈JDK)</span><br><span class="line">5. 애플리케이션 코드 : 코드업로드</span><br><span class="line">6. 파일선택 : workspace에서 프로젝트 target안에 jar파일</span><br><span class="line">7 애플리케이션 생성하면 업로드됨 (도메인도 같이 주어짐)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="리소스-삭제-방법"><a href="#리소스-삭제-방법" class="headerlink" title="리소스 삭제 방법"></a>리소스 삭제 방법</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. AWS 홈페이지 환경 -&gt; 애플리케이션</span><br><span class="line">2. 애플리케이션 삭제</span><br><span class="line">3. 프로젝트명 기입하고 삭제</span><br><span class="line">4. 서비스 카테고리에서 컴퓨팅 -&gt; EC2 -&gt; 인스턴트 들어가서 종료된 상태인지 확인</span><br><span class="line">5. 하루정도 지나면 완전 삭제됨</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1435,97 +1529,6 @@
 - 3가지 상태가 존재(Ready State Queue, Running State Queue, Block State Queue(Wait 상태))
 </code></pre>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 프로세스 순서대로 Ready State Queue에 배정되고 CPU에서 순서대로 실행</span><br><span class="line">2. 만약 프로세스가 메모리에 파일을 가져오는 waiting 시간 동안 이 프로세스는 Block State Queue에 배정됨</span><br><span class="line">3. waiting 이 끝나면 다시  Ready State Queue에 배정</span><br><span class="line">4. 만약 Ready State Queue에 배정된 프로세스가 없다면 CPU는 idle 상태가 됨</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/07/05/220706-10th-SpringBoot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/05/220706-10th-SpringBoot/" class="post-title-link" itemprop="url">SpringBoot (10) [JPA(2)]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-05 17:42:36" itemprop="dateCreated datePublished" datetime="2022-07-05T17:42:36+09:00">2022-07-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-08 16:43:53" itemprop="dateModified" datetime="2022-07-08T16:43:53+09:00">2022-07-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Repository-인터페이스"><a href="#Repository-인터페이스" class="headerlink" title="Repository 인터페이스"></a>Repository 인터페이스</h2><ul>
-<li><p>Mybatis의 경우 sql작성하는 mapper클래스와 DAO 클래스가 둘다 있어야하지만 JPA는 이 인터페이스 클래스 하나로 퉁침</p>
-</li>
-<li><p>JpaRepository를 상속해야한다</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extends JpaRepository&lt;Entity클래스이름, 식별자 변수의 타입&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Controller-클래스"><a href="#Controller-클래스" class="headerlink" title="Controller 클래스"></a>Controller 클래스</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">import java.util.List;</span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.data.domain.Page;</span><br><span class="line">import org.springframework.data.domain.Pageable;</span><br><span class="line">import org.springframework.data.domain.Sort;</span><br><span class="line">import org.springframework.data.web.PageableDefault;</span><br><span class="line">import org.springframework.web.bind.annotation.DeleteMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line">import org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.PutMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">import com.fastcampus.domain.User;</span><br><span class="line">import com.fastcampus.persistence.UserRepository;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class UserController &#123;</span><br><span class="line"></span><br><span class="line">	@Autowired</span><br><span class="line">	private UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">	@PostMapping(&quot;/user&quot;)</span><br><span class="line">	public String insertUser(@RequestBody User user) &#123; //@RequestBody : JSON -&gt; 자바객체로변환</span><br><span class="line"></span><br><span class="line">		userRepository.save(user); // save() 메소드는 등록, 수정을 모두 처리할 때 사용한다. insert쿼리가 자동으로 생성된다</span><br><span class="line">		return user.getUsername() + &quot;님 회원가입 성공&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@GetMapping(&quot;/user/get/&#123;id&#125;&quot;)</span><br><span class="line">	public User getUser(@PathVariable int id) &#123;</span><br><span class="line">		// 특정 id(회원번호)에 해당하는 User 객체를 리턴한다</span><br><span class="line">		Optional&lt;User&gt; findUser = userRepository.findById(id);// findById() 메소드는 Primary Key에 해당하는 데이터에 대한 상세조회. 상세조회 쿼리가 자동생성</span><br><span class="line">		if(findUser.isPresent()) &#123;//isPresent : 검색 결과가 있다면 true</span><br><span class="line">			return findUser.get();</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			return new User(); //값들이 null인 User 객체를 리턴하겠다. null인 User 객체를 리턴해주지않으면, 만약 검색결과가 없을때 Optional에 의해 NullPointException 에러뜸</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@GetMapping(&quot;/user/list&quot;)</span><br><span class="line">	public List&lt;User&gt; getUserList() &#123;</span><br><span class="line">		return userRepository.findAll();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@GetMapping(&quot;/user/page&quot;) //paging을 동적으로 하려면 URI요청에 user/page?page=1&amp;size2</span><br><span class="line">	public Page&lt;User&gt; getUserListPaging(</span><br><span class="line">		@PageableDefault(page = 0, size = 2, direction = Sort.Direction.DESC,</span><br><span class="line">				sort = &#123;&quot;id&quot;&#125;) Pageable pageable) &#123;</span><br><span class="line">		// 첫 번째 페이지(0)에 해당하는 2개의 데이터를 조회하되 id를 내림 차순 정렬한다.</span><br><span class="line">		return userRepository.findAll(pageable);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@PutMapping(&quot;/user&quot;)</span><br><span class="line">	//@Transactional //userRepository.save(findUser);을 대신할수 있다</span><br><span class="line">	public String updateUser(@RequestBody User user) &#123;</span><br><span class="line">		Optional&lt;User&gt; findEntity = userRepository.findById(user.getId());</span><br><span class="line">		if(findEntity.isPresent()) &#123;</span><br><span class="line">			User findUser = findEntity.get();</span><br><span class="line">			findUser.setUsername(user.getUsername());</span><br><span class="line">			findUser.setPassword(user.getPassword());</span><br><span class="line">			findUser.setEmail(user.getEmail());</span><br><span class="line">			userRepository.save(findUser);</span><br><span class="line">			return &quot;회원 수정 성공&quot;;</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			return user.getId() + &quot;번 회원이 없습니다.&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@DeleteMapping(&quot;/user/&#123;id&#125;&quot;)</span><br><span class="line">	public String deleteUser(@PathVariable int id) &#123;</span><br><span class="line">		userRepository.deleteById(id);</span><br><span class="line">		return &quot;회원 삭제 성공&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

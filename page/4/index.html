@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,132 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/05/31/220531-1st-SpringFramework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/31/220531-1st-SpringFramework/" class="post-title-link" itemprop="url">SpringFramework (1) [Framework란, Spring이란]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-31 15:28:11" itemprop="dateCreated datePublished" datetime="2022-05-31T15:28:11+09:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-03 23:35:57" itemprop="dateModified" datetime="2022-06-03T23:35:57+09:00">2022-06-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringFramework/" itemprop="url" rel="index"><span itemprop="name">SpringFramework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Framework란"><a href="#Framework란" class="headerlink" title="Framework란"></a>Framework란</h1><ul>
+<li><p>뼈대, 즉 아키텍처다</p>
+</li>
+<li><p>Framework를 사용하면 구조를 개발자가 고민하지않지 않는다 개발자가 개발하지않는다</p>
+</li>
+<li><p>개발자는 제공된 뼈대에 살만 붙이면 되는것</p>
+</li>
+<li><p>따라서, 유지보수 과정에서 살만 테스트하면되기 떄문에 유지보수에 유리함</p>
+</li>
+<li><p>정해진 구조를 사용하기 때문에 개발자마다의 역량이 획일화된다</p>
+</li>
+<li><p>개발자가 바뀌더라도 보다 쉽게 접근 가능하다</p>
+</li>
+<li><p>사용자 입력정보 추출, DB연동 이런걸 한줄로 표현할 수 있기 때문에 소스의 양이 대폭 줄어든다</p>
+</li>
+</ul>
+<h1 id="Framework-종류"><a href="#Framework-종류" class="headerlink" title="Framework 종류"></a>Framework 종류</h1><ul>
+<li><p>Presentation (UI) 영역 : Spring(MVC) 모듈</p>
+</li>
+<li><p>Business 영역 : Spring(Ioc, AOP) 모듈</p>
+</li>
+<li><p>Persistence (DB 연동) 영역 :</p>
+<ul>
+<li>JPA : ORM(Object Relation Mapping) 프레임워크. SQL을 자체 생성하여 DB연동처리함. 어렵다</li>
+<li>MyBatis : 개발자가 SQL을 직접 작성해야한다.</li>
+<li>둘 다 DB연동을 자바코드 한줄로 표현 가능하다</li>
+</ul>
+</li>
+</ul>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<li><p>여러 Framework 모듈을 집합해놓은것</p>
+</li>
+<li><p>가볍다 : 모듈들 다 합쳐봐야 용량 얼마 안되고 POJO 기반이기 때문에 메모리를 적게사용한다. 따라서 속도빠름</p>
+</li>
+<li><p>POJO(Plain Old Java Object) 기반이다 : 내맘대로 만드는 클래스다. Servlet&amp;JSP 이런건 POJO 이전 기술이다.</p>
+</li>
+<li><p>컨테이너다. 애플리케이션 운용에 필요한 객체를 생성하고 관리한다. 내부적으로 객체들의 저장공간으로 컬렉션(MAP같은)을 사용한다</p>
+</li>
+</ul>
+<h2 id="MVN-REPOSTITORY-사이트"><a href="#MVN-REPOSTITORY-사이트" class="headerlink" title="MVN REPOSTITORY 사이트"></a>MVN REPOSTITORY 사이트</h2><ul>
+<li>오만가지 Framework 를 검색해서 모듈(jar파일) 다운하는곳</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1236,111 +1362,6 @@
 
 <ul>
 <li>힙 데이터 삭제는 복잡하므로 생략</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/29/220429-7th-CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jinwoorim">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My blog">
-      <meta itemprop="description" content="All stories about my develop">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | My blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/29/220429-7th-CS/" class="post-title-link" itemprop="url">CS (7) [트리]</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-29 16:42:09" itemprop="dateCreated datePublished" datetime="2022-04-29T16:42:09+09:00">2022-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-30 23:57:10" itemprop="dateModified" datetime="2022-04-30T23:57:10+09:00">2022-04-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="트리"><a href="#트리" class="headerlink" title="트리"></a>트리</h1><ul>
-<li>Node와 Branch를 이용해서 사이클을 이루지 않도록 구성한 데이터 구조</li>
-<li>이진 트리가 주로 쓰인다.. 탐색 알고리즘 구현에서 많이 쓰인다</li>
-</ul>
-<h2 id="이진-트리"><a href="#이진-트리" class="headerlink" title="이진 트리"></a>이진 트리</h2><ul>
-<li>이진 트리 : 노드의 최대 Branch가 2인 트리</li>
-<li>이진 탐색 트리 : 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰값</li>
-</ul>
-<h2 id="트리-구현"><a href="#트리-구현" class="headerlink" title="트리 구현"></a>트리 구현</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">package practice24;</span><br><span class="line"></span><br><span class="line"> class NodeMgmt &#123;</span><br><span class="line">    Node head = null;</span><br><span class="line"></span><br><span class="line">     class Node &#123;</span><br><span class="line">        Node left;</span><br><span class="line">        Node right;</span><br><span class="line">        int value;</span><br><span class="line">         Node (int data) &#123;</span><br><span class="line">            this.value = data;</span><br><span class="line">            this.left = null;</span><br><span class="line">            this.right = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void insertNode(int data) &#123;</span><br><span class="line">        // Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            this.head = new Node(data);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // Node 가 하나 이상 들어가 있을 때</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (true) &#123;</span><br><span class="line">                // 현재 Node 의 왼쪽에 Node 가 들어가야할 때</span><br><span class="line">                if (data &lt; findNode.value) &#123;</span><br><span class="line">                    if (findNode.left != null) &#123;</span><br><span class="line">                        findNode = findNode.left;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.left = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                // 현재 Node 의 오른쪽에 Node 가 들어가야할 때</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (findNode.right != null) &#123;</span><br><span class="line">                        findNode = findNode.right;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        findNode.right = new Node(data);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node search(int data) &#123;</span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        //Node 가 하나 이상 있을 때</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Node findNode = this.head;</span><br><span class="line">            while (findNode != null) &#123;</span><br><span class="line">                if (findNode.value == data) &#123;</span><br><span class="line">                    return findNode;</span><br><span class="line">                &#125; else if (data &lt; findNode.value) &#123;</span><br><span class="line">                    findNode = findNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    findNode = findNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean delete(int value) &#123;</span><br><span class="line">        boolean searched = false;</span><br><span class="line"></span><br><span class="line">        Node currParentNode = this.head;</span><br><span class="line">        Node currNode = this.head;</span><br><span class="line"></span><br><span class="line">        //Node 가 하나도 없을 때</span><br><span class="line">        if (this.head == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //Node 가 단지 하나만 있고, 해당 Node 가 삭제할 Node 일 때</span><br><span class="line">            if (this.head.value == value &amp;&amp; this.head.left == null &amp;&amp; this.head.right == null) &#123;</span><br><span class="line">                this.head = null;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while (currNode != null) &#123;</span><br><span class="line">                if (currNode.value == value) &#123;</span><br><span class="line">                    searched = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else if (value &lt; currNode.value) &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.left;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    currParentNode = currNode;</span><br><span class="line">                    currNode = currNode.right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (searched == false) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //삭제할 Node 가 Leaf Node 인 경우</span><br><span class="line">        if (currNode.left == null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = null;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">            //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (왼쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left != null &amp;&amp; currNode.right == null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.left;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        //삭제할 Node 가 Child Node를 한 개 가지고 있을 경우 (오른쪽에 Child Node 가 있을 경우)</span><br><span class="line">        &#125; else if (currNode.left == null &amp;&amp; currNode.right != null) &#123;</span><br><span class="line">            if (value &lt; currParentNode.value) &#123;</span><br><span class="line">                currParentNode.left = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                currParentNode.right = currNode.right;</span><br><span class="line">                currNode = null;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TreeTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		NodeMgmt myTree = new NodeMgmt();</span><br><span class="line">		myTree.insertNode(3);</span><br><span class="line">		myTree.insertNode(2);</span><br><span class="line">		myTree.insertNode(8);</span><br><span class="line">		myTree.insertNode(12);</span><br><span class="line"></span><br><span class="line">		myTree.delete(8);</span><br><span class="line">	//	System.out.println(myTree.search(8).value);</span><br><span class="line">		System.out.println(myTree.search(3).right.value);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="노드-삭제"><a href="#노드-삭제" class="headerlink" title="노드 삭제"></a>노드 삭제</h2><ul>
-<li><ol>
-<li>LeafNode 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node를 가리키지 않도록 한다.</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>ChildNode가 하나인 Node 삭제 : 삭제할 Node의 ParentNode가 삭제할 Node의 Child Node를 가리키도록 한다.</li>
-</ol>
-</li>
-<li><p>(참고만)3. ChildNode가 두개인 Node 삭제 : 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 한다.</p>
-</li>
 </ul>
 
       

@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,127 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jinwoorim.gihub.io/2022/04/07/220423-1st-CS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinwoorim">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blog">
+      <meta itemprop="description" content="All stories about my develop">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | My blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/07/220423-1st-CS/" class="post-title-link" itemprop="url">CS (1) [배열 Array]</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-07 23:16:02" itemprop="dateCreated datePublished" datetime="2022-04-07T23:16:02+09:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-23 18:05:35" itemprop="dateModified" datetime="2022-04-23T18:05:35+09:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="배열-Array"><a href="#배열-Array" class="headerlink" title="배열(Array)"></a>배열(Array)</h1><ul>
+<li>같은 종류의 데이터를 효율적으로 관리하게 하기위해 사용</li>
+<li>같은 종류의 데이터를 순차적으로 저장</li>
+<li>배열의 장점:<ul>
+<li>빠른 접근 가능</li>
+</ul>
+</li>
+<li>배열의 단점:<ul>
+<li>추가&#x2F;삭제가 쉽지않음</li>
+<li>미리 최대 길이를 지정해야함</li>
+</ul>
+</li>
+</ul>
+<h2 id="Integer라는-wrapper클래스를-활용하여-배열만들기"><a href="#Integer라는-wrapper클래스를-활용하여-배열만들기" class="headerlink" title="Integer라는 wrapper클래스를 활용하여 배열만들기"></a>Integer라는 wrapper클래스를 활용하여 배열만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice06;</span><br><span class="line"></span><br><span class="line">public class Array &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		Integer[]array = new Integer[3];</span><br><span class="line">		array[0] = 1;</span><br><span class="line">		array[1] = 2;</span><br><span class="line">		array[2] = 3;</span><br><span class="line">		</span><br><span class="line">		System.out.println(array[0]);</span><br><span class="line">		</span><br><span class="line">		for(int i = 0; i &lt; array.length; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(array[i]);</span><br><span class="line">			</span><br><span class="line">		&#125;		</span><br><span class="line">		</span><br><span class="line">		for (int num  : array) &#123;</span><br><span class="line">			System.out.println(array[num-1]);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">		</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package practice06;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Array &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		Integer[]array = &#123;1,2,3&#125;;</span><br><span class="line">		</span><br><span class="line">		System.out.println(Arrays.toString(array));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">		</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<h2 id="ArrayList-클래스를-활용하여-배열-만들기"><a href="#ArrayList-클래스를-활용하여-배열-만들기" class="headerlink" title="ArrayList 클래스를 활용하여 배열 만들기"></a>ArrayList 클래스를 활용하여 배열 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class ArrayListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		ArrayList list = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list.add(1); // add는 배열에 데이터 추가</span><br><span class="line">		list.add(2);</span><br><span class="line">		list.add(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.size()); //size는 배열의 길이 확인</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.get(0)); // get은 특정 인덱스에 해당하는 데이터 읽기</span><br><span class="line">		System.out.println(list.get(1));</span><br><span class="line">		System.out.println(list.get(2));</span><br><span class="line">		</span><br><span class="line">		list.set(0, 4); // set(해당인덱스번호, 변경사항)</span><br><span class="line">		list.set(1, 5);</span><br><span class="line">		list.set(2, 6);</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		list.remove(0); // 해당인덱스번호 데이터 삭제</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Integer라는-wrapper클래스를-활용하여-2차원배열만들기"><a href="#Integer라는-wrapper클래스를-활용하여-2차원배열만들기" class="headerlink" title="Integer라는 wrapper클래스를 활용하여 2차원배열만들기"></a>Integer라는 wrapper클래스를 활용하여 2차원배열만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">public class TwoArrayTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Integer[][] array = new Integer[2][2];</span><br><span class="line">		</span><br><span class="line">		array[0][0] = 1;</span><br><span class="line">		array[0][1] = 2;</span><br><span class="line">		array[1][0] = 3;</span><br><span class="line">		array[1][1] = 4;</span><br><span class="line">		</span><br><span class="line">		for(int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			</span><br><span class="line">			for(int j = 0; j &lt; array[i].length; j++) &#123;</span><br><span class="line">				</span><br><span class="line">				System.out.println(array[i][j]);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="ArrayList-클래스를-활용하여-2차원배열-만들기"><a href="#ArrayList-클래스를-활용하여-2차원배열-만들기" class="headerlink" title="ArrayList 클래스를 활용하여 2차원배열 만들기"></a>ArrayList 클래스를 활용하여 2차원배열 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package practice07;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class ArrayListTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		ArrayList&lt;ArrayList&gt;list = new ArrayList&lt;ArrayList&gt;();</span><br><span class="line">		</span><br><span class="line">		ArrayList list1 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list1.add(1);</span><br><span class="line">		list1.add(2);</span><br><span class="line">		list1.add(3);</span><br><span class="line">		</span><br><span class="line">		ArrayList list2 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list2.add(11);</span><br><span class="line">		list2.add(22);</span><br><span class="line">		list2.add(33);</span><br><span class="line">		</span><br><span class="line">		ArrayList list3 = new ArrayList();</span><br><span class="line">		</span><br><span class="line">		list3.add(111);</span><br><span class="line">		list3.add(222);</span><br><span class="line">		list3.add(333);</span><br><span class="line">		</span><br><span class="line">		list.add(list1);</span><br><span class="line">		list.add(list2);</span><br><span class="line">		list.add(list3);</span><br><span class="line">		</span><br><span class="line">		for(int i =0; i &lt; list.size(); i++) &#123;</span><br><span class="line">			</span><br><span class="line">		System.out.println(list.get(i));</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
